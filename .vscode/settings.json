@@ -5,5 +5,6 @@
         "board/esp32-wrover-kit-3.3v.cfg"
     ],
     "idf.port": "/dev/ttyUSB4",
-    "idf.toolsPath": "/home/f4deb/Documents/F4DEB-ESP32/"
+    "idf.toolsPath": "/home/f4deb/Documents/F4DEB-ESP32/",
+    "idf.flashType": "UART"
 }
