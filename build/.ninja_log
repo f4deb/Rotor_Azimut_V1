@@ -1022,3 +1022,5 @@
 5621	5743	1736027641269493705	/home/f4deb/Rotor_Azimut_V1/build/.bin_timestamp	43f6f109415c617e
 5743	5778	0	esp-idf/esptool_py/CMakeFiles/app_check_size	94e92de4fedf202
 5743	5778	0	/home/f4deb/Rotor_Azimut_V1/build/esp-idf/esptool_py/CMakeFiles/app_check_size	94e92de4fedf202
+25	344928	0	CMakeFiles/confserver	f23b68aed2daf667
+25	344928	0	/home/f4deb/Rotor_Azimut_V1/build/CMakeFiles/confserver	f23b68aed2daf667
