@@ -5029,7 +5029,7 @@
                 "children": [
                     {
                         "children": [],
-                        "depends_on": "<choice BLINK_LED>",
+                        "depends_on": "<choice BLUE_LED>",
                         "help": null,
                         "id": "BLINK_LED_GPIO",
                         "name": "BLINK_LED_GPIO",
@@ -5039,7 +5039,7 @@
                     },
                     {
                         "children": [],
-                        "depends_on": "<choice BLINK_LED>",
+                        "depends_on": "<choice BLUE_LED>",
                         "help": null,
                         "id": "BLINK_LED_STRIP",
                         "name": "BLINK_LED_STRIP",
@@ -5050,8 +5050,8 @@
                 ],
                 "depends_on": null,
                 "help": "Select the LED type. A normal level controlled LED or an addressable LED strip.\nThe default selection is based on the Espressif DevKit boards.\nYou can change the default selection according to your board.",
-                "id": "f4deb-configuration-blink-led-type",
-                "name": "BLINK_LED",
+                "id": "uart-2-configuration-blink-led-type",
+                "name": "BLUE_LED",
                 "title": "Blink LED type",
                 "type": "choice"
             },
@@ -5080,7 +5080,7 @@
                 ],
                 "depends_on": "BLINK_LED_STRIP",
                 "help": "Select the backend peripheral to drive the LED strip.",
-                "id": "f4deb-configuration-led-strip-backend-peripheral",
+                "id": "uart-2-configuration-led-strip-backend-peripheral",
                 "name": "BLINK_LED_STRIP_BACKEND",
                 "title": "LED strip backend peripheral",
                 "type": "choice"
@@ -5113,8 +5113,8 @@
             }
         ],
         "depends_on": null,
-        "id": "f4deb-configuration",
-        "title": "F4DEB Configuration",
+        "id": "uart-2-configuration",
+        "title": "UART 2 Configuration",
         "type": "menu"
     },
     {

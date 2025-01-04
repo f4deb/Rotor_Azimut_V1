@@ -1,4 +1,4 @@
-menu "F4DEB Configuration"
+menu "UART 2 Configuration"
 
     orsource "$IDF_PATH/examples/common_components/env_caps/$IDF_TARGET/Kconfig.env_caps"
 
@@ -44,7 +44,7 @@ menu "F4DEB Configuration"
 
 
 
-    choice BLINK_LED
+    choice BLUE_LED
         prompt "Blink LED type"
         default BLINK_LED_GPIO
         help

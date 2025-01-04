@@ -810,6 +810,13 @@
 /home/f4deb/Rotor_Azimut_V1/build/esp-idf/wifi_provisioning/CMakeFiles/install.dir
 /home/f4deb/Rotor_Azimut_V1/build/esp-idf/wifi_provisioning/CMakeFiles/install/local.dir
 /home/f4deb/Rotor_Azimut_V1/build/esp-idf/wifi_provisioning/CMakeFiles/install/strip.dir
+/home/f4deb/Rotor_Azimut_V1/build/esp-idf/espressif__led_strip/CMakeFiles/__idf_espressif__led_strip.dir
+/home/f4deb/Rotor_Azimut_V1/build/esp-idf/espressif__led_strip/CMakeFiles/edit_cache.dir
+/home/f4deb/Rotor_Azimut_V1/build/esp-idf/espressif__led_strip/CMakeFiles/rebuild_cache.dir
+/home/f4deb/Rotor_Azimut_V1/build/esp-idf/espressif__led_strip/CMakeFiles/list_install_components.dir
+/home/f4deb/Rotor_Azimut_V1/build/esp-idf/espressif__led_strip/CMakeFiles/install.dir
+/home/f4deb/Rotor_Azimut_V1/build/esp-idf/espressif__led_strip/CMakeFiles/install/local.dir
+/home/f4deb/Rotor_Azimut_V1/build/esp-idf/espressif__led_strip/CMakeFiles/install/strip.dir
 /home/f4deb/Rotor_Azimut_V1/build/esp-idf/main/CMakeFiles/__idf_main.dir
 /home/f4deb/Rotor_Azimut_V1/build/esp-idf/main/CMakeFiles/edit_cache.dir
 /home/f4deb/Rotor_Azimut_V1/build/esp-idf/main/CMakeFiles/rebuild_cache.dir

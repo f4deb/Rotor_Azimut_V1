@@ -36,7 +36,7 @@
 #define ECHO_UART_BAUD_RATE     (CONFIG_EXAMPLE_UART_BAUD_RATE)
 #define ECHO_TASK_STACK_SIZE    (CONFIG_EXAMPLE_TASK_STACK_SIZE)
 
-static const char *TAG = "UART TEST";
+static const char *TAG_UART2 = "UART TEST";
 
 #define BUF_SIZE (1024)
 
@@ -49,7 +49,7 @@ static const char *TAG = "UART TEST";
 
 
 
-static const char *TAG = "example";
+static const char *TAG_BLUE_LED = "BLUE_LED";
 
 /* Use project configuration menu (idf.py menuconfig) to choose the GPIO to blink,
    or you can edit the following line and set a number here.
@@ -101,7 +101,7 @@ static void echo_task(void *arg)
         uart_write_bytes(ECHO_UART_PORT_NUM, (const char *) data, len);
         if (len) {
             data[len] = '\0';
-            ESP_LOGI(TAG, "Recv str: %s", (char *) data);
+            ESP_LOGI(TAG_UART2, "Recv str: %s", (char *) data);
         }
     }
 }
@@ -118,7 +118,7 @@ static void blink_led(void)
 
 static void configure_led(void)
 {
-    ESP_LOGI(TAG, "Example configured to blink GPIO LED!");
+    ESP_LOGI(TAG_BLUE_LED, "Example configured to blink GPIO LED!");
     gpio_reset_pin(BLINK_GPIO);
     /* Set the GPIO as a push/pull output */
     gpio_set_direction(BLINK_GPIO, GPIO_MODE_OUTPUT);
@@ -133,7 +133,7 @@ void app_main(void){
     configure_led();
 
     while (1) {
-        ESP_LOGI(TAG, "Turning the LED %s!", s_led_state == true ? "ON" : "OFF");
+        ESP_LOGI(TAG_BLUE_LED, "Turning the LED %s!", s_led_state == true ? "ON" : "OFF");
         blink_led();
         /* Toggle the LED state */
         s_led_state = !s_led_state;
