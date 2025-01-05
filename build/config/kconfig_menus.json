@@ -5024,92 +5024,6 @@
                 ],
                 "title": "UART echo example task stack size",
                 "type": "int"
-            },
-            {
-                "children": [
-                    {
-                        "children": [],
-                        "depends_on": "<choice BLUE_LED>",
-                        "help": null,
-                        "id": "BLINK_LED_GPIO",
-                        "name": "BLINK_LED_GPIO",
-                        "range": null,
-                        "title": "GPIO",
-                        "type": "bool"
-                    },
-                    {
-                        "children": [],
-                        "depends_on": "<choice BLUE_LED>",
-                        "help": null,
-                        "id": "BLINK_LED_STRIP",
-                        "name": "BLINK_LED_STRIP",
-                        "range": null,
-                        "title": "LED strip",
-                        "type": "bool"
-                    }
-                ],
-                "depends_on": null,
-                "help": "Select the LED type. A normal level controlled LED or an addressable LED strip.\nThe default selection is based on the Espressif DevKit boards.\nYou can change the default selection according to your board.",
-                "id": "uart-2-configuration-blink-led-type",
-                "name": "BLUE_LED",
-                "title": "Blink LED type",
-                "type": "choice"
-            },
-            {
-                "children": [
-                    {
-                        "children": [],
-                        "depends_on": "SOC_RMT_SUPPORTED && <choice BLINK_LED_STRIP_BACKEND>",
-                        "help": null,
-                        "id": "BLINK_LED_STRIP_BACKEND_RMT",
-                        "name": "BLINK_LED_STRIP_BACKEND_RMT",
-                        "range": null,
-                        "title": "RMT",
-                        "type": "bool"
-                    },
-                    {
-                        "children": [],
-                        "depends_on": "<choice BLINK_LED_STRIP_BACKEND>",
-                        "help": null,
-                        "id": "BLINK_LED_STRIP_BACKEND_SPI",
-                        "name": "BLINK_LED_STRIP_BACKEND_SPI",
-                        "range": null,
-                        "title": "SPI",
-                        "type": "bool"
-                    }
-                ],
-                "depends_on": "BLINK_LED_STRIP",
-                "help": "Select the backend peripheral to drive the LED strip.",
-                "id": "uart-2-configuration-led-strip-backend-peripheral",
-                "name": "BLINK_LED_STRIP_BACKEND",
-                "title": "LED strip backend peripheral",
-                "type": "choice"
-            },
-            {
-                "children": [],
-                "depends_on": null,
-                "help": "GPIO number (IOxx) to blink on and off the LED.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used to blink.",
-                "id": "BLINK_GPIO",
-                "name": "BLINK_GPIO",
-                "range": [
-                    0,
-                    33
-                ],
-                "title": "Blink GPIO number",
-                "type": "int"
-            },
-            {
-                "children": [],
-                "depends_on": null,
-                "help": "Define the blinking period in milliseconds.",
-                "id": "BLINK_PERIOD",
-                "name": "BLINK_PERIOD",
-                "range": [
-                    10,
-                    3600000
-                ],
-                "title": "Blink period in ms",
-                "type": "int"
             }
         ],
         "depends_on": null,
@@ -5184,7 +5098,7 @@
                 ],
                 "depends_on": null,
                 "help": "Select the LED type. A normal level controlled LED or an addressable LED strip.\nThe default selection is based on the Espressif DevKit boards.\nYou can change the default selection according to your board.",
-                "id": "toto-configuration-blink-led-type",
+                "id": "blue-led-configuration-blink-led-type",
                 "name": "BLINK_LED",
                 "title": "Blink LED type",
                 "type": "choice"
@@ -5214,7 +5128,7 @@
                 ],
                 "depends_on": "BLINK_LED_STRIP",
                 "help": "Select the backend peripheral to drive the LED strip.",
-                "id": "toto-configuration-led-strip-backend-peripheral",
+                "id": "blue-led-configuration-led-strip-backend-peripheral",
                 "name": "BLINK_LED_STRIP_BACKEND",
                 "title": "LED strip backend peripheral",
                 "type": "choice"
@@ -5247,8 +5161,8 @@
             }
         ],
         "depends_on": null,
-        "id": "toto-configuration",
-        "title": "toto Configuration",
+        "id": "blue-led-configuration",
+        "title": "Blue Led Configuration",
         "type": "menu"
     },
     {

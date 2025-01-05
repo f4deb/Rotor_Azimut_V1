@@ -14,8 +14,12 @@
 #include "sdkconfig.h"
 #include "esp_log.h"
 
+
 #include "led_strip.h"
-/**
+
+#include "../components/blueLed/include/blueLed.h"
+
+/*
  * This is an example which echos any data it receives on configured UART back to the sender,
  * with hardware flow control turned off. It does not use UART driver event queue.
  *
@@ -49,14 +53,13 @@ static const char *TAG_UART2 = "UART TEST";
 
 
 
-static const char *TAG_BLUE_LED = "BLUE_LED";
 
 /* Use project configuration menu (idf.py menuconfig) to choose the GPIO to blink,
    or you can edit the following line and set a number here.
 */
-#define BLINK_GPIO CONFIG_BLINK_GPIO
 
-static uint8_t s_led_state = 0;
+
+
 
 
 
@@ -109,21 +112,6 @@ static void echo_task(void *arg)
 /******************************************************/
 /*********************** BLINK ************************/
 /******************************************************/
-
-static void blink_led(void)
-{
-    /* Set the GPIO level according to the state (LOW or HIGH)*/
-    gpio_set_level(BLINK_GPIO, s_led_state);
-}
-
-static void configure_led(void)
-{
-    ESP_LOGI(TAG_BLUE_LED, "Example configured to blink GPIO LED!");
-    gpio_reset_pin(BLINK_GPIO);
-    /* Set the GPIO as a push/pull output */
-    gpio_set_direction(BLINK_GPIO, GPIO_MODE_OUTPUT);
-}
-
 
 
 void app_main(void){

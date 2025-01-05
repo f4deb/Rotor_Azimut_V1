@@ -8,7 +8,10 @@
 This example demonstrates how to utilize UART interfaces by echoing back to the sender any data received on
 configured UART.
 
-## How to use example
+## Blue Led
+
+| Blue Led Configuration | PIN 2 |
+| ----------------- | ----- |
 
 ### Hardware Required
 
