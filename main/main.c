@@ -109,26 +109,27 @@ static void echo_task(void *arg)
     }
 }
 
+void init(){
+    /* Configure the peripheral according to the LED type */
+    configure_led();
+}
+
 /******************************************************/
 /*********************** BLINK ************************/
 /******************************************************/
 
 
 void app_main(void){
-    // Blink Task
 
-    /* Configure the peripheral according to the LED type */
-    configure_led();
-
-    while (1) {
-        ESP_LOGI(TAG_BLUE_LED, "Turning the LED %s!", s_led_state == true ? "ON" : "OFF");
-        blink_led();
-        /* Toggle the LED state */
-        s_led_state = !s_led_state;
-        vTaskDelay(CONFIG_BLINK_PERIOD / portTICK_PERIOD_MS);
-    }
-
+    init();
 
     //UART ECHO Task
     xTaskCreate(echo_task, "uart_echo_task", ECHO_TASK_STACK_SIZE, NULL, 10, NULL);
+
+    // Blink Task
+    while (1) {
+        blinkBlueLed();
+    
+        vTaskDelay(CONFIG_BLINK_PERIOD / portTICK_PERIOD_MS);
+    }
 }
