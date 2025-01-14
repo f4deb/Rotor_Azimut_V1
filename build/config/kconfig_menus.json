@@ -5137,8 +5137,8 @@
                 "children": [],
                 "depends_on": null,
                 "help": "GPIO number (IOxx) to blink on and off the LED.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used to blink.",
-                "id": "BLINK_GPIO",
-                "name": "BLINK_GPIO",
+                "id": "BLUE_LED_GPIO",
+                "name": "BLUE_LED_GPIO",
                 "range": [
                     0,
                     33

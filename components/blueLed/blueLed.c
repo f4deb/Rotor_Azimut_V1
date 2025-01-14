@@ -9,10 +9,10 @@ static const char *TAG_BLUE_LED = "BLUE_LED";
 static uint8_t s_led_state = 0;
 
 void configure_led(void){
-    ESP_LOGI(TAG_BLUE_LED, "Example configured to blink GPIO LED!");
-    gpio_reset_pin(BLINK_GPIO);
+    ESP_LOGI(TAG_BLUE_LED, "Blue Led configured to blink GPIO LED!");
+    gpio_reset_pin(BLUE_LED_GPIO);
     /* Set the GPIO as a push/pull output */
-    gpio_set_direction(BLINK_GPIO, GPIO_MODE_OUTPUT);
+    gpio_set_direction(BLUE_LED_GPIO, GPIO_MODE_OUTPUT);
 }
 
 void blinkBlueLed(void){
@@ -20,7 +20,7 @@ void blinkBlueLed(void){
     /* Toggle the LED state */
     s_led_state = !s_led_state;
     /* Set the GPIO level according to the state (LOW or HIGH)*/
-    gpio_set_level(BLINK_GPIO, s_led_state);
+    gpio_set_level(BLUE_LED_GPIO, s_led_state);
 }
 
 void setBlueLed(uint8_t ledStatus){
@@ -28,7 +28,7 @@ void setBlueLed(uint8_t ledStatus){
     /* Toggle the LED state */
     s_led_state = ledStatus;
     /* Set the GPIO level according to the state (LOW or HIGH)*/
-    gpio_set_level(BLINK_GPIO, s_led_state);
+    gpio_set_level(BLUE_LED_GPIO, s_led_state);
 }
 
 uint8_t getBlueLed(void){

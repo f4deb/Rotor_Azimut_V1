@@ -2,7 +2,7 @@
 #define BLUE_LED_H
 
 
-#define BLINK_GPIO CONFIG_BLINK_GPIO
+#define BLUE_LED_GPIO CONFIG_BLUE_LED_GPIO
 
 void configure_led(void);
 void blinkBlueLed(void);
