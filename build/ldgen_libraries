@@ -80,6 +80,7 @@
 /home/f4deb/Rotor_Azimut_V1/build/esp-idf/spiffs/libspiffs.a
 /home/f4deb/Rotor_Azimut_V1/build/esp-idf/wifi_provisioning/libwifi_provisioning.a
 /home/f4deb/Rotor_Azimut_V1/build/esp-idf/espressif__led_strip/libespressif__led_strip.a
+/home/f4deb/Rotor_Azimut_V1/build/esp-idf/zorxx__rtci2c/libzorxx__rtci2c.a
 /home/f4deb/Rotor_Azimut_V1/build/esp-idf/main/libmain.a
 /home/f4deb/Rotor_Azimut_V1/build/esp-idf/blueLed/libblueLed.a
 /home/f4deb/Rotor_Azimut_V1/build/esp-idf/uartCommand/libuartCommand.a

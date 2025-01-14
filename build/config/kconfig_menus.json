@@ -5150,8 +5150,8 @@
                 "children": [],
                 "depends_on": null,
                 "help": "Define the blinking period in milliseconds.",
-                "id": "BLINK_PERIOD",
-                "name": "BLINK_PERIOD",
+                "id": "BLUE_LED_PERIOD",
+                "name": "BLUE_LED_PERIOD",
                 "range": [
                     10,
                     3600000

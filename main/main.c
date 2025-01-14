@@ -16,6 +16,8 @@
 
 
 #include "led_strip.h"
+#include "rtci2c/rtci2c.h"
+
 
 #include "../components/uartCommand/include/uartCommand.h"
 
@@ -36,6 +38,6 @@ void app_main(void){
     // Blink Task
     while (1) {
         blinkBlueLed();    
-        vTaskDelay(CONFIG_BLINK_PERIOD / portTICK_PERIOD_MS);
+        vTaskDelay(CONFIG_BLUE_LED_PERIOD / portTICK_PERIOD_MS);
     }
 }
