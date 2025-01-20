@@ -26,7 +26,8 @@ typedef void *rtci2c_context;
 typedef enum
 {
    RTCI2C_DEVICE_DS1307,
-   RTCI2C_DEVICE_DS3231
+   RTCI2C_DEVICE_DS3231,
+   RTCI2C_DEVICE_PCF8563
 
    /* The following are coming soon
    RTCI2C_DEVICE_DS1302,
