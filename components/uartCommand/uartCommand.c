@@ -4,6 +4,8 @@
 #include "sdkconfig.h"
 #include "esp_log.h"
 
+#include "../blueLed/include/blueLed.h"
+
 #include "../../../../esp-idf/components/esp_driver_uart/include/driver/uart.h"
 
 #define ECHO_TEST_TXD (CONFIG_EXAMPLE_UART_TXD)
