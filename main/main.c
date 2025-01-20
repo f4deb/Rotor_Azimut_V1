@@ -20,14 +20,10 @@
 #include "driver/gpio.h"
 #include "driver/i2c_master.h"
 
-
-
 #include "led_strip.h"
 #include "rtci2c/rtci2c.h"
 
-
 #include "../components/uartCommand/include/uartCommand.h"
-
 #include "../components/blueLed/include/blueLed.h"
 
 #define TAG "RTCI2C"

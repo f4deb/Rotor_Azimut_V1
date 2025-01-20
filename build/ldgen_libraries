@@ -83,5 +83,6 @@
 /home/f4deb/Rotor_Azimut_V1/build/esp-idf/zorxx__rtci2c/libzorxx__rtci2c.a
 /home/f4deb/Rotor_Azimut_V1/build/esp-idf/main/libmain.a
 /home/f4deb/Rotor_Azimut_V1/build/esp-idf/blueLed/libblueLed.a
+/home/f4deb/Rotor_Azimut_V1/build/esp-idf/clockI2c/libclockI2c.a
 /home/f4deb/Rotor_Azimut_V1/build/esp-idf/uartCommand/libuartCommand.a
 /home/f4deb/Rotor_Azimut_V1/build/esp-idf/uartDebug/libuartDebug.a
