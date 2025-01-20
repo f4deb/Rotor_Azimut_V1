@@ -28,7 +28,7 @@
 
 #define TAG "RTCI2C"
 
-#define RTCI2C_LIBRARY_I2C_BUS_INIT 0
+#define RTCI2C_LIBRARY_I2C_BUS_INIT 1
 
 /* The following definitions may change, based on the ESP device,
    RTC device configuration, and wiring between them. */
@@ -76,7 +76,7 @@ i2c_lowlevel_config config = {0}; /* ensure initialize to zero */
    config.bus = &i2c_bus;
    #endif
 
-   rtci2c_context *ctx = rtci2c_init(RTCI2C_DEVICE_DS1307, DEVICE_I2C_ADDRESS, &config);
+   rtci2c_context *ctx = rtci2c_init(RTCI2C_DEVICE_PCF8563, DEVICE_I2C_ADDRESS, &config);
    if(NULL == ctx)
    {
       ESP_LOGE(TAG, "Initialization failed");
