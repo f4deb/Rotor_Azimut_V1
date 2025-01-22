@@ -19,6 +19,8 @@
  * Register definitions 
  */
 
+#define PCF8563_REG_CONTROL_STATUS_1          0
+
 #define PCF8563_REG_SECONDS          2
    #define PCF8563_REG_MASK_SECONDS    0x7f
    #define PCF8563_REG_SECONDS_CS_BIT   7
@@ -27,18 +29,13 @@
    #define PCF8563_REG_MASK_MINUTES    0x7f
 
 #define PCF8563_REG_HOURS            4
-#define PCF8563_REG_HOURS_12         4
-#define PCF8563_REG_HOURS_24         4
-   #define PCF8563_REG_MASK_HOURS_24   0x3f
-   #define PCF8563_REG_MASK_HOURS_12   0x1f
-   #define PCF8563_REG_HOURS_AMPM_BIT   5 /* 1 = PM, 0 = AM */
-   #define PCF8563_REG_HOURS_24_BIT     6 /* 1 = 12 hour, 0 = 24 hour*/
+   #define PCF8563_REG_MASK_HOURS  0x3f
 
 #define PCF8563_REG_DAYOFMONTH       5
    #define PCF8563_REG_MASK_DAYOFMONTH 0x3f
 
 #define PCF8563_REG_DAYOFWEEK        6
-   #define PCF8563_REG_MASK_DAYOFWEEK  0x3f
+   #define PCF8563_REG_MASK_DAYOFWEEK  0x07
 
 #define PCF8563_REG_MONTH            7
    #define PCF8563_REG_MASK_MONTH      0x1f
@@ -46,7 +43,7 @@
 #define PCF8563_REG_YEAR             8
    #define PCF8563_REG_MASK_YEAR       0xff
 
-#define PCF8563_REG_CONTROL          7
+#define PCF8563_REG_CONTROL          0
    #define PCF8563_REG_CONTROL_RS0_BIT  0 /* 0 = 1 Hz       1 = 4.096 kHz */
    #define PCF8563_REG_CONTROL_RS1_BIT  1 /* 2 = 8.192 kHz  3 = 32.768 kHz */
    #define PCF8563_REG_CONTROL_SQWE_BIT 4 /* square wave enable */

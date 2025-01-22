@@ -13,12 +13,12 @@
 bool pcf8563_get_datetime(void *rtci2c_ctx, struct tm *datetime)
 {
    rtci2c_t *r = (rtci2c_t *) rtci2c_ctx;
-   uint8_t data[8];
+   uint8_t data[9];
 
    if(NULL == datetime)
       return false;
 
-   if(!i2c_ll_read_reg(r->lowlevel, PCF8563_REG_SECONDS, data, sizeof(data)))
+   if(!i2c_ll_read_reg(r->lowlevel, PCF8563_REG_CONTROL_STATUS_1, data, sizeof(data)))
    {
       SERR("Failed to query RTC");
       return false;
@@ -26,18 +26,11 @@ bool pcf8563_get_datetime(void *rtci2c_ctx, struct tm *datetime)
 
    datetime->tm_sec = PCF8563_REG_GET(data, SECONDS);
    datetime->tm_min = PCF8563_REG_GET(data, MINUTES);
+   datetime->tm_hour = PCF8563_REG_GET(data, HOURS);
    datetime->tm_mday = PCF8563_REG_GET(data, DAYOFMONTH);
-   datetime->tm_wday = (PCF8563_REG_GET(data, DAYOFWEEK) - 1) % 7;
-   datetime->tm_mon = (PCF8563_REG_GET(data, MONTH) - 1) % 12;
-   datetime->tm_year = PCF8563_REG_GET(data, YEAR) + 100;
-
-   if(PCF8563_REG_GET_BIT(data, HOURS, HOURS_24_BIT) == 0)
-      datetime->tm_hour = PCF8563_REG_GET(data, HOURS_24);
-   else
-   {
-      bool ispm = PCF8563_REG_GET_BIT(data, HOURS, HOURS_AMPM_BIT);
-      datetime->tm_hour = PCF8563_REG_GET(data, HOURS_12) + ((ispm) ? 12 : 0);
-   }
+   datetime->tm_wday = PCF8563_REG_GET(data, DAYOFWEEK);
+   datetime->tm_mon = PCF8563_REG_GET(data, MONTH);
+   datetime->tm_year = PCF8563_REG_GET(data, YEAR);
 
    return true;
 }
@@ -45,7 +38,7 @@ bool pcf8563_get_datetime(void *rtci2c_ctx, struct tm *datetime)
 bool pcf8563_set_datetime(void *rtci2c_ctx, struct tm *datetime)
 {
    rtci2c_t *r = (rtci2c_t *) rtci2c_ctx;
-   uint8_t data[8] = {0};
+   uint8_t data[9] = {0};
 
    if(NULL == datetime)
       return false;
@@ -58,7 +51,7 @@ bool pcf8563_set_datetime(void *rtci2c_ctx, struct tm *datetime)
    data[PCF8563_REG_MONTH]      = RTC_DEC_TO_BCD((datetime->tm_mon % 12) + 1);
    data[PCF8563_REG_YEAR]       = RTC_DEC_TO_BCD(datetime->tm_year % 100);
 
-   if(!i2c_ll_write_reg(r->lowlevel, PCF8563_REG_SECONDS, data, sizeof(data)))
+   if(!i2c_ll_write_reg(r->lowlevel, PCF8563_REG_CONTROL_STATUS_1, data, sizeof(data)))
    {
       SERR("Failed to set RTC");
       return false;
@@ -70,9 +63,9 @@ bool pcf8563_set_datetime(void *rtci2c_ctx, struct tm *datetime)
 static bool pcf8563_init(void *rtci2c_ctx)
 {
    rtci2c_t *r = (rtci2c_t *) rtci2c_ctx;
-   uint8_t data[8]; 
+   uint8_t data[9]; 
 
-   if(!i2c_ll_read_reg(r->lowlevel, PCF8563_REG_SECONDS, data, sizeof(data)))
+   if(!i2c_ll_read_reg(r->lowlevel, PCF8563_REG_CONTROL_STATUS_1, data, sizeof(data)))
    {
       SERR("[%s] Failed to query RTC", __func__);
       return false;

@@ -4,7 +4,14 @@
     "idf.openOcdConfigs": [
         "board/esp32-wrover-kit-3.3v.cfg"
     ],
-    "idf.port": "/dev/ttyUSB4",
+    "idf.port": "/dev/ttyUSB3",
     "idf.toolsPath": "/home/f4deb/Documents/F4DEB-ESP32/",
-    "idf.flashType": "UART"
+    "idf.flashType": "UART",
+    "files.associations": {
+        "array": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "ranges": "cpp",
+        "span": "cpp"
+    }
 }

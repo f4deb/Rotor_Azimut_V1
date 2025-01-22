@@ -93,10 +93,10 @@ i2c_lowlevel_config config = {0}; /* ensure initialize to zero */
          }
          else
          {
-            ESP_LOGI(TAG, "Current: %02u/%02u/%u %u:%02u:%02u",
+            ESP_LOGI(TAG, "Current: %02u/%02u/20%02u %02u:%02u:%02u",
                t.tm_mday, t.tm_mon, t.tm_year, t.tm_hour, t.tm_min, t.tm_sec);
          }
-         vTaskDelay(pdMS_TO_TICKS(100));
+         vTaskDelay(pdMS_TO_TICKS(1000));
       }
       rtci2c_deinit(ctx);
    }
