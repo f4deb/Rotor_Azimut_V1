@@ -60,8 +60,6 @@ void initClock (void){
 void clock_task(void *arg)
 {
 
-    
-
     for(;;) {
 
         rtci2c_context *ctx = rtci2c_init(RTCI2C_DEVICE_PCF8563, DEVICE_I2C_ADDRESS, &config);
@@ -84,7 +82,7 @@ void clock_task(void *arg)
                     ESP_LOGI(TAG, "Current: %02u/%02u/20%02u %02u:%02u:%02u",
                     t.tm_mday, t.tm_mon, t.tm_year, t.tm_hour, t.tm_min, t.tm_sec);
                 }
-                vTaskDelay(pdMS_TO_TICKS(10));
+                vTaskDelay(pdMS_TO_TICKS(500));
             }
             rtci2c_deinit(ctx);
         }
