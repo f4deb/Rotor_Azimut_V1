@@ -84,6 +84,6 @@ $<TARGET_FILE:__idf_zorxx__rtci2c>
 $<TARGET_FILE:__idf_main>
 $<TARGET_FILE:__idf_blueLed>
 $<TARGET_FILE:__idf_clock>
-$<TARGET_FILE:__idf_clockI2c>
+$<TARGET_FILE:__idf_interface>
 $<TARGET_FILE:__idf_uartCommand>
 $<TARGET_FILE:__idf_uartDebug>
