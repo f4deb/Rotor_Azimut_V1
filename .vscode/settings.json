@@ -21,6 +21,7 @@
         "esp_log.h": "c",
         "sdkconfig.h": "c",
         "nvs_flash.h": "c",
-        "esp_partition.h": "c"
+        "esp_partition.h": "c",
+        "clock.h": "c"
     }
 }

@@ -33,6 +33,8 @@
 void init(){
     /* Configure the peripheral according to the LED type */
     configure_led();
+    
+    initClock();
 }
 
 void app_main(void){
