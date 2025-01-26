@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include "interface.h"
 
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+
 #include "sdkconfig.h"
 #include "esp_log.h"
 
@@ -8,13 +11,9 @@
 
 static const char *TAG_INTERFACE = "INTERFACE";
 
-#define BUF_SIZE (1024)
-
-void interface_task(void *arg)
-{
-
-
-    while (1) {
-
+void interface_task(void *arg){
+    for(;;) {
+        ESP_LOGI(TAG_INTERFACE, "Interface Debug");
+        vTaskDelay(pdMS_TO_TICKS(3000));
     }
 }

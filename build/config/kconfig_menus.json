@@ -5158,6 +5158,19 @@
                 ],
                 "title": "Blink period in ms",
                 "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "Define pourcentage of the blinking period",
+                "id": "BLUE_LED_RATIO",
+                "name": "BLUE_LED_RATIO",
+                "range": [
+                    0,
+                    100
+                ],
+                "title": "Ratio period in %",
+                "type": "int"
             }
         ],
         "depends_on": null,

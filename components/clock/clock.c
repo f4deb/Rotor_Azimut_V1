@@ -82,7 +82,7 @@ void clock_task(void *arg)
                     ESP_LOGI(TAG, "Current: %02u/%02u/20%02u %02u:%02u:%02u",
                     t.tm_mday, t.tm_mon, t.tm_year, t.tm_hour, t.tm_min, t.tm_sec);
                 }
-                vTaskDelay(pdMS_TO_TICKS(500));
+                vTaskDelay(pdMS_TO_TICKS(5000));
             }
             rtci2c_deinit(ctx);
         }

@@ -23,6 +23,7 @@
         "nvs_flash.h": "c",
         "esp_partition.h": "c",
         "clock.h": "c",
-        "blueled.h": "c"
+        "blueled.h": "c",
+        "led_strip.h": "c"
     }
 }

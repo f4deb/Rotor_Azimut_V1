@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "Rotor_Azimut_V1",
-    "project_version":    "92cbfd0-dirty",
+    "project_version":    "bc1cae0-dirty",
     "project_path":       "/home/f4deb/Rotor_Azimut_V1",
     "idf_path":           "/home/f4deb/esp/v5.3.2/esp-idf",
     "build_dir":          "/home/f4deb/Rotor_Azimut_V1/build",
@@ -71,7 +71,7 @@
             "managed_priv_reqs": [],
             "file": "/home/f4deb/Rotor_Azimut_V1/build/esp-idf/blueLed/libblueLed.a",
             "sources": [ "/home/f4deb/Rotor_Azimut_V1/components/blueLed/blueLed.c" ],
-            "include_dirs": [ "include", "/home/f4deb/esp/v5.3.2/esp-idf/components/esp_driver_gpio/include" ]
+            "include_dirs": [ "include", "/home/f4deb/esp/v5.3.2/esp-idf/components/esp_event/include", "/home/f4deb/esp/v5.3.2/esp-idf/components/esp_driver_gpio/include" ]
         },
         "bootloader": {
             "alias": "idf::bootloader",
@@ -2908,7 +2908,7 @@
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "include_dirs": [ "include", "/home/f4deb/esp/v5.3.2/esp-idf/components/esp_driver_gpio/include" ]
+            "include_dirs": [ "include", "/home/f4deb/esp/v5.3.2/esp-idf/components/esp_event/include", "/home/f4deb/esp/v5.3.2/esp-idf/components/esp_driver_gpio/include" ]
         },
         "clock": {
             "alias": "idf::clock",

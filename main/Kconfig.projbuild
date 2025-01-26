@@ -92,4 +92,11 @@ menu "Blue Led Configuration"
         help
             Define the blinking period in milliseconds.
 
+    config BLUE_LED_RATIO
+        int "Ratio period in %"
+        range 0 100
+        default 50
+        help
+            Define pourcentage of the blinking period
+
 endmenu

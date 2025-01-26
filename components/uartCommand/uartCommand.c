@@ -43,7 +43,7 @@ void echo_task(void *arg)
     // Configure a temporary buffer for the incoming data
     uint8_t *data = (uint8_t *) malloc(BUF_SIZE);
 
-    while (1) {
+    for(;;) {
         // Read data from the UART
         int len = uart_read_bytes(ECHO_UART_PORT_NUM, data, (BUF_SIZE - 1), 20 / portTICK_PERIOD_MS);
         // Write data back to the UART

@@ -41,20 +41,19 @@ void init(){
 
 void app_main(void){
 
-    //init();
+    init();
 
-   //UART ECHO Task
-   xTaskCreate(echo_task, "uart_echo_task", ECHO_TASK_STACK_SIZE, NULL, 10, NULL);
+    //UART ECHO Task
+    xTaskCreate(echo_task, "uart_echo_task", ECHO_TASK_STACK_SIZE, NULL, 10, NULL);
 
-   // CLOCK Task
-   xTaskCreate(clock_task, "clock_task", CLOCK_TASK_STACK_SIZE, NULL, 11, NULL);
+    // CLOCK Task
+    xTaskCreate(clock_task, "clock_task", CLOCK_TASK_STACK_SIZE, NULL, 11, NULL);
 
-   // INTERFACE Task
-   xTaskCreate(interface_task, "Interface_task", INTERFACE_TASK_STACK_SIZE, NULL, 9, NULL);
+    // INTERFACE Task
+    xTaskCreate(interface_task, "Interface_task", INTERFACE_TASK_STACK_SIZE, NULL, 12, NULL);
 
     //   Blink Task
     while (1) {
-        blinkBlueLed();    
-        vTaskDelay(CONFIG_BLUE_LED_PERIOD / portTICK_PERIOD_MS);
+        blinkBlueLed(getTimeBlink(), getRatioBlink());    
     }
 }
