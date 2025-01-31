@@ -6,6 +6,8 @@
 
 uint32_t getTimeBlink (void);
 uint32_t getRatioBlink (void);
+
+void statusBlink(bool);
 void setTimeBlink (uint32_t value);
 void setRatioBlink (uint32_t value);
 

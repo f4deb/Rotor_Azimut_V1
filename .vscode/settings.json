@@ -4,7 +4,7 @@
     "idf.openOcdConfigs": [
         "board/esp32-wrover-kit-3.3v.cfg"
     ],
-    "idf.port": "/dev/ttyUSB1",
+    "idf.port": "/dev/ttyUSB4",
     "idf.toolsPath": "/home/f4deb/Documents/F4DEB-ESP32/",
     "idf.flashType": "UART",
     "files.associations": {
@@ -24,6 +24,14 @@
         "esp_partition.h": "c",
         "clock.h": "c",
         "blueled.h": "c",
-        "led_strip.h": "c"
+        "led_strip.h": "c",
+        "bitset": "c",
+        "wchar.h": "c",
+        "_ansi.h": "c",
+        "stdio.h": "c",
+        "stdlib.h": "c",
+        "charutils.h": "c",
+        "chrono": "c",
+        "functional": "c"
     }
 }

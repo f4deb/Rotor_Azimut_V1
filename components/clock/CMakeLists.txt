@@ -1,4 +1,4 @@
-idf_component_register(SRCS "clock.c"
+idf_component_register(SRCS "clockInterface.c" "clock.c"
 INCLUDE_DIRS "include" 
             "/home/f4deb/esp/v5.3.2/esp-idf/components/esp_driver_i2c/include"
             "/home/f4deb/esp/v5.3.2/esp-idf/components/nvs_flash/include"
