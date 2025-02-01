@@ -32,6 +32,10 @@
         "stdlib.h": "c",
         "charutils.h": "c",
         "chrono": "c",
-        "functional": "c"
+        "functional": "c",
+        "cstring": "c",
+        "string.h": "c",
+        "strings.h": "c",
+        "buffer.h": "c"
     }
 }

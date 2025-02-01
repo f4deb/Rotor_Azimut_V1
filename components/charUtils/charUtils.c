@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "charUtils.h"
+#include "string.h"
 
 char* truncString(char* str,int posInit, int length){
 

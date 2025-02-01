@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include "interface.h"
-
-#include "wchar.h"
+#include "string.h"
 
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
@@ -11,17 +10,25 @@
 
 #include "constants.h"
 
+#include "../interface/include/constants.h"
+#include "../interface/include/interface.h"
+
+#include "../charUtils/include/charUtils.h"
+
 static const char *TAG_INTERFACE = "INTERFACE";
 
 void interface_task(void *arg){
     for(;;) {
         ESP_LOGI(TAG_INTERFACE, "Interface Debug");
 
-        char *text = BLUE_LED_HEADER;
+        char *text = "bl";
 
-        if (charTrunc (text) == BLUE_LED_HEADER){
-
+        if (strncmp(text, BLUE_LED_HEADER, 2) == 0) {
+            printf("Les cinq premiers caractères sont égaux.\n");
+        } else {
+            printf("Les cinq premiers caractères ne sont pas égaux.\n");
         }
+
         vTaskDelay(pdMS_TO_TICKS(3000));
     }
 }
