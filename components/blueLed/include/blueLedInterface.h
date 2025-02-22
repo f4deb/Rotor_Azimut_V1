@@ -1,25 +1,13 @@
 #ifndef BLUE_LED_INTERFACE_H
 #define BLUE_LED_INTERFACE_H
 
-#include "../../interface/include/interface.h"
-#include "../../interface/include/constants.h"
+#define SET_BLUE_LED_HEADER "w"
+#define GET_BLUE_LED_HEADER "r"
 
-// List of BLUELED COMMAND HEADER
+#define BLUE_LED_INTERFACE_HEADER_SIZE 1
 
-/**
- * Defines the header to set the blue led status
- */
-#define COMMAND_SET_BLUE_LED         'w'
+void initBlueLedInterface(void);
 
-/**
- * Defines the header to get the blue led status
- */
-#define COMMAND_GET_BLUE_LED         'r'
-
-/**
- * Defines the header to to blink the blue red
- */
-#define COMMAND_WRITE_DATE         'b'
-
+void blueLedInterface(char rxBuffer[50]);
 
 #endif

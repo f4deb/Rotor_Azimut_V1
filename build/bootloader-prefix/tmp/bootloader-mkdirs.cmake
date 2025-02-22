@@ -5,18 +5,18 @@ cmake_minimum_required(VERSION 3.5)
 
 file(MAKE_DIRECTORY
   "/home/f4deb/esp/v5.4/esp-idf/components/bootloader/subproject"
-  "/home/f4deb/RotorV1A/build/bootloader"
-  "/home/f4deb/RotorV1A/build/bootloader-prefix"
-  "/home/f4deb/RotorV1A/build/bootloader-prefix/tmp"
-  "/home/f4deb/RotorV1A/build/bootloader-prefix/src/bootloader-stamp"
-  "/home/f4deb/RotorV1A/build/bootloader-prefix/src"
-  "/home/f4deb/RotorV1A/build/bootloader-prefix/src/bootloader-stamp"
+  "/home/f4deb/Rotor_Azimut_V1/build/bootloader"
+  "/home/f4deb/Rotor_Azimut_V1/build/bootloader-prefix"
+  "/home/f4deb/Rotor_Azimut_V1/build/bootloader-prefix/tmp"
+  "/home/f4deb/Rotor_Azimut_V1/build/bootloader-prefix/src/bootloader-stamp"
+  "/home/f4deb/Rotor_Azimut_V1/build/bootloader-prefix/src"
+  "/home/f4deb/Rotor_Azimut_V1/build/bootloader-prefix/src/bootloader-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "/home/f4deb/RotorV1A/build/bootloader-prefix/src/bootloader-stamp/${subDir}")
+    file(MAKE_DIRECTORY "/home/f4deb/Rotor_Azimut_V1/build/bootloader-prefix/src/bootloader-stamp/${subDir}")
 endforeach()
 if(cfgdir)
-  file(MAKE_DIRECTORY "/home/f4deb/RotorV1A/build/bootloader-prefix/src/bootloader-stamp${cfgdir}") # cfgdir has leading slash
+  file(MAKE_DIRECTORY "/home/f4deb/Rotor_Azimut_V1/build/bootloader-prefix/src/bootloader-stamp${cfgdir}") # cfgdir has leading slash
 endif()

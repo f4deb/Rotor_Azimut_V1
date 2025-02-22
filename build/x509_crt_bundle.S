@@ -1,4 +1,4 @@
-/* * Data converted from /home/f4deb/RotorV1A/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from /home/f4deb/Rotor_Azimut_V1/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 #if !defined (__APPLE__) && !defined (__linux__)

@@ -1,4 +1,4 @@
-# Install script for directory: /home/f4deb/RotorV1A/main
+# Install script for directory: /home/f4deb/Rotor_Azimut_V1/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

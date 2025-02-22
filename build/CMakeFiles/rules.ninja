@@ -1878,6 +1878,44 @@ rule C_STATIC_LIBRARY_LINKER____idf_blueLedInterface_
 #############################################
 # Rule for compiling C files.
 
+rule C_COMPILER____idf_buffer_unscanned_
+  depfile = $DEP_FILE
+  deps = gcc
+  command = ${LAUNCHER}${CODE_CHECK}/home/f4deb/Documents/F4DEB-ESP32/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  description = Building C object $out
+
+
+#############################################
+# Rule for linking C static library.
+
+rule C_STATIC_LIBRARY_LINKER____idf_buffer_
+  command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/f4deb/Documents/F4DEB-ESP32/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf/bin/xtensa-esp32-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/f4deb/Documents/F4DEB-ESP32/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf/bin/xtensa-esp32-elf-ranlib $TARGET_FILE && $POST_BUILD
+  description = Linking C static library $TARGET_FILE
+  restat = $RESTAT
+
+
+#############################################
+# Rule for compiling C files.
+
+rule C_COMPILER____idf_charUtils_unscanned_
+  depfile = $DEP_FILE
+  deps = gcc
+  command = ${LAUNCHER}${CODE_CHECK}/home/f4deb/Documents/F4DEB-ESP32/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  description = Building C object $out
+
+
+#############################################
+# Rule for linking C static library.
+
+rule C_STATIC_LIBRARY_LINKER____idf_charUtils_
+  command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/f4deb/Documents/F4DEB-ESP32/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf/bin/xtensa-esp32-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/f4deb/Documents/F4DEB-ESP32/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf/bin/xtensa-esp32-elf-ranlib $TARGET_FILE && $POST_BUILD
+  description = Linking C static library $TARGET_FILE
+  restat = $RESTAT
+
+
+#############################################
+# Rule for compiling C files.
+
 rule C_COMPILER____idf_clock_unscanned_
   depfile = $DEP_FILE
   deps = gcc
@@ -1933,10 +1971,29 @@ rule C_STATIC_LIBRARY_LINKER____idf_uartCommand_
 
 
 #############################################
+# Rule for compiling C files.
+
+rule C_COMPILER____idf_uartDebug_unscanned_
+  depfile = $DEP_FILE
+  deps = gcc
+  command = ${LAUNCHER}${CODE_CHECK}/home/f4deb/Documents/F4DEB-ESP32/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  description = Building C object $out
+
+
+#############################################
+# Rule for linking C static library.
+
+rule C_STATIC_LIBRARY_LINKER____idf_uartDebug_
+  command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/f4deb/Documents/F4DEB-ESP32/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf/bin/xtensa-esp32-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/f4deb/Documents/F4DEB-ESP32/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf/bin/xtensa-esp32-elf-ranlib $TARGET_FILE && $POST_BUILD
+  description = Linking C static library $TARGET_FILE
+  restat = $RESTAT
+
+
+#############################################
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /usr/bin/cmake --regenerate-during-build -S/home/f4deb/RotorV1A -B/home/f4deb/RotorV1A/build
+  command = /usr/bin/cmake --regenerate-during-build -S/home/f4deb/Rotor_Azimut_V1 -B/home/f4deb/Rotor_Azimut_V1/build
   description = Re-running CMake...
   generator = 1
 

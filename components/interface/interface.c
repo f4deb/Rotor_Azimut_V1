@@ -10,7 +10,7 @@
 
 #include "../uartCommand/include/uartCommand.h"
 #include "../blueLed/include/blueLed.h"
-#include "../blueLedInterface/include/blueLedInterface.h"
+#include "../blueLed/include/blueLedInterface.h"
 
 #define TAG "UART2"
 
