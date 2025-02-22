@@ -1,34 +1,46 @@
 #include <stdio.h>
+#include <string.h>
 #include "interface.h"
-#include "string.h"
-
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
 
 #include "sdkconfig.h"
+
+#include "nvs_flash.h"
+#include "esp_event.h"
 #include "esp_log.h"
 
-#include "constants.h"
+#include "../uartCommand/include/uartCommand.h"
+#include "../blueLed/include/blueLed.h"
+#include "../blueLedInterface/include/blueLedInterface.h"
 
-#include "../interface/include/constants.h"
-#include "../interface/include/interface.h"
+#define TAG "UART2"
 
-#include "../charUtils/include/charUtils.h"
+bool isCommandRx;
 
-static const char *TAG_INTERFACE = "INTERFACE";
+void initInterface (void){
+
+}
 
 void interface_task(void *arg){
+        char rxBuffer[BUF_SIZE];
+        char str[INTERFACE_HEADER_SIZE];
+
     for(;;) {
-        ESP_LOGI(TAG_INTERFACE, "Interface Debug");
+        if (xQueueReceive(getQueueUart2(), &(rxBuffer), (TickType_t)5)) {
+            ESP_LOGI(TAG, "%s ", rxBuffer);
 
-        char *text = "bl";
+            strncpy(str,rxBuffer,INTERFACE_HEADER_SIZE);
+            str[INTERFACE_HEADER_SIZE] = '\0';
+            //ESP_LOGE(TAG, "%s ", str);
+            //ESP_LOGE(TAG, "%s ", rxBuffer);
 
-        if (strncmp(text, BLUE_LED_HEADER, 2) == 0) {
-            printf("Les cinq premiers caractères sont égaux.\n");
-        } else {
-            printf("Les cinq premiers caractères ne sont pas égaux.\n");
-        }
 
-        vTaskDelay(pdMS_TO_TICKS(3000));
+            if ((strcmp(INTERFACE_HEADER,str)) == 0) {
+                blueLedInterface(rxBuffer);
+            }
+            else {
+                setRatioBlink(50);
+            }
+        }   
+    vTaskDelay(pdMS_TO_TICKS(500));
     }
 }

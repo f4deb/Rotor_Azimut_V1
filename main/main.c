@@ -1,11 +1,5 @@
-/* Rotor Azimut V1
+/* Main */
 
-   This example code is in the Public Domain (or CC0 licensed, at your option.)
-
-   Unless required by applicable law or agreed to in writing, this
-   software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-   CONDITIONS OF ANY KIND, either express or implied.
-*/
 #include <stdio.h>
 #include <string.h>
 
@@ -27,33 +21,53 @@
 #include "led_strip.h"
 #include "rtci2c/rtci2c.h"
 
+
 #include "../components/uartCommand/include/uartCommand.h"
 #include "../components/blueLed/include/blueLed.h"
 #include "../components/clock/include/clock.h"
 #include "../components/interface/include/interface.h"
+#include "../components/blueLedInterface/include/blueLedInterface.h"
+
+static const char *TAG_MAIN = "Main : ";
 
 void init(){
     /* Configure the peripheral according to the LED type */
     configure_led();
     
     initClock();
+    //initBlueLedInterface();
+
+    //UART COMMAND Task
+    xTaskCreate(command_uart_task, 
+                "uart_command_task", 
+                COMMAND_TASK_STACK_SIZE, 
+                NULL,
+                1, 
+                NULL);
+
+    // CLOCK Task
+    xTaskCreate(clock_task,
+                "clock_task",
+                CLOCK_TASK_STACK_SIZE,
+                NULL, 
+                3, 
+                NULL);
+    // INTERFACE TASK
+    xTaskCreate(interface_task,
+                "interface_task",
+                INTERFACE_TASK_STACK_SIZE,
+                NULL,
+                2,
+                NULL);
 }
 
 void app_main(void){
-
     init();
-
-    //UART ECHO Task
-    xTaskCreate(echo_task, "uart_echo_task", ECHO_TASK_STACK_SIZE, NULL, 10, NULL);
-
-    // CLOCK Task
-    xTaskCreate(clock_task, "clock_task", CLOCK_TASK_STACK_SIZE, NULL, 11, NULL);
-
-    // INTERFACE Task
-    xTaskCreate(interface_task, "Interface_task", INTERFACE_TASK_STACK_SIZE, NULL, 12, NULL);
-
+    
     //   Blink Task
     while (1) {
+        setTimeBlink(2000);
         blinkBlueLed(getTimeBlink(), getRatioBlink());    
     }
+
 }

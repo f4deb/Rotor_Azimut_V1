@@ -1,13 +1,14 @@
 #include <stdio.h>
+#include "blueLed.h"
 
 #include "sdkconfig.h"
 
 #include "esp_event.h"
 #include "esp_log.h"
 
+
 #include "../../../../esp-idf/components/esp_driver_gpio/include/driver/gpio.h"
 
-#include "blueLed.h"
 
 static const char *TAG_BLUE_LED = "BLUE_LED";
 static uint8_t s_led_state = 0;

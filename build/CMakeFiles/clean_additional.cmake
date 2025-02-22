@@ -3,8 +3,6 @@ cmake_minimum_required(VERSION 3.16)
 
 if("${CONFIG}" STREQUAL "" OR "${CONFIG}" STREQUAL "")
   file(REMOVE_RECURSE
-  "Rotor_Azimut_V1.bin"
-  "Rotor_Azimut_V1.map"
   "bootloader/bootloader.bin"
   "bootloader/bootloader.elf"
   "bootloader/bootloader.map"
@@ -19,6 +17,8 @@ if("${CONFIG}" STREQUAL "" OR "${CONFIG}" STREQUAL "")
   "ldgen_libraries"
   "ldgen_libraries.in"
   "project_elf_src_esp32.c"
+  "rotorV1.bin"
+  "rotorV1.map"
   "x509_crt_bundle.S"
   )
 endif()

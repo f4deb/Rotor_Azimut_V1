@@ -1,13 +1,12 @@
 #ifndef BLUE_LED_H
 #define BLUE_LED_H
 
+#include <stdint.h>
 
 #define BLUE_LED_GPIO CONFIG_BLUE_LED_GPIO
 
 uint32_t getTimeBlink (void);
 uint32_t getRatioBlink (void);
-
-void statusBlink(bool);
 void setTimeBlink (uint32_t value);
 void setRatioBlink (uint32_t value);
 

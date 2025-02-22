@@ -1,9 +1,9 @@
-menu "UART 2 Configuration"
+menu "UART Command Configuration"
 
     orsource "$IDF_PATH/examples/common_components/env_caps/$IDF_TARGET/Kconfig.env_caps"
 
-    config EXAMPLE_UART_PORT_NUM
-        int "UART port number1"
+    config COMMAND_UART_PORT_NUM
+        int "UART port number"
         range 0 2 if IDF_TARGET_ESP32 || IDF_TARGET_ESP32S3
         default 2 if IDF_TARGET_ESP32 || IDF_TARGET_ESP32S3
         range 0 1
@@ -12,14 +12,14 @@ menu "UART 2 Configuration"
             UART communication port number for the example.
             See UART documentation for available port numbers.
 
-    config EXAMPLE_UART_BAUD_RATE
-        int "UART communication speed1"
+    config COMMAND_UART_BAUD_RATE
+        int "UART communication speed"
         range 1200 115200
         default 115200
         help
             UART communication speed for Modbus example.
 
-    config EXAMPLE_UART_RXD
+    config COMMAND_UART_RXD
         int "UART RXD pin number"
         range ENV_GPIO_RANGE_MIN ENV_GPIO_IN_RANGE_MAX
         default 5
@@ -27,7 +27,7 @@ menu "UART 2 Configuration"
             GPIO number for UART RX pin. See UART documentation for more information
             about available pin numbers for UART.
 
-    config EXAMPLE_UART_TXD
+    config COMMAND_UART_TXD
         int "UART TXD pin number"
         range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
         default 4
@@ -35,8 +35,8 @@ menu "UART 2 Configuration"
             GPIO number for UART TX pin. See UART documentation for more information
             about available pin numbers for UART.
 
-    config EXAMPLE_TASK_STACK_SIZE
-        int "UART echo example task stack size"
+    config COMMAND_TASK_STACK_SIZE
+        int "UART task stack size"
         range 1024 16384
         default 3072
         help

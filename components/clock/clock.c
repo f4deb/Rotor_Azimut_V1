@@ -10,6 +10,8 @@
 #include "driver/i2c_master.h"
 #include "rtci2c/rtci2c.h"
 
+#include "../uartCommand/include/uartCommand.h"
+
 #define TAG "RTCI2C"
 
 #define RTCI2C_LIBRARY_I2C_BUS_INIT 0
@@ -25,7 +27,6 @@ static i2c_master_bus_handle_t i2c_bus;
 static i2c_lowlevel_config config = {0}; /* ensure initialize to zero */
 
 void initClock (void){
-    
 
     ESP_ERROR_CHECK(nvs_flash_init());
     ESP_ERROR_CHECK(esp_event_loop_create_default() );
@@ -57,11 +58,8 @@ void initClock (void){
 
 }
 
-void clock_task(void *arg)
-{
-
+void clock_task(void *arg){
     for(;;) {
-
         rtci2c_context *ctx = rtci2c_init(RTCI2C_DEVICE_PCF8563, DEVICE_I2C_ADDRESS, &config);
         if(NULL == ctx)
         {
@@ -84,7 +82,7 @@ void clock_task(void *arg)
                 }
                 vTaskDelay(pdMS_TO_TICKS(5000));
             }
-            rtci2c_deinit(ctx);
+            rtci2c_deinit(ctx);        
         }
     }
 }

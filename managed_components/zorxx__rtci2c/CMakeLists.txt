@@ -13,7 +13,7 @@ cmake_minimum_required(VERSION 3.5)
 set(project rtci2c)
 project(${project} LANGUAGES C VERSION 1.3.0)
 
-add_library(rtci2c STATIC lib/rtci2c.c lib/ds1307.c lib/ds3231.c lib/pcf8563.c lib/linux.c)
+add_library(rtci2c STATIC lib/rtci2c.c lib/ds1307.c lib/ds3231.c lib.pcf8563.c lib/linux.c)
 target_include_directories(rtci2c PUBLIC include)
 target_include_directories(rtci2c PRIVATE lib include/rtci2c)
 target_compile_definitions(rtci2c PRIVATE SYS_DEBUG_ENABLE)

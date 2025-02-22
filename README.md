@@ -1,17 +1,14 @@
-| Supported Targets | /home/f4deb/Rotor_Azimut_V1 |
-| ----------------- | ----- |
+| Supported Targets | ESP32 | ESP32-C2 | ESP32-C3 | ESP32-C5 | ESP32-C6 | ESP32-C61 | ESP32-H2 | ESP32-P4 | ESP32-S2 | ESP32-S3 |
+| ----------------- | ----- | -------- | -------- | -------- | -------- | --------- | -------- | -------- | -------- | -------- |
 
-# Rotor Azimut V1
+# UART Echo Example
 
 (See the README.md file in the upper level 'examples' directory for more information about examples.)
 
 This example demonstrates how to utilize UART interfaces by echoing back to the sender any data received on
 configured UART.
 
-## Blue Led
-
-| Blue Led Configuration | PIN 2 |
-| ----------------- | ----- |
+## How to use example
 
 ### Hardware Required
 

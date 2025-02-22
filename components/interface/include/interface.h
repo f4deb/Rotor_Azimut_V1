@@ -1,9 +1,13 @@
-#ifndef INTERFACE_COMMAND_H
-#define INTERFACE_COMMAND_H
+#ifndef INTERFACE_H
+#define INTERFACE_H
+
+#define INTERFACE_TASK_STACK_SIZE   3072
 
 
+#define INTERFACE_HEADER "jk+"
+#define INTERFACE_HEADER_SIZE 3
 
-#define INTERFACE_TASK_STACK_SIZE    (CONFIG_EXAMPLE_TASK_STACK_SIZE)
+void initInterface(void);
 
 void interface_task(void *arg);
 

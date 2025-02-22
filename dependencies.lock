@@ -12,7 +12,7 @@ dependencies:
   idf:
     source:
       type: idf
-    version: 5.3.2
+    version: 5.4.0
   zorxx/rtci2c:
     component_hash: 17309b88bab4c866dae26634db8f3d8c4c8932be41f6dfddf11ab61be3cf7385
     dependencies: []
@@ -24,6 +24,6 @@ direct_dependencies:
 - espressif/led_strip
 - idf
 - zorxx/rtci2c
-manifest_hash: b90cb29e754e06d7ea62404f08d61f7a3da91c105631ee05a03dd08fb3cc90e3
+manifest_hash: 5a63d57ab6df771d3e351a88cdc807692be2d0c0be8d11c766d983e35003ec69
 target: esp32
 version: 2.0.0

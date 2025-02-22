@@ -1,4 +1,4 @@
-# Install script for directory: /home/f4deb/esp/v5.3.2/esp-idf/components/driver
+# Install script for directory: /home/f4deb/esp/v5.4/esp-idf/components/driver
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,6 +34,6 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/home/f4deb/Documents/F4DEB-ESP32/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp32-elf-objdump")
+  set(CMAKE_OBJDUMP "/home/f4deb/Documents/F4DEB-ESP32/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf/bin/xtensa-esp32-elf-objdump")
 endif()
 
