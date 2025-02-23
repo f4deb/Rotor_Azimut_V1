@@ -26,7 +26,6 @@
 #include "../components/blueLed/include/blueLed.h"
 #include "../components/clock/include/clock.h"
 #include "../components/interface/include/interface.h"
-#include "../components/blueLedInterface/include/blueLedInterface.h"
 
 static const char *TAG_MAIN = "Main : ";
 

@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "rotorV1",
-    "project_version":    "ce468dc-dirty",
+    "project_version":    "0dd8e88-dirty",
     "project_path":       "/home/f4deb/Rotor_Azimut_V1",
     "idf_path":           "/home/f4deb/esp/v5.4/esp-idf",
     "build_dir":          "/home/f4deb/Rotor_Azimut_V1/build",
