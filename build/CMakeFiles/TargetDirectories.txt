@@ -852,13 +852,6 @@
 /home/f4deb/Rotor_Azimut_V1/build/esp-idf/blueLed/CMakeFiles/install.dir
 /home/f4deb/Rotor_Azimut_V1/build/esp-idf/blueLed/CMakeFiles/install/local.dir
 /home/f4deb/Rotor_Azimut_V1/build/esp-idf/blueLed/CMakeFiles/install/strip.dir
-/home/f4deb/Rotor_Azimut_V1/build/esp-idf/blueLedInterface/CMakeFiles/__idf_blueLedInterface.dir
-/home/f4deb/Rotor_Azimut_V1/build/esp-idf/blueLedInterface/CMakeFiles/edit_cache.dir
-/home/f4deb/Rotor_Azimut_V1/build/esp-idf/blueLedInterface/CMakeFiles/rebuild_cache.dir
-/home/f4deb/Rotor_Azimut_V1/build/esp-idf/blueLedInterface/CMakeFiles/list_install_components.dir
-/home/f4deb/Rotor_Azimut_V1/build/esp-idf/blueLedInterface/CMakeFiles/install.dir
-/home/f4deb/Rotor_Azimut_V1/build/esp-idf/blueLedInterface/CMakeFiles/install/local.dir
-/home/f4deb/Rotor_Azimut_V1/build/esp-idf/blueLedInterface/CMakeFiles/install/strip.dir
 /home/f4deb/Rotor_Azimut_V1/build/esp-idf/buffer/CMakeFiles/__idf_buffer.dir
 /home/f4deb/Rotor_Azimut_V1/build/esp-idf/buffer/CMakeFiles/edit_cache.dir
 /home/f4deb/Rotor_Azimut_V1/build/esp-idf/buffer/CMakeFiles/rebuild_cache.dir

@@ -7,14 +7,13 @@
 #include "esp_event.h"
 #include "esp_log.h"
 
+#include "../charUtils/include/charUtils.h"
+
 #include "../blueLed/include/blueLed.h"
 
 #include "../uartCommand/include/uartCommand.h"
 
 #define TAG "Blue Led Interface"
-void initBlueLedInterface(void){
-
-}
 
 void blueLedInterface(char rxBuffer[50]){
 
@@ -29,12 +28,16 @@ void blueLedInterface(char rxBuffer[50]){
             strncpy(str,rxBuffer,BLUE_LED_INTERFACE_HEADER_SIZE);
             str[BLUE_LED_INTERFACE_HEADER_SIZE] = '\0';
             ESP_LOGE(TAG, "%s ", str);
-
-            if ((strcmp(SET_BLUE_LED_HEADER,str)) == 0) {
-                setRatioBlink(10);
+            rxBuffer++; 
+            
+            if ((strcmp(SET_RATIO_BLINK_HEADER,str)) == 0) {
+                setRatioBlink(readHex(stringToString(str,rxBuffer,2)));
+            }
+            else if ((strcmp(SET_TIME_BLINK_HEADER,str)) == 0) {
+                setTimeBlink(readHex(stringToString(str,rxBuffer,4)));
             }
             else {
-                setRatioBlink(50);
+                ESP_LOGE(TAG, "Bad command");
             }
      //   }   
 }

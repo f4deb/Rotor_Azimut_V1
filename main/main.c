@@ -26,6 +26,7 @@
 #include "../components/blueLed/include/blueLed.h"
 #include "../components/clock/include/clock.h"
 #include "../components/interface/include/interface.h"
+#include "../components/charUtils/include/charUtils.h"
 
 static const char *TAG_MAIN = "Main : ";
 
@@ -34,7 +35,9 @@ void init(){
     configure_led();
     
     initClock();
-    //initBlueLedInterface();
+
+    int toto =  readHex("23");
+
 
     //UART COMMAND Task
     xTaskCreate(command_uart_task, 
@@ -65,7 +68,6 @@ void app_main(void){
     
     //   Blink Task
     while (1) {
-        setTimeBlink(2000);
         blinkBlueLed(getTimeBlink(), getRatioBlink());    
     }
 

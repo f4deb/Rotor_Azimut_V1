@@ -16,6 +16,8 @@
         "esp_log.h": "c",
         "uartcommand.h": "c",
         "interface.h": "c",
-        "blueledinterface.h": "c"
+        "blueledinterface.h": "c",
+        "charutils.h": "c",
+        "string.h": "c"
     }
 }

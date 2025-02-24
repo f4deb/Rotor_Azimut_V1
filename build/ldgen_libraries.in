@@ -85,7 +85,6 @@ $<TARGET_FILE:__idf_espressif__led_strip>
 $<TARGET_FILE:__idf_zorxx__rtci2c>
 $<TARGET_FILE:__idf_main>
 $<TARGET_FILE:__idf_blueLed>
-$<TARGET_FILE:__idf_blueLedInterface>
 $<TARGET_FILE:__idf_buffer>
 $<TARGET_FILE:__idf_charUtils>
 $<TARGET_FILE:__idf_clock>
