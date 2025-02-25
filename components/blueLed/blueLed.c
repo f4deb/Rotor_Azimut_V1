@@ -43,7 +43,7 @@ void configure_led(void){
 }
 
 void blinkBlueLed(uint32_t time, uint32_t ratio){
-    ESP_LOGI(TAG_BLUE_LED, "Turning the LED %s!", s_led_state == true ? "ON" : "OFF");
+    //ESP_LOGI(TAG_BLUE_LED, "Turning the LED %s!", s_led_state == true ? "ON" : "OFF");
     /* Toggle the LED state */
     s_led_state = !s_led_state;
     /* Set the GPIO level according to the state (LOW or HIGH)*/
@@ -62,6 +62,6 @@ void setBlueLed(uint8_t ledStatus){
 }
 
 uint8_t getBlueLed(void){
-    ESP_LOGI(TAG_BLUE_LED, "Retourn the LED Status %s!", s_led_state == true ? "ON" : "OFF");
+    ESP_LOGI(TAG_BLUE_LED, "Return the LED Status %s!", s_led_state == true ? "ON" : "OFF");
     return s_led_state;
 }

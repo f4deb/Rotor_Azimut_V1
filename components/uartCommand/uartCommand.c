@@ -6,13 +6,9 @@
 
 #include "../../../../esp-idf/components/esp_driver_uart/include/driver/uart.h"
 
-#define COMMAND_TEST_TXD (CONFIG_COMMAND_UART_TXD)
-#define COMMAND_TEST_RXD (CONFIG_COMMAND_UART_RXD)
-#define COMMAND_TEST_RTS (UART_PIN_NO_CHANGE)
-#define COMMAND_TEST_CTS (UART_PIN_NO_CHANGE)
 
-#define COMMAND_UART_PORT_NUM      (CONFIG_COMMAND_UART_PORT_NUM)
-#define COMMAND_UART_BAUD_RATE     (CONFIG_COMMAND_UART_BAUD_RATE)
+
+
 
 
 static const char *TAG_UART2 = "UART TEST";
@@ -61,6 +57,7 @@ void command_uart_task(void *arg){
         int len = uart_read_bytes(COMMAND_UART_PORT_NUM, data, (BUF_SIZE - 1), 20 / portTICK_PERIOD_MS);
         // Write data back to the UART
         uart_write_bytes(COMMAND_UART_PORT_NUM, (const char *) data, len);
+
         if (len) {
             data[len] = '\0';
             //ESP_LOGI(TAG_UART2, "Recv str: %s", (char *) data);
