@@ -23,7 +23,7 @@ char* stringToString(char* str,char* rxBuffer,int size){
 
     strncpy(str,rxBuffer,size);
                 str[size] = '\0';
-                ESP_LOGE(TAG, "%s ", str);
+                //ESP_LOGE(TAG, "%s ", str);
     return str;
 }
 
@@ -32,7 +32,7 @@ char* stringToString(char* str,char* rxBuffer,int size){
 int readHex(char* str) {
     int result;
     if (sscanf(str, "%d", &result) ==1) {
-         ESP_LOGE(TAG, "Converted integer: %d\n", result);
+         //ESP_LOGE(TAG, "Converted integer: %d\n", result);
     }
     else {
         ESP_LOGE(TAG, "Conversion failed.\n");

@@ -3,6 +3,8 @@
 
 #include <stdint.h>
 
+#define BLUE_LED_DEBUG 0
+
 #define BLUE_LED_GPIO CONFIG_BLUE_LED_GPIO
 
 uint32_t getTimeBlink (void);

@@ -6,6 +6,8 @@
 #include "esp_event.h"
 #include "esp_log.h"
 
+#include "../charUtils/include/charUtils.h"
+
 
 #include "../../../../esp-idf/components/esp_driver_gpio/include/driver/gpio.h"
 
@@ -62,6 +64,7 @@ void setBlueLed(uint8_t ledStatus){
 }
 
 uint8_t getBlueLed(void){
-    ESP_LOGI(TAG_BLUE_LED, "Return the LED Status %s!", s_led_state == true ? "ON" : "OFF");
+
+    if (BLUE_LED_DEBUG) ESP_LOGI(TAG_BLUE_LED, "Return the LED Status %s!", s_led_state == true ? "ON" : "OFF");
     return s_led_state;
 }

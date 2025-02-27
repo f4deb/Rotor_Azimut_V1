@@ -27,13 +27,7 @@ void interface_task(void *arg){
     for(;;) {
         if (xQueueReceive(getQueueUart2(), &(rxBuffer), (TickType_t)5)) {
             ESP_LOGI(TAG, "%s ", rxBuffer);
-
-            strncpy(str,rxBuffer,INTERFACE_HEADER_SIZE);
-            str[INTERFACE_HEADER_SIZE] = '\0';
-            //ESP_LOGE(TAG, "%s ", str);
-            //ESP_LOGE(TAG, "%s ", rxBuffer);
-
-
+            stringToString(str,rxBuffer,INTERFACE_HEADER_SIZE);
             if ((strcmp(INTERFACE_HEADER,str)) == 0) {
                 blueLedInterface(rxBuffer);
             }
