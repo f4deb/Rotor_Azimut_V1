@@ -10,9 +10,10 @@
 #include "../charUtils/include/charUtils.h"
 
 #include "../blueLed/include/blueLed.h"
-
+#include "../interface/include/interface.h"
 #include "../uartCommand/include/uartCommand.h"
 #include "../../../../esp-idf/components/esp_driver_uart/include/driver/uart.h"
+
 #define TAG "Blue Led Interface"
 
 void blueLedInterface(char rxBuffer[50]){
@@ -22,12 +23,14 @@ void blueLedInterface(char rxBuffer[50]){
     char status[20];
     if (BLUE_LED_INTERFACE_DEBUG) ESP_LOGE(TAG, "%s ", rxBuffer);
 
-    rxBuffer += 3;
+    rxBuffer += INTERFACE_HEADER_SIZE;
 
-    strncpy(str,rxBuffer,BLUE_LED_INTERFACE_HEADER_SIZE);
-    str[BLUE_LED_INTERFACE_HEADER_SIZE] = '\0';
+    stringToString(str,rxBuffer, BLUE_LED_INTERFACE_HEADER_SIZE);
+
+    //strncpy(str,rxBuffer,BLUE_LED_INTERFACE_HEADER_SIZE);
+    //str[BLUE_LED_INTERFACE_HEADER_SIZE] = '\0';
     if (BLUE_LED_INTERFACE_DEBUG) ESP_LOGE(TAG, "%s ", str);
-    rxBuffer += 2;
+    rxBuffer += BLUE_LED_INTERFACE_HEADER_SIZE;
 
     if ((strcmp(BLUE_LED_INTERFACE_HEADER,str)) == 0) {         
 

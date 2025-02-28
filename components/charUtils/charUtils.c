@@ -9,6 +9,8 @@
 
 #define TAG "CHAR UTILS"
 
+void compilCharUtils(void){
+}
 
 char* truncString(char* str,int posInit, int length){
 
@@ -27,8 +29,6 @@ char* stringToString(char* str,char* rxBuffer,int size){
     return str;
 }
 
-
-
 int readHex(char* str) {
     int result;
     if (sscanf(str, "%d", &result) ==1) {
@@ -37,6 +37,5 @@ int readHex(char* str) {
     else {
         ESP_LOGE(TAG, "Conversion failed.\n");
     }
-
     return result;
 }

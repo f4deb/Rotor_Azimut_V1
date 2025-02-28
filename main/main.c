@@ -36,8 +36,7 @@ void init(){
     
     initClock();
 
-    int toto =  readHex("23");
-
+    compilCharUtils();
 
     //UART COMMAND Task
     xTaskCreate(command_uart_task, 

@@ -14,15 +14,9 @@
 
 #define TAG "UART2"
 
-bool isCommandRx;
-
-void initInterface (void){
-
-}
-
 void interface_task(void *arg){
-        char rxBuffer[BUF_SIZE];
-        char str[INTERFACE_HEADER_SIZE];
+    char rxBuffer[BUF_SIZE];
+    char str[INTERFACE_HEADER_SIZE];
 
     for(;;) {
         if (xQueueReceive(getQueueUart2(), &(rxBuffer), (TickType_t)5)) {

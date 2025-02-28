@@ -7,8 +7,6 @@
 #define INTERFACE_HEADER "jk+"
 #define INTERFACE_HEADER_SIZE 3
 
-void initInterface(void);
-
 void interface_task(void *arg);
 
 #endif
