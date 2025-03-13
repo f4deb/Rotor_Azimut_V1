@@ -28,6 +28,7 @@ void interface_task(void *arg){
             else {
                 setRatioBlink(50);
             }
+            
         }   
     vTaskDelay(pdMS_TO_TICKS(500));
     }
