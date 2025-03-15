@@ -30,27 +30,42 @@ void clockInterface(char rxBuffer[50]){
     rxBuffer++;        
     
     if ((strcmp(READ_CLOCK_HEADER,str)) == 0) {
-        //setRatioBlink(readHex(stringToString(str,rxBuffer,2)));
+
         if (CLOCK_INTERFACE_DEBUG) ESP_LOGE(TAG, "%s ", str);
     }
     else if ((strcmp(WRITE_CLOCK_HEADER,str)) == 0) {
-        //setTimeBlink(readHex(stringToString(str,rxBuffer,4)));
+
         if (CLOCK_INTERFACE_DEBUG) ESP_LOGE(TAG, "%s ", str);
     }
     else if ((strcmp(SET_ALARM_HEADER,str)) == 0) {
-        //setBlueLed(readHex(stringToString(str,rxBuffer,2)));
+
         if (CLOCK_INTERFACE_DEBUG) ESP_LOGE(TAG, "%s ", str);
     }
     else if ((strcmp(GET_ALARM_HEADER,str)) == 0) {
-        //setBlueLed(readHex(stringToString(str,rxBuffer,2)));
-        //if (CLOCK_INTERFACE_DEBUG) ESP_LOGE(TAG, "LED Status : %s", s_led_state == true ? "ON" : "OFF");
+
     }
     else if ((strcmp(WRITE_HOUR_HEADER,str)) == 0) {
         setHour(readHex(stringToString(str,rxBuffer,2)));
-        //if (CLOCK_INTERFACE_DEBUG) ESP_LOGE(TAG, "LED Status : %s", s_led_state == true ? "ON" : "OFF");
 
-        
-        
+    }
+    else if ((strcmp(WRITE_MINUTE_HEADER,str)) == 0) {
+        setMinute(readHex(stringToString(str,rxBuffer,2)));
+    }
+
+    else if ((strcmp(WRITE_SECONDE_HEADER,str)) == 0) {
+        setSeconde(readHex(stringToString(str,rxBuffer,2)));
+    }
+
+    else if ((strcmp(WRITE_DAY_HEADER,str)) == 0) {
+        setDay(readHex(stringToString(str,rxBuffer,2)));
+    }
+
+    else if ((strcmp(WRITE_MONTH_HEADER,str)) == 0) {
+        setMonth(readHex(stringToString(str,rxBuffer,2)));    
+    }
+
+    else if ((strcmp(WRITE_YEAR_HEADER,str)) == 0) {
+        setYear(readHex(stringToString(str,rxBuffer,2)));        
             
     // Write data back to the UART
     /*uart_write_bytes(COMMAND_UART_PORT_NUM, status, strlen(status));

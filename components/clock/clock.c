@@ -27,14 +27,32 @@
 static i2c_master_bus_handle_t i2c_bus;
 static i2c_lowlevel_config config = {0}; /* ensure initialize to zero */
 
-void setSeconde(int){
-
+void setSeconde(int value){    
+    setTime(0,value);
 }
-void setMinute(int){
 
+void setMinute(int value){    
+    setTime(1,value);
 }
-void setHour(int hour){
-    ESP_LOGE(TAG, "test hour");
+
+void setHour(int value){    
+    setTime(2,value);
+}
+
+void setDay(int value){    
+    setTime(3,value);
+}
+
+void setMonth(int value){    
+    setTime(4,value);
+}
+
+void setYear(int value){    
+    setTime(5,value);
+}
+
+
+void setTime(int select, int value){
 
     rtci2c_context *ctx = rtci2c_init(RTCI2C_DEVICE_PCF8563, DEVICE_I2C_ADDRESS, &config);
         if(NULL == ctx)
@@ -44,15 +62,8 @@ void setHour(int hour){
         else
         {
             struct tm t;
-            t.tm_hour = hour;
             
-            if (CLOCK_INTERFACE_DEBUG) ESP_LOGE(TAG, "%d ", t.tm_hour);
-
-
-
-            rtci2c_set_datetime(ctx, &t);
-
-
+            //if (CLOCK_INTERFACE_DEBUG) ESP_LOGE(TAG, "%d ", t.tm_hour);
 
             if(!rtci2c_get_datetime(ctx, &t))
             {
@@ -60,26 +71,30 @@ void setHour(int hour){
             }
             else
             {
-                ESP_LOGI(TAG, "Current: %02u/%02u/20%02u %02u:%02u:%02u",
-                t.tm_mday, t.tm_mon, t.tm_year, t.tm_hour, t.tm_min, t.tm_sec);
+                //ESP_LOGE(TAG, "Current: %02u/%02u/20%02u %02u:%02u:%02u",
+                //t.tm_mday, t.tm_mon, t.tm_year, t.tm_hour, t.tm_min, t.tm_sec);
             }
-                
+
+
+            switch (select){
+                case 0 : t.tm_sec = value;
+                        break;
+                case 1 : t.tm_min = value;
+                        break; 
+                case 2 : t.tm_hour = value;
+                        break;
+                case 3 : t.tm_mday = value;
+                        break;    
+                case 4 : t.tm_mon = value;
+                        break;
+                case 5 : t.tm_year = value;
+                        break;                   
+                default : break;
+            }
+
+            rtci2c_set_datetime(ctx, &t);         
             rtci2c_deinit(ctx);        
         }
-    
-
-}
-void setDay(int){
-
-}
-void setDayOfWeek(int){
-
-}
-void setMonth(int){
-
-}
-void setYear(int){
-
 }
 
 
