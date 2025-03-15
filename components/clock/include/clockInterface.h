@@ -16,6 +16,8 @@
 #define SET_ALARM_HEADER "s"
 #define GET_ALARM_HEADER "g"
 
+#define WRITE_HOUR_HEADER "H"
+
 void clockInterface(char rxBuffer[50]);
 
 #endif

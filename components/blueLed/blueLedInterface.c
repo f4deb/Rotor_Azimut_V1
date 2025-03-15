@@ -18,25 +18,14 @@
 
 void blueLedInterface(char rxBuffer[50]){
 
-    //char rxBuffer[BUF_SIZE];
     char str[BLUE_LED_INTERFACE_COMMAND_SIZE];
     char status[20];
     if (BLUE_LED_INTERFACE_DEBUG) ESP_LOGE(TAG, "%s ", rxBuffer);
 
-    rxBuffer += INTERFACE_HEADER_SIZE;
+    stringToString(str,rxBuffer, BLUE_LED_INTERFACE_COMMAND_SIZE);
 
-    stringToString(str,rxBuffer, BLUE_LED_INTERFACE_HEADER_SIZE);
-
-    //strncpy(str,rxBuffer,BLUE_LED_INTERFACE_HEADER_SIZE);
-    //str[BLUE_LED_INTERFACE_HEADER_SIZE] = '\0';
     if (BLUE_LED_INTERFACE_DEBUG) ESP_LOGE(TAG, "%s ", str);
-    rxBuffer += BLUE_LED_INTERFACE_HEADER_SIZE;
-
-    if ((strcmp(BLUE_LED_INTERFACE_HEADER,str)) == 0) {         
-
-        strncpy(str,rxBuffer,BLUE_LED_INTERFACE_COMMAND_SIZE);
-        str[BLUE_LED_INTERFACE_COMMAND_SIZE] = '\0';
-        ESP_LOGE(TAG, "%s ", str);
+ 
         rxBuffer++;        
         
         if ((strcmp(SET_RATIO_BLINK_HEADER,str)) == 0) {
@@ -76,9 +65,9 @@ void blueLedInterface(char rxBuffer[50]){
             else {
                 ESP_LOGE(TAG, "Bad command");
             }
-    }
-    else {
-                ESP_LOGE(TAG, "Bad command");
-            }
+    //}
+    //else {
+    //            ESP_LOGE(TAG, "Bad command");
+    //        }
 
 }

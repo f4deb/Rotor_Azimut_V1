@@ -3,7 +3,7 @@
     "idf.espIdfPath": "/home/f4deb/esp/v5.4/esp-idf",
     "idf.toolsPath": "/home/f4deb/Documents/F4DEB-ESP32/",
     "idf.flashType": "UART",
-    "idf.port": "/dev/ttyUSB0",
+    "idf.port": "/dev/ttyUSB2",
     "files.associations": {
         "sdkconfig.h": "c",
         "stdio.h": "c",
@@ -20,6 +20,12 @@
         "charutils.h": "c",
         "string.h": "c",
         "uart.h": "c",
-        "clockinterface.h": "c"
+        "clockinterface.h": "c",
+        "array": "c",
+        "string_view": "c",
+        "format": "c",
+        "initializer_list": "c",
+        "span": "c",
+        "cstdint": "c"
     }
 }

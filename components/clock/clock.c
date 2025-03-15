@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "clock.h"
+#include "clockInterface.h"
 
 #include "sdkconfig.h"
 
@@ -25,6 +26,64 @@
 
 static i2c_master_bus_handle_t i2c_bus;
 static i2c_lowlevel_config config = {0}; /* ensure initialize to zero */
+
+void setSeconde(int){
+
+}
+void setMinute(int){
+
+}
+void setHour(int hour){
+    ESP_LOGE(TAG, "test hour");
+
+    rtci2c_context *ctx = rtci2c_init(RTCI2C_DEVICE_PCF8563, DEVICE_I2C_ADDRESS, &config);
+        if(NULL == ctx)
+        {
+            ESP_LOGE(TAG, "Initialization failed");
+        }
+        else
+        {
+            struct tm t;
+            t.tm_hour = hour;
+            
+            if (CLOCK_INTERFACE_DEBUG) ESP_LOGE(TAG, "%d ", t.tm_hour);
+
+
+
+            rtci2c_set_datetime(ctx, &t);
+
+
+
+            if(!rtci2c_get_datetime(ctx, &t))
+            {
+                ESP_LOGE(TAG, "Date/tate query failed");
+            }
+            else
+            {
+                ESP_LOGI(TAG, "Current: %02u/%02u/20%02u %02u:%02u:%02u",
+                t.tm_mday, t.tm_mon, t.tm_year, t.tm_hour, t.tm_min, t.tm_sec);
+            }
+                
+            rtci2c_deinit(ctx);        
+        }
+    
+
+}
+void setDay(int){
+
+}
+void setDayOfWeek(int){
+
+}
+void setMonth(int){
+
+}
+void setYear(int){
+
+}
+
+
+
 
 void initClock (void){
 
@@ -77,8 +136,8 @@ void clock_task(void *arg){
                 }
                 else
                 {
-                    //ESP_LOGI(TAG, "Current: %02u/%02u/20%02u %02u:%02u:%02u",
-                    //t.tm_mday, t.tm_mon, t.tm_year, t.tm_hour, t.tm_min, t.tm_sec);
+                    ESP_LOGI(TAG, "Current: %02u/%02u/20%02u %02u:%02u:%02u",
+                    t.tm_mday, t.tm_mon, t.tm_year, t.tm_hour, t.tm_min, t.tm_sec);
                 }
                 vTaskDelay(pdMS_TO_TICKS(5000));
             }
