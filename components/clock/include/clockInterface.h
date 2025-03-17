@@ -13,8 +13,15 @@
 #define READ_CLOCK_HEADER "r"
 #define WRITE_CLOCK_HEADER "w"
 
-#define SET_ALARM_HEADER "s"
-#define GET_ALARM_HEADER "g"
+#define SET_ALARM_HEADER "A"
+#define GET_ALARM_HEADER "a"
+
+#define READ_SECONDE_HEADER "s"
+#define READ_MINUTE_HEADER "m"
+#define READ_HOUR_HEADER "h"
+#define READ_DAY_HEADER "d"
+#define READ_MONTH_HEADER "t"
+#define READ_YEAR_HEADER "y"
 
 #define WRITE_SECONDE_HEADER "S"
 #define WRITE_MINUTE_HEADER "M"

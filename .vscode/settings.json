@@ -27,6 +27,15 @@
         "initializer_list": "c",
         "span": "c",
         "cstdint": "c",
-        "sstream": "c"
+        "sstream": "c",
+        "charconv": "c",
+        "chrono": "c",
+        "optional": "c",
+        "ratio": "c",
+        "system_error": "c",
+        "functional": "c",
+        "tuple": "c",
+        "type_traits": "c",
+        "utility": "c"
     }
 }

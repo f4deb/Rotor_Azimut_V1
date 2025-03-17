@@ -20,7 +20,7 @@
 void clockInterface(char rxBuffer[50]){
 
     char str[CLOCK_INTERFACE_COMMAND_SIZE];
-    char status[20];
+    char value[20];
     if (CLOCK_INTERFACE_DEBUG) ESP_LOGE(TAG, "%s ", rxBuffer);
 
     stringToString(str,rxBuffer, CLOCK_INTERFACE_COMMAND_SIZE);
@@ -30,7 +30,7 @@ void clockInterface(char rxBuffer[50]){
     rxBuffer++;        
     
     if ((strcmp(READ_CLOCK_HEADER,str)) == 0) {
-
+        readClock();
         if (CLOCK_INTERFACE_DEBUG) ESP_LOGE(TAG, "%s ", str);
     }
     else if ((strcmp(WRITE_CLOCK_HEADER,str)) == 0) {
@@ -65,16 +65,45 @@ void clockInterface(char rxBuffer[50]){
     }
 
     else if ((strcmp(WRITE_YEAR_HEADER,str)) == 0) {
-        setYear(readHex(stringToString(str,rxBuffer,2)));        
-            
-    // Write data back to the UART
-    /*uart_write_bytes(COMMAND_UART_PORT_NUM, status, strlen(status));
-    status [0] = LF;
-    status [1] = '\0';
+        setYear(readHex(stringToString(str,rxBuffer,2)));       
+        
+    }
 
+    else if ((strcmp(READ_SECONDE_HEADER,str)) == 0) {             
+        sprintf (value,"%02d", getSeconde() );        
+        uart_write_bytes(COMMAND_UART_PORT_NUM, value, strlen(value));
+        value [2] = '\0';
+    }
 
-    uart_write_bytes(COMMAND_UART_PORT_NUM, status, strlen(status));
-    */    
+    else if ((strcmp(READ_MINUTE_HEADER,str)) == 0) {             
+        sprintf (value,"%02d", getMinute() );        
+        uart_write_bytes(COMMAND_UART_PORT_NUM, value, strlen(value));
+        value [2] = '\0';        
+    }
+
+    else if ((strcmp(READ_HOUR_HEADER,str)) == 0) {             
+        sprintf (value,"%02d", getHour() );        
+        uart_write_bytes(COMMAND_UART_PORT_NUM, value, strlen(value));
+        value [2] = '\0';
+    }
+
+    else if ((strcmp(READ_DAY_HEADER,str)) == 0) {             
+        sprintf (value,"%02d", getDay() );        
+        uart_write_bytes(COMMAND_UART_PORT_NUM, value, strlen(value));
+        value [2] = '\0';
+    }
+
+    else if ((strcmp(READ_MONTH_HEADER,str)) == 0) {             
+        sprintf (value,"%02d", getMonth() );        
+        uart_write_bytes(COMMAND_UART_PORT_NUM, value, strlen(value));
+        value [2] = '\0';
+    }
+
+    else if ((strcmp(READ_YEAR_HEADER,str)) == 0) {             
+        sprintf (value,"%02d", getYear() );        
+        uart_write_bytes(COMMAND_UART_PORT_NUM, value, strlen(value));
+        value [2] = '\0';
+
     }
     else {
         ESP_LOGE(TAG, "Bad command");

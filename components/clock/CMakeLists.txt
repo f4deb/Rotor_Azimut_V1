@@ -1,5 +1,6 @@
-idf_component_register(SRCS "clock.c" "../charUtils/charUtils.c"
+idf_component_register(SRCS "clock.c" "../charUtils/charUtils.c" "../uartCommand/uartCommand.c"
 INCLUDE_DIRS "include" 
+            "../uartCommand/include"
             "../charUtils/include"
             "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_i2c/include"
             "/home/f4deb/esp/v5.4/esp-idf/components/nvs_flash/include"

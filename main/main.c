@@ -53,6 +53,7 @@ void init(){
                 NULL, 
                 3, 
                 NULL);
+                
     // INTERFACE TASK
     xTaskCreate(interface_task,
                 "interface_task",

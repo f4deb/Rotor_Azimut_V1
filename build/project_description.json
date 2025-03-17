@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "rotorV1",
-    "project_version":    "5b88aaa-dirty",
+    "project_version":    "66658a3-dirty",
     "project_path":       "/home/f4deb/RotorV1A",
     "idf_path":           "/home/f4deb/esp/v5.4/esp-idf",
     "build_dir":          "/home/f4deb/RotorV1A/build",
@@ -160,8 +160,8 @@
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "/home/f4deb/RotorV1A/build/esp-idf/clock/libclock.a",
-            "sources": [ "/home/f4deb/RotorV1A/components/clock/clock.c", "/home/f4deb/RotorV1A/components/charUtils/charUtils.c" ],
-            "include_dirs": [ "include", "../charUtils/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_i2c/include", "/home/f4deb/esp/v5.4/esp-idf/components/nvs_flash/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_event/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_partition/include", "/home/f4deb/RotorV1A/managed_components/zorxx__rtci2c/include" ]
+            "sources": [ "/home/f4deb/RotorV1A/components/clock/clock.c", "/home/f4deb/RotorV1A/components/charUtils/charUtils.c", "/home/f4deb/RotorV1A/components/uartCommand/uartCommand.c" ],
+            "include_dirs": [ "include", "../uartCommand/include", "../charUtils/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_i2c/include", "/home/f4deb/esp/v5.4/esp-idf/components/nvs_flash/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_event/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_partition/include", "/home/f4deb/RotorV1A/managed_components/zorxx__rtci2c/include" ]
         },
         "cmock": {
             "alias": "idf::cmock",
@@ -3028,7 +3028,7 @@
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "include_dirs": [ "include", "../charUtils/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_i2c/include", "/home/f4deb/esp/v5.4/esp-idf/components/nvs_flash/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_event/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_partition/include", "/home/f4deb/RotorV1A/managed_components/zorxx__rtci2c/include" ]
+            "include_dirs": [ "include", "../uartCommand/include", "../charUtils/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_i2c/include", "/home/f4deb/esp/v5.4/esp-idf/components/nvs_flash/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_event/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_partition/include", "/home/f4deb/RotorV1A/managed_components/zorxx__rtci2c/include" ]
         },
         "interface": {
             "alias": "idf::interface",
