@@ -105,9 +105,12 @@ void clockInterface(char rxBuffer[50]){
         value [2] = '\0';
 
     }
+
+    else if ((strcmp(SET_CLOCK_REFRESH_DELAY,str)) == 0) {
+        setClockRefresh(readHex(stringToString(str,rxBuffer,6)));
+    }
+  
     else {
         ESP_LOGE(TAG, "Bad command");
     }
-  
-
-}
+} 

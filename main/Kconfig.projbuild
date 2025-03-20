@@ -100,3 +100,72 @@ menu "Blue Led Configuration"
             Define pourcentage of the blinking period
 
 endmenu
+
+menu "Clock Configuration"
+
+    orsource "$IDF_PATH/examples/common_components/env_caps/$IDF_TARGET/Kconfig.env_caps"
+
+    choice PCF8563
+        prompt "PCF8563 type"
+        default BLINK_LED_GPIO
+        help
+           To do
+        config PCF8563_GPIO
+            bool "PCF8563"
+        config TCAXXX_GPIO
+            bool "TCAXXX"
+    endchoice
+
+    config CLOCK_GPIO
+        int "I2C port number"
+        range 0 2
+        default 2
+        help
+            GPIO number (IOxx) to blink on and off the LED.
+            Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used to blink.
+
+    config CLOCK_PERIOD
+        int "Clock period in ms"
+        range 1 3600000
+        default 5000
+        help
+            Define the refresh period in milliseconds.
+
+    
+endmenu
+
+menu "Oled Configuration"
+
+    choice EXAMPLE_LCD_CONTROLLER
+        prompt "LCD controller model"
+        default EXAMPLE_LCD_CONTROLLER_SSD1306
+        help
+            Select LCD controller model
+
+        config EXAMPLE_LCD_CONTROLLER_SSD1306
+            bool "SSD1306"
+
+        config EXAMPLE_LCD_CONTROLLER_SH1107
+            bool "SH1107"
+    endchoice
+
+    if EXAMPLE_LCD_CONTROLLER_SSD1306
+        choice EXAMPLE_SSD1306_HEIGHT
+            prompt "SSD1306 Height in pixels"
+            default EXAMPLE_SSD1306_HEIGHT_64
+            help
+                Height of the display in pixels. a.k.a vertical resolution
+
+            config EXAMPLE_SSD1306_HEIGHT_64
+                bool "64"
+            config EXAMPLE_SSD1306_HEIGHT_32
+                bool "32"
+        endchoice
+
+        config EXAMPLE_SSD1306_HEIGHT
+            int
+            default 64 if EXAMPLE_SSD1306_HEIGHT_64
+            default 32 if EXAMPLE_SSD1306_HEIGHT_32
+    endif
+
+endmenu

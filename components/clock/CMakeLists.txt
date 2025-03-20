@@ -1,4 +1,4 @@
-idf_component_register(SRCS "clock.c" "../charUtils/charUtils.c" "../uartCommand/uartCommand.c"
+idf_component_register(SRCS "clockInterface.c" "clock.c" "../charUtils/charUtils.c" "../uartCommand/uartCommand.c"
 INCLUDE_DIRS "include" 
             "../uartCommand/include"
             "../charUtils/include"

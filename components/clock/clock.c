@@ -23,16 +23,12 @@
 
 #define RTCI2C_LIBRARY_I2C_BUS_INIT 0
 
-/* The following definitions may change, based on the ESP device,
-   RTC device configuration, and wiring between them. */
-#define ESP_I2C_PORT I2C_NUM_0
-#define ESP_I2C_SDA  GPIO_NUM_21
-#define ESP_I2C_SCL  GPIO_NUM_22
-#define DEVICE_I2C_ADDRESS 0 /* let the library figure it out */
+
 
 static i2c_master_bus_handle_t i2c_bus;
 static i2c_lowlevel_config config = {0}; /* ensure initialize to zero */
 static struct tm t;
+static int clockRefreshDelay = CONFIG_CLOCK_PERIOD;
 
 void setSeconde(int value){    
     if (value>59) {
@@ -59,8 +55,8 @@ void setHour(int value){
 }
 
 void setDay(int value){    
-    if (value>7) {
-        ESP_LOGE(TAG,"Bad Value, must be less than 8");
+    if (value>31) {
+        ESP_LOGE(TAG,"Bad Value, must be less than 32");
         return;
     }
     setTime(3,value);
@@ -117,6 +113,13 @@ int getYear(void){
     return (t.tm_year);
 }
 
+void setClockRefresh(int value){
+    clockRefreshDelay = value;
+}
+
+int getClockRefresh(void){
+    return clockRefreshDelay;
+}
 
 void setTime(int select, int value){
     //getTime();
@@ -158,7 +161,6 @@ void readClock(void){
     uart_write_bytes(COMMAND_UART_PORT_NUM, str,strlen(str));   
 }
 
-
 void getTime(void){
     rtci2c_context *ctx = rtci2c_init(RTCI2C_DEVICE_PCF8563, DEVICE_I2C_ADDRESS, &config);
     if(NULL == ctx) {
@@ -175,7 +177,6 @@ void getTime(void){
         rtci2c_deinit(ctx);         
     }
 }
-
 
 void initClock (void){
 
@@ -218,8 +219,7 @@ void clock_task(void *arg){
         }
         else
         {            
-            for(int i = 0; i < 100; ++i)
-            {
+            
                 if(!rtci2c_get_datetime(ctx, &t))
                 {
                     ESP_LOGE(TAG, "Date/tate query failed");
@@ -229,8 +229,9 @@ void clock_task(void *arg){
                     ESP_LOGI(TAG, "Current: %02u/%02u/20%02u %02u:%02u:%02u",
                     t.tm_mday, t.tm_mon, t.tm_year, t.tm_hour, t.tm_min, t.tm_sec);
                 }
-                vTaskDelay(pdMS_TO_TICKS(5000));
-            }
+
+                vTaskDelay(pdMS_TO_TICKS(clockRefreshDelay));
+           
             rtci2c_deinit(ctx);        
         }
     }

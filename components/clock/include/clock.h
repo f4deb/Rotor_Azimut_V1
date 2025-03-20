@@ -1,6 +1,13 @@
 #ifndef CLOCK_H
 #define CLOCK_H
 
+/* The following definitions may change, based on the ESP device,
+   RTC device configuration, and wiring between them. */
+   #define ESP_I2C_PORT I2C_NUM_0
+   #define ESP_I2C_SDA  GPIO_NUM_21
+   #define ESP_I2C_SCL  GPIO_NUM_22
+   #define DEVICE_I2C_ADDRESS 0 /* let the library figure it out */
+
 #define CLOCK_TASK_STACK_SIZE   3072
 
 void setSeconde(int value);
@@ -23,6 +30,9 @@ void readClock(void);
 
 void getTime(void);
 void setTime(int select, int value);
+
+void setClockRefresh(int value);
+
 
 void initClock(void);
 

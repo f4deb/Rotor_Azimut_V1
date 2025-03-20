@@ -30,6 +30,9 @@
 #define WRITE_MONTH_HEADER "T"
 #define WRITE_YEAR_HEADER "Y"
 
+#define SET_CLOCK_REFRESH_DELAY "C"
+#define GET_CLOCK_REFRESH_DELAY "c"
+
 void clockInterface(char rxBuffer[50]);
 
 #endif
