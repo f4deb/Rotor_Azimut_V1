@@ -866,6 +866,13 @@
 /home/f4deb/RotorV1A/build/esp-idf/main/CMakeFiles/install.dir
 /home/f4deb/RotorV1A/build/esp-idf/main/CMakeFiles/install/local.dir
 /home/f4deb/RotorV1A/build/esp-idf/main/CMakeFiles/install/strip.dir
+/home/f4deb/RotorV1A/build/esp-idf/Oled/CMakeFiles/__idf_Oled.dir
+/home/f4deb/RotorV1A/build/esp-idf/Oled/CMakeFiles/edit_cache.dir
+/home/f4deb/RotorV1A/build/esp-idf/Oled/CMakeFiles/rebuild_cache.dir
+/home/f4deb/RotorV1A/build/esp-idf/Oled/CMakeFiles/list_install_components.dir
+/home/f4deb/RotorV1A/build/esp-idf/Oled/CMakeFiles/install.dir
+/home/f4deb/RotorV1A/build/esp-idf/Oled/CMakeFiles/install/local.dir
+/home/f4deb/RotorV1A/build/esp-idf/Oled/CMakeFiles/install/strip.dir
 /home/f4deb/RotorV1A/build/esp-idf/blueLed/CMakeFiles/__idf_blueLed.dir
 /home/f4deb/RotorV1A/build/esp-idf/blueLed/CMakeFiles/edit_cache.dir
 /home/f4deb/RotorV1A/build/esp-idf/blueLed/CMakeFiles/rebuild_cache.dir
