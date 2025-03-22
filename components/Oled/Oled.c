@@ -28,7 +28,7 @@
 #include "../../clock/include/clock.h"
 
 
-static const char *TAG_MAIN = "Main : ";
+static const char *TAG = "OLED : ";
 
 
 
@@ -44,9 +44,9 @@ void example_lvgl_demo_ui(lv_disp_t *disp)
 }
 
 void oled (void){
-    ESP_LOGI(TAG_MAIN, "Initialize I2C bus");
+    ESP_LOGI(TAG, "Initialize I2C bus");
     i2c_master_bus_handle_t i2c_bus = NULL;
-    i2c_master_bus_config_t bus_config = {
+    i2c_master_bus_config_t bus_cfg = {
         .clk_source = I2C_CLK_SRC_DEFAULT,
         .glitch_ignore_cnt = 7,
         .i2c_port = ESP_I2C_PORT,
@@ -54,9 +54,15 @@ void oled (void){
         .scl_io_num = ESP_I2C_SCL,
         .flags.enable_internal_pullup = true,
     };
-    ESP_ERROR_CHECK(i2c_new_master_bus(&bus_config, &i2c_bus));
 
-    ESP_LOGI(TAG_MAIN, "Install panel IO");
+    if(i2c_new_master_bus(&bus_cfg, &i2c_bus) != ESP_OK)
+    {
+        ESP_LOGE(TAG, "Failed to initialize I2C bus");
+    }
+
+    //ESP_ERROR_CHECK(i2c_new_master_bus(&bus_cfg, &i2c_bus));
+
+    ESP_LOGI(TAG, "Install panel IO");
     esp_lcd_panel_io_handle_t io_handle = NULL;
     esp_lcd_panel_io_i2c_config_t io_config = {
         .dev_addr = EXAMPLE_I2C_HW_ADDR,
@@ -64,19 +70,11 @@ void oled (void){
         .control_phase_bytes = 1,               // According to SSD1306 datasheet
         .lcd_cmd_bits = EXAMPLE_LCD_CMD_BITS,   // According to SSD1306 datasheet
         .lcd_param_bits = EXAMPLE_LCD_CMD_BITS, // According to SSD1306 datasheet
-#if CONFIG_EXAMPLE_LCD_CONTROLLER_SSD1306
         .dc_bit_offset = 6,                     // According to SSD1306 datasheet
-#elif CONFIG_EXAMPLE_LCD_CONTROLLER_SH1107
-        .dc_bit_offset = 0,                     // According to SH1107 datasheet
-        .flags =
-        {
-            .disable_control_phase = 1,
-        }
-#endif
     };
     ESP_ERROR_CHECK(esp_lcd_new_panel_io_i2c(i2c_bus, &io_config, &io_handle));
 
-    ESP_LOGI(TAG_MAIN, "Install SSD1306 panel driver");
+    ESP_LOGI(TAG, "Install SSD1306 panel driver");
     esp_lcd_panel_handle_t panel_handle = NULL;
     esp_lcd_panel_dev_config_t panel_config = {
         .bits_per_pixel = 1,
@@ -100,7 +98,7 @@ void oled (void){
     ESP_ERROR_CHECK(esp_lcd_panel_invert_color(panel_handle, true));
 #endif
 
-    ESP_LOGI(TAG_MAIN, "Initialize LVGL");
+    ESP_LOGI(TAG, "Initialize LVGL");
     const lvgl_port_cfg_t lvgl_cfg = ESP_LVGL_PORT_INIT_CONFIG();
     lvgl_port_init(&lvgl_cfg);
 
@@ -123,7 +121,7 @@ void oled (void){
     /* Rotation of the screen */
     lv_disp_set_rotation(disp, LV_DISP_ROT_NONE);
 
-    ESP_LOGI(TAG_MAIN, "Display LVGL Scroll Text");
+    ESP_LOGI(TAG, "Display LVGL Scroll Text");
     // Lock the mutex due to the LVGL APIs are not thread-safe
     if (lvgl_port_lock(0)) {
         example_lvgl_demo_ui(disp);

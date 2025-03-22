@@ -38,15 +38,7 @@
 #include "../components/charUtils/include/charUtils.h"
 #include "../components/Oled/include/Oled.h"
 
-
-
-
-
-
 static const char *TAG_MAIN = "Main : ";
-
-
-
 
 void init(){
 

@@ -19,7 +19,7 @@
 #include "../../../../esp-idf/components/esp_driver_uart/include/driver/uart.h"
 
 
-#define TAG "RTCI2C"
+#define TAG "CLOCK"
 
 #define RTCI2C_LIBRARY_I2C_BUS_INIT 0
 
@@ -182,17 +182,7 @@ void initClock (void){
 
     ESP_ERROR_CHECK(nvs_flash_init());
     ESP_ERROR_CHECK(esp_event_loop_create_default() );
-
-    #if RTCI2C_LIBRARY_I2C_BUS_INIT
-    /* Allow the rtci2c library to initialize the i2c bus */
-    config.port = ESP_I2C_PORT;
-    config.pin_sda = ESP_I2C_SDA;
-    config.pin_scl = ESP_I2C_SCL;
-
-    #else
-    /* Initialize the i2c bus the way we want. Optionally keep the "bus"
-        pointer to allow the use of the same bus instance for other i2c
-        device communication. */
+    
     i2c_master_bus_config_t bus_cfg = {
         .clk_source = I2C_CLK_SRC_DEFAULT,
         .i2c_port = ESP_I2C_PORT, 
@@ -206,8 +196,6 @@ void initClock (void){
         ESP_LOGE(TAG, "Failed to initialize I2C bus");
     }
     config.bus = &i2c_bus;
-    #endif
-
 }
 
 void clock_task(void *arg){
