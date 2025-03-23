@@ -866,6 +866,13 @@
 /home/f4deb/RotorV1A/build/esp-idf/main/CMakeFiles/install.dir
 /home/f4deb/RotorV1A/build/esp-idf/main/CMakeFiles/install/local.dir
 /home/f4deb/RotorV1A/build/esp-idf/main/CMakeFiles/install/strip.dir
+/home/f4deb/RotorV1A/build/esp-idf/I2c/CMakeFiles/__idf_I2c.dir
+/home/f4deb/RotorV1A/build/esp-idf/I2c/CMakeFiles/edit_cache.dir
+/home/f4deb/RotorV1A/build/esp-idf/I2c/CMakeFiles/rebuild_cache.dir
+/home/f4deb/RotorV1A/build/esp-idf/I2c/CMakeFiles/list_install_components.dir
+/home/f4deb/RotorV1A/build/esp-idf/I2c/CMakeFiles/install.dir
+/home/f4deb/RotorV1A/build/esp-idf/I2c/CMakeFiles/install/local.dir
+/home/f4deb/RotorV1A/build/esp-idf/I2c/CMakeFiles/install/strip.dir
 /home/f4deb/RotorV1A/build/esp-idf/Oled/CMakeFiles/__idf_Oled.dir
 /home/f4deb/RotorV1A/build/esp-idf/Oled/CMakeFiles/edit_cache.dir
 /home/f4deb/RotorV1A/build/esp-idf/Oled/CMakeFiles/rebuild_cache.dir

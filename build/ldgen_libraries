@@ -86,6 +86,7 @@
 /home/f4deb/RotorV1A/build/esp-idf/espressif__led_strip/libespressif__led_strip.a
 /home/f4deb/RotorV1A/build/esp-idf/zorxx__rtci2c/libzorxx__rtci2c.a
 /home/f4deb/RotorV1A/build/esp-idf/main/libmain.a
+/home/f4deb/RotorV1A/build/esp-idf/I2c/libI2c.a
 /home/f4deb/RotorV1A/build/esp-idf/Oled/libOled.a
 /home/f4deb/RotorV1A/build/esp-idf/blueLed/libblueLed.a
 /home/f4deb/RotorV1A/build/esp-idf/buffer/libbuffer.a

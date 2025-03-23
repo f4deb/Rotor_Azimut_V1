@@ -26,11 +26,11 @@
 #include "driver/i2c_master.h"
 
 #include "../../clock/include/clock.h"
+#include "../../I2c/include/I2c.h"
 
 
 static const char *TAG = "OLED : ";
-
-
+//static i2c_master_bus_handle_t i2c_bus;
 
 void example_lvgl_demo_ui(lv_disp_t *disp)
 {
@@ -44,21 +44,23 @@ void example_lvgl_demo_ui(lv_disp_t *disp)
 }
 
 void oled (void){
-    ESP_LOGI(TAG, "Initialize I2C bus");
-    i2c_master_bus_handle_t i2c_bus = NULL;
+    
+    initI2c();  
+    
+    /*ESP_LOGI(TAG, "Initialize I2C bus");
     i2c_master_bus_config_t bus_cfg = {
         .clk_source = I2C_CLK_SRC_DEFAULT,
-        .glitch_ignore_cnt = 7,
         .i2c_port = ESP_I2C_PORT,
         .sda_io_num = ESP_I2C_SDA,
         .scl_io_num = ESP_I2C_SCL,
+        .glitch_ignore_cnt = 7,
         .flags.enable_internal_pullup = true,
     };
 
     if(i2c_new_master_bus(&bus_cfg, &i2c_bus) != ESP_OK)
     {
         ESP_LOGE(TAG, "Failed to initialize I2C bus");
-    }
+    }*/
 
     //ESP_ERROR_CHECK(i2c_new_master_bus(&bus_cfg, &i2c_bus));
 
@@ -72,7 +74,7 @@ void oled (void){
         .lcd_param_bits = EXAMPLE_LCD_CMD_BITS, // According to SSD1306 datasheet
         .dc_bit_offset = 6,                     // According to SSD1306 datasheet
     };
-    ESP_ERROR_CHECK(esp_lcd_new_panel_io_i2c(i2c_bus, &io_config, &io_handle));
+    ESP_ERROR_CHECK(esp_lcd_new_panel_io_i2c(getI2cBus(), &io_config, &io_handle));
 
     ESP_LOGI(TAG, "Install SSD1306 panel driver");
     esp_lcd_panel_handle_t panel_handle = NULL;

@@ -42,12 +42,12 @@ static const char *TAG_MAIN = "Main : ";
 
 void init(){
 
-    oled();
-
     /* Configure the peripheral according to the LED type */
     configure_led();
-    
+    oled();
+
     initClock();
+
 
     compilCharUtils();
 
