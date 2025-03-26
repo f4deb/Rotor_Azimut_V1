@@ -12,6 +12,6 @@ RTC device configuration, and wiring between them. */
 
 i2c_master_bus_handle_t getI2cBus (void);
 
-void initI2c(void);
+void I2cBusInit(void);
 
 #endif

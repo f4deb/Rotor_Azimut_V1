@@ -4,8 +4,6 @@
 #include "clock.h"
 #include "clockInterface.h"
 
-
-
 #include "sdkconfig.h"
 
 #include "nvs_flash.h"
@@ -24,7 +22,7 @@
 
 #define RTCI2C_LIBRARY_I2C_BUS_INIT 0
 
-i2c_master_bus_handle_t toto;
+i2c_master_bus_handle_t I2cBusClock;
 
 //static i2c_master_bus_handle_t i2c_bus;
 static i2c_lowlevel_config config = {0}; /* ensure initialize to zero */
@@ -185,16 +183,9 @@ void initClock (void){
     ESP_ERROR_CHECK(esp_event_loop_create_default() );
     ESP_LOGI(TAG, "Initialize I2C bus");
     
-   initI2c();
+    I2cBusClock = getI2cBus ();
 
-   toto = getI2cBus ();
-
-
-
-    config.bus = &toto;
-
-
-    //config.bus = &i2c_bus;
+    config.bus = &I2cBusClock;
 }
 
 void clock_task(void *arg){
@@ -205,20 +196,17 @@ void clock_task(void *arg){
             ESP_LOGE(TAG, "Initialization failed");
         }
         else
-        {            
-            
-                if(!rtci2c_get_datetime(ctx, &t))
-                {
-                    ESP_LOGE(TAG, "Date/tate query failed");
-                }
-                else
-                {
-                    ESP_LOGI(TAG, "Current: %02u/%02u/20%02u %02u:%02u:%02u",
-                    t.tm_mday, t.tm_mon, t.tm_year, t.tm_hour, t.tm_min, t.tm_sec);
-                }
+        {                        
+            if(!rtci2c_get_datetime(ctx, &t)){
+                ESP_LOGE(TAG, "Date/tate query failed");
+            }
+            else{
+                ESP_LOGI(TAG, "Current: %02u/%02u/20%02u %02u:%02u:%02u",
+                t.tm_mday, t.tm_mon, t.tm_year, t.tm_hour, t.tm_min, t.tm_sec);
+            }
 
-                vTaskDelay(pdMS_TO_TICKS(clockRefreshDelay));
-           
+            vTaskDelay(pdMS_TO_TICKS(clockRefreshDelay));
+        
             rtci2c_deinit(ctx);        
         }
     }

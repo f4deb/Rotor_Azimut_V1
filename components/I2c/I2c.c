@@ -16,7 +16,7 @@ i2c_master_bus_handle_t getI2cBus (void){
     return i2c_bus;
 }
 
-void initI2c(void){
+void I2cBusInit(void){
     
     ESP_LOGI(TAG, "Initialize I2C bus");
     i2c_master_bus_config_t bus_cfg = {

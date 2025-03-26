@@ -1,33 +1,20 @@
 #include <stdio.h>
 #include "Oled.h"
-
-
-
 #include "sdkconfig.h"
-
 #include "esp_err.h"
 #include "esp_log.h"
-
-
-
-#include "../../managed_components/espressif__esp_lvgl_port/include/esp_lvgl_port.h"
-
-
 #include "esp_lcd_panel_io.h"
 #include "esp_lcd_panel_ops.h"
 #include "esp_lcd_panel_dev.h"
 #include "esp_lcd_panel_ssd1306.h"
 
-
 #include "../../managed_components/lvgl__lvgl/lvgl.h"
-
-
+#include "../../managed_components/espressif__esp_lvgl_port/include/esp_lvgl_port.h"
 
 #include "driver/i2c_master.h"
 
 #include "../../clock/include/clock.h"
 #include "../../I2c/include/I2c.h"
-
 
 static const char *TAG = "OLED : ";
 //static i2c_master_bus_handle_t i2c_bus;
@@ -37,33 +24,23 @@ void example_lvgl_demo_ui(lv_disp_t *disp)
     lv_obj_t *scr = lv_disp_get_scr_act(disp);
     lv_obj_t *label = lv_label_create(scr);
     lv_label_set_long_mode(label, LV_LABEL_LONG_SCROLL_CIRCULAR); /* Circular scroll */
-    lv_label_set_text(label, "Hello F4DEB, Hello F4DEB.");
+    lv_label_set_text(label, "CQ...CQ ON8BAK de F4DEB PSE K");
     /* Size of the screen (if you use rotation 90 or 270, please set disp->driver->ver_res) */
+
+/* If do not compil, check version 8.3.0 in dependencies.lock file
+lvgl/lvgl:
+    component_hash: 7b7ee85e48c2eb35bb242a8c7e0e4cd702e150541afb3f69089fb7ba81554d14
+    dependencies: []
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 8.3.0
+*/
     lv_obj_set_width(label, disp->driver->hor_res);
     lv_obj_align(label, LV_ALIGN_TOP_MID, 0, 0);
 }
 
-void oled (void){
-    
-    initI2c();  
-    
-    /*ESP_LOGI(TAG, "Initialize I2C bus");
-    i2c_master_bus_config_t bus_cfg = {
-        .clk_source = I2C_CLK_SRC_DEFAULT,
-        .i2c_port = ESP_I2C_PORT,
-        .sda_io_num = ESP_I2C_SDA,
-        .scl_io_num = ESP_I2C_SCL,
-        .glitch_ignore_cnt = 7,
-        .flags.enable_internal_pullup = true,
-    };
-
-    if(i2c_new_master_bus(&bus_cfg, &i2c_bus) != ESP_OK)
-    {
-        ESP_LOGE(TAG, "Failed to initialize I2C bus");
-    }*/
-
-    //ESP_ERROR_CHECK(i2c_new_master_bus(&bus_cfg, &i2c_bus));
-
+void oled (void){ 
     ESP_LOGI(TAG, "Install panel IO");
     esp_lcd_panel_io_handle_t io_handle = NULL;
     esp_lcd_panel_io_i2c_config_t io_config = {

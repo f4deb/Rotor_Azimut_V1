@@ -19,3 +19,4 @@ dependencies:
   lvgl/lvgl: ^9.2.2
   espressif/esp_lcd_sh1107: ^1.1.0
   espressif/esp_lvgl_port: ^2.5.0
+  espressif/esp_io_expander_ht8574: ^2.0.0

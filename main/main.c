@@ -37,6 +37,9 @@
 #include "../components/interface/include/interface.h"
 #include "../components/charUtils/include/charUtils.h"
 #include "../components/Oled/include/Oled.h"
+#include "../components/I2c/include/I2c.h"
+#include "../components/8IoButtonBoard/include/8IoButtonBoard.h"
+
 
 static const char *TAG_MAIN = "Main : ";
 
@@ -44,13 +47,12 @@ void init(){
 
     /* Configure the peripheral according to the LED type */
     configure_led();
+
+    I2cBusInit();  
+
     oled();
 
     initClock();
-
-
-    compilCharUtils();
-
 
     //UART COMMAND Task
     xTaskCreate(command_uart_task, 
@@ -67,6 +69,14 @@ void init(){
                 NULL, 
                 3, 
                 NULL);
+
+    // IOBUTTONBOARD TASK
+    xTaskCreate(ioButtonBoard_task,
+                "IO BUTTON BOARD task",
+                IO_BUTTUN_BOARD_TASK_SIZE,
+                NULL, 
+                3, 
+                NULL);               
                 
     // INTERFACE TASK
     xTaskCreate(interface_task,
