@@ -3,7 +3,7 @@
     "idf.espIdfPath": "/home/f4deb/esp/v5.4/esp-idf",
     "idf.toolsPath": "/home/f4deb/Documents/F4DEB-ESP32/",
     "idf.flashType": "UART",
-    "idf.port": "/dev/ttyUSB3",
+    "idf.port": "/dev/ttyUSB0",
     "files.associations": {
         "sdkconfig.h": "c",
         "stdio.h": "c",
@@ -54,7 +54,8 @@
         "esp_lvgl_port.h": "c",
         "i2c.h": "c",
         "8iobuttonboard.h": "c",
-        "8iobuttonboardinterface.h": "c"
+        "8iobuttonboardinterface.h": "c",
+        "esp_io_expander.h": "c"
     },
     "idf.pythonInstallPath": "/usr/bin/python3"
 }

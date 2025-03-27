@@ -14,4 +14,11 @@ i2c_master_bus_handle_t getI2cBus (void);
 
 void I2cBusInit(void);
 
+void i2c_dev_ht8574_init(void);
+
+void i2c_dev_ht8574_deinit(void);
+
+void pcf8574(void);
+
+
 #endif

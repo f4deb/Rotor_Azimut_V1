@@ -9,11 +9,7 @@
 #include <stdint.h>
 #include "esp_err.h"
 #include "driver/i2c_master.h"
-#include "esp_io_expander.h"
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include "../../espressif__esp_io_expander/include/esp_io_expander.h"
 
 /**
  * @brief Create a HT8574 IO expander object
@@ -44,13 +40,4 @@ esp_err_t esp_io_expander_new_i2c_ht8574(i2c_master_bus_handle_t i2c_bus, uint32
  * For example, if a chip's A0,A1,A2 are connected to GND, it's 7-bit slave address is 0111000b(0x38).
  * Then users can use `ESP_IO_EXPANDER_I2C_HT8574_ADDRESS_000` to init it.
  */
-#define ESP_IO_EXPANDER_I2C_HT8574_ADDRESS_000    (0x38)
-#define ESP_IO_EXPANDER_I2C_HT8574_ADDRESS_001    (0x29)
-#define ESP_IO_EXPANDER_I2C_HT8574_ADDRESS_010    (0x2A)
-#define ESP_IO_EXPANDER_I2C_HT8574_ADDRESS_011    (0x2B)
-#define ESP_IO_EXPANDER_I2C_HT8574_ADDRESS_100    (0x2C)
-
-
-#ifdef __cplusplus
-}
-#endif
+#define ESP_IO_EXPANDER_I2C_HT8574_ADDRESS_000    (0x20)

@@ -1,0 +1,8 @@
+{
+    "C_Cpp.intelliSenseEngine": "default",
+    "idf.espIdfPath": "/home/f4deb/esp/v5.4/esp-idf",
+    "idf.toolsPath": "/home/f4deb/Documents/F4DEB-ESP32/",
+    "idf.pythonInstallPath": "/usr/bin/python3",
+    "idf.port": "/dev/ttyUSB0",
+    "idf.flashType": "UART"
+}

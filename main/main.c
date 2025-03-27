@@ -49,6 +49,8 @@ void init(){
     configure_led();
 
     I2cBusInit();  
+    i2c_dev_ht8574_init();
+    pcf8574();
 
     oled();
 
