@@ -1,10 +1,1 @@
-0000000000000000000000000000000000000000 61240af83b3fd25f41c0cb0884ffec9a079973f4 Jerome <f4deb1@gmail.com> 1741901570 +0100	branch: Created from 61240af83b3fd25f41c0cb0884ffec9a079973f4
-61240af83b3fd25f41c0cb0884ffec9a079973f4 5b88aaad4c1dcbad1421640d25b7b2f8a5403b59 Jerome <f4deb1@gmail.com> 1742072234 +0100	commit: Clock Interface Hour OK
-5b88aaad4c1dcbad1421640d25b7b2f8a5403b59 66658a3c5aab80e889e8fc1c73d7ecf5053c9fce Jerome <f4deb1@gmail.com> 1742077894 +0100	commit: Clock Interface NOK month
-66658a3c5aab80e889e8fc1c73d7ecf5053c9fce 890b46e548b3d8a52e19b7ef6a1360f3db716ce8 Jerome <f4deb1@gmail.com> 1742246450 +0100	commit: Clock interface to revise
-890b46e548b3d8a52e19b7ef6a1360f3db716ce8 aa6d2ce14382d0946739b947201bd5efa056b1e8 Jerome <f4deb1@gmail.com> 1742507546 +0100	commit: LVGL 9.2.2 NOK
-aa6d2ce14382d0946739b947201bd5efa056b1e8 8e04a33e17bbcef1451564b10775282420e10b74 Jerome <f4deb1@gmail.com> 1742508538 +0100	commit: OLED Compil Ok . Reboot
-8e04a33e17bbcef1451564b10775282420e10b74 005ea12a34b50efd24af81c616b688af2d70b399 Jerome <f4deb1@gmail.com> 1742592231 +0100	commit: OLED VS CLOCK I2c Nok
-005ea12a34b50efd24af81c616b688af2d70b399 ff10fe61329949f0f293cdb31defcc27ca1df78a Jerome <f4deb1@gmail.com> 1742678901 +0100	commit: Oled MAJ
-ff10fe61329949f0f293cdb31defcc27ca1df78a d43647e6e4a0c7471259209b0da1277193a96587 Jerome <f4deb1@gmail.com> 1742759025 +0100	commit: I2c Bus Oled + Clock OK
-d43647e6e4a0c7471259209b0da1277193a96587 cceb345ccbf72a4342b8762fa36ef500626df6db Jerome <f4deb1@gmail.com> 1743017033 +0100	commit: OLed + Uart+Clock OK
+e2023b0a2ac6d34699ec62c5018bf1c0e4240f15

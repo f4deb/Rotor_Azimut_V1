@@ -10,15 +10,12 @@ RTC device configuration, and wiring between them. */
 #define ESP_I2C_SCL  GPIO_NUM_22
 #define DEVICE_I2C_ADDRESS 0 /* let the library figure it out */
 
+/* I2C ADDRESS DEFINITION*/
+#define ESP_IO_EXPANDER_I2C_PCF8574_ADDRESS_000 0x20
+
+
 i2c_master_bus_handle_t getI2cBus (void);
 
 void I2cBusInit(void);
-
-void i2c_dev_ht8574_init(void);
-
-void i2c_dev_ht8574_deinit(void);
-
-void pcf8574(void);
-
 
 #endif

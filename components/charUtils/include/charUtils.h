@@ -12,5 +12,8 @@ char* stringToString(char* str,char* rxBuffer, int size);
 
 int readHex(char* str);
 
+int readDec(char* str);
+
+
 
 #endif

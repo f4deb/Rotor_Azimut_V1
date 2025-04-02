@@ -1,8 +1,15 @@
 #ifndef IO_OUTPUT_BOARD
 #define IO_OUTPUT_BOARD
 
-void writeOutPut(int value);
-int readInput(void);
+void i2c_dev_pcf8574_init(void);
+
+void i2c_dev_pcf8574_deinit(void);
+
+void writeOutPutPin(int pin, int value);
+
+void write8OutPutPin(int value);   
+
+esp_err_t readInputPin(int pin);
 
 void ioButtonBoard_task(void *arg);
 

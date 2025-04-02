@@ -31,6 +31,17 @@ char* stringToString(char* str,char* rxBuffer,int size){
 
 int readHex(char* str) {
     int result;
+    if (sscanf(str, "%X", &result) ==1) {
+         //ESP_LOGE(TAG, "Converted integer: %d\n", result);
+    }
+    else {
+        ESP_LOGE(TAG, "Conversion failed.\n");
+    }
+    return result;
+}
+
+int readDec(char* str) {
+    int result;
     if (sscanf(str, "%d", &result) ==1) {
          //ESP_LOGE(TAG, "Converted integer: %d\n", result);
     }

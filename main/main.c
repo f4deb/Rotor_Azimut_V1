@@ -49,8 +49,7 @@ void init(){
     configure_led();
 
     I2cBusInit();  
-    i2c_dev_ht8574_init();
-    pcf8574();
+    i2c_dev_pcf8574_init();
 
     oled();
 
@@ -69,7 +68,7 @@ void init(){
                 "clock_task",
                 CLOCK_TASK_STACK_SIZE,
                 NULL, 
-                3, 
+                4, 
                 NULL);
 
     // IOBUTTONBOARD TASK
@@ -79,7 +78,7 @@ void init(){
                 NULL, 
                 3, 
                 NULL);               
-                
+              
     // INTERFACE TASK
     xTaskCreate(interface_task,
                 "interface_task",

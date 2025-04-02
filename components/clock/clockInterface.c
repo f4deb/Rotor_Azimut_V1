@@ -45,27 +45,27 @@ void clockInterface(char rxBuffer[50]){
 
     }
     else if ((strcmp(WRITE_HOUR_HEADER,str)) == 0) {
-        setHour(readHex(stringToString(str,rxBuffer,2)));
-
+        setHour(readDec(stringToString(str,rxBuffer,2)));
     }
+
     else if ((strcmp(WRITE_MINUTE_HEADER,str)) == 0) {
-        setMinute(readHex(stringToString(str,rxBuffer,2)));
+        setMinute(readDec(stringToString(str,rxBuffer,2)));
     }
 
     else if ((strcmp(WRITE_SECONDE_HEADER,str)) == 0) {
-        setSeconde(readHex(stringToString(str,rxBuffer,2)));
+        setSeconde(readDec(stringToString(str,rxBuffer,2)));
     }
 
     else if ((strcmp(WRITE_DAY_HEADER,str)) == 0) {
-        setDay(readHex(stringToString(str,rxBuffer,2)));
+        setDay(readDec(stringToString(str,rxBuffer,2)));
     }
 
     else if ((strcmp(WRITE_MONTH_HEADER,str)) == 0) {
-        setMonth(readHex(stringToString(str,rxBuffer,2)));    
+        setMonth(readDec(stringToString(str,rxBuffer,2)));    
     }
 
     else if ((strcmp(WRITE_YEAR_HEADER,str)) == 0) {
-        setYear(readHex(stringToString(str,rxBuffer,2)));       
+        setYear(readDec(stringToString(str,rxBuffer,2)));       
         
     }
 
@@ -107,7 +107,7 @@ void clockInterface(char rxBuffer[50]){
     }
 
     else if ((strcmp(SET_CLOCK_REFRESH_DELAY,str)) == 0) {
-        setClockRefresh(readHex(stringToString(str,rxBuffer,6)));
+        setClockRefresh(readDec(stringToString(str,rxBuffer,6)));
     }
   
     else {
