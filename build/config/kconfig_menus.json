@@ -5264,20 +5264,20 @@
                 "children": [
                     {
                         "children": [],
-                        "depends_on": "<choice EXAMPLE_LCD_CONTROLLER>",
+                        "depends_on": "<choice LCD_CONTROLLER>",
                         "help": null,
-                        "id": "EXAMPLE_LCD_CONTROLLER_SSD1306",
-                        "name": "EXAMPLE_LCD_CONTROLLER_SSD1306",
+                        "id": "LCD_CONTROLLER_SSD1306",
+                        "name": "LCD_CONTROLLER_SSD1306",
                         "range": null,
                         "title": "SSD1306",
                         "type": "bool"
                     },
                     {
                         "children": [],
-                        "depends_on": "<choice EXAMPLE_LCD_CONTROLLER>",
+                        "depends_on": "<choice LCD_CONTROLLER>",
                         "help": null,
-                        "id": "EXAMPLE_LCD_CONTROLLER_SH1107",
-                        "name": "EXAMPLE_LCD_CONTROLLER_SH1107",
+                        "id": "LCD_CONTROLLER_SH1107",
+                        "name": "LCD_CONTROLLER_SH1107",
                         "range": null,
                         "title": "SH1107",
                         "type": "bool"
@@ -5286,7 +5286,7 @@
                 "depends_on": null,
                 "help": "Select LCD controller model",
                 "id": "oled-configuration-lcd-controller-model",
-                "name": "EXAMPLE_LCD_CONTROLLER",
+                "name": "LCD_CONTROLLER",
                 "title": "LCD controller model",
                 "type": "choice"
             },
@@ -5294,38 +5294,38 @@
                 "children": [
                     {
                         "children": [],
-                        "depends_on": "<choice EXAMPLE_SSD1306_HEIGHT>",
+                        "depends_on": "<choice SSD1306_HEIGHT>",
                         "help": null,
-                        "id": "EXAMPLE_SSD1306_HEIGHT_64",
-                        "name": "EXAMPLE_SSD1306_HEIGHT_64",
+                        "id": "SSD1306_HEIGHT_64",
+                        "name": "SSD1306_HEIGHT_64",
                         "range": null,
                         "title": "64",
                         "type": "bool"
                     },
                     {
                         "children": [],
-                        "depends_on": "<choice EXAMPLE_SSD1306_HEIGHT>",
+                        "depends_on": "<choice SSD1306_HEIGHT>",
                         "help": null,
-                        "id": "EXAMPLE_SSD1306_HEIGHT_32",
-                        "name": "EXAMPLE_SSD1306_HEIGHT_32",
+                        "id": "SSD1306_HEIGHT_32",
+                        "name": "SSD1306_HEIGHT_32",
                         "range": null,
                         "title": "32",
                         "type": "bool"
                     }
                 ],
-                "depends_on": "EXAMPLE_LCD_CONTROLLER_SSD1306",
+                "depends_on": "LCD_CONTROLLER_SSD1306",
                 "help": "Height of the display in pixels. a.k.a vertical resolution",
                 "id": "oled-configuration-ssd1306-height-in-pixels",
-                "name": "EXAMPLE_SSD1306_HEIGHT",
+                "name": "SSD1306_HEIGHT",
                 "title": "SSD1306 Height in pixels",
                 "type": "choice"
             },
             {
                 "children": [],
-                "depends_on": "EXAMPLE_LCD_CONTROLLER_SSD1306",
+                "depends_on": "LCD_CONTROLLER_SSD1306",
                 "help": null,
-                "id": "EXAMPLE_SSD1306_HEIGHT",
-                "name": "EXAMPLE_SSD1306_HEIGHT",
+                "id": "SSD1306_HEIGHT",
+                "name": "SSD1306_HEIGHT",
                 "range": null,
                 "title": null,
                 "type": "int"

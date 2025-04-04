@@ -19,7 +19,7 @@
 static const char *TAG = "OLED : ";
 //static i2c_master_bus_handle_t i2c_bus;
 
-void lvgl_ui(lv_disp_t *disp)
+void lvgl_demo_ui(lv_disp_t *disp)
 {
     lv_obj_t *scr = lv_disp_get_scr_act(disp);
     lv_obj_t *label = lv_label_create(scr);
@@ -44,11 +44,11 @@ void oled (void){
     ESP_LOGI(TAG, "Install panel IO");
     esp_lcd_panel_io_handle_t io_handle = NULL;
     esp_lcd_panel_io_i2c_config_t io_config = {
-        .dev_addr = EXAMPLE_I2C_HW_ADDR,
-        .scl_speed_hz = EXAMPLE_LCD_PIXEL_CLOCK_HZ,
+        .dev_addr = I2C_HW_ADDR,
+        .scl_speed_hz = LCD_PIXEL_CLOCK_HZ,
         .control_phase_bytes = 1,               // According to SSD1306 datasheet
-        .lcd_cmd_bits = EXAMPLE_LCD_CMD_BITS,   // According to SSD1306 datasheet
-        .lcd_param_bits = EXAMPLE_LCD_CMD_BITS, // According to SSD1306 datasheet
+        .lcd_cmd_bits = LCD_CMD_BITS,   // According to SSD1306 datasheet
+        .lcd_param_bits = LCD_CMD_BITS, // According to SSD1306 datasheet
         .dc_bit_offset = 6,                     // According to SSD1306 datasheet
     };
     ESP_ERROR_CHECK(esp_lcd_new_panel_io_i2c(getI2cBus(), &io_config, &io_handle));
@@ -57,15 +57,15 @@ void oled (void){
     esp_lcd_panel_handle_t panel_handle = NULL;
     esp_lcd_panel_dev_config_t panel_config = {
         .bits_per_pixel = 1,
-        .reset_gpio_num = EXAMPLE_PIN_NUM_RST,
+        .reset_gpio_num = PIN_NUM_RST,
     };
-#if CONFIG_EXAMPLE_LCD_CONTROLLER_SSD1306
+#if CONFIG_LCD_CONTROLLER_SSD1306
     esp_lcd_panel_ssd1306_config_t ssd1306_config = {
-        .height = EXAMPLE_LCD_V_RES,
+        .height = LCD_V_RES,
     };
     panel_config.vendor_config = &ssd1306_config;
     ESP_ERROR_CHECK(esp_lcd_new_panel_ssd1306(io_handle, &panel_config, &panel_handle));
-#elif CONFIG_EXAMPLE_LCD_CONTROLLER_SH1107
+#elif CONFIG_LCD_CONTROLLER_SH1107
     ESP_ERROR_CHECK(esp_lcd_new_panel_sh1107(io_handle, &panel_config, &panel_handle));
 #endif
 
@@ -73,7 +73,7 @@ void oled (void){
     ESP_ERROR_CHECK(esp_lcd_panel_init(panel_handle));
     ESP_ERROR_CHECK(esp_lcd_panel_disp_on_off(panel_handle, true));
 
-#if CONFIG_EXAMPLE_LCD_CONTROLLER_SH1107
+#if CONFIG_LCD_CONTROLLER_SH1107
     ESP_ERROR_CHECK(esp_lcd_panel_invert_color(panel_handle, true));
 #endif
 
@@ -84,10 +84,10 @@ void oled (void){
     const lvgl_port_display_cfg_t disp_cfg = {
         .io_handle = io_handle,
         .panel_handle = panel_handle,
-        .buffer_size = EXAMPLE_LCD_H_RES * EXAMPLE_LCD_V_RES,
+        .buffer_size = LCD_H_RES * LCD_V_RES,
         .double_buffer = true,
-        .hres = EXAMPLE_LCD_H_RES,
-        .vres = EXAMPLE_LCD_V_RES,
+        .hres = LCD_H_RES,
+        .vres = LCD_V_RES,
         .monochrome = true,
         .rotation = {
             .swap_xy = false,
@@ -103,7 +103,7 @@ void oled (void){
     ESP_LOGI(TAG, "Display LVGL Scroll Text");
     // Lock the mutex due to the LVGL APIs are not thread-safe
     if (lvgl_port_lock(0)) {
-        lvgl_ui(disp);
+        lvgl_demo_ui(disp);
         // Release the mutex
         lvgl_port_unlock();
     }

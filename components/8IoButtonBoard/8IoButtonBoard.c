@@ -105,6 +105,6 @@ void ioButtonBoard_task(void *arg){
         //writeOutPutPin(0xFF, 0);
 
 //        writeOutPutPin(value, 0);
-        vTaskDelay(pdMS_TO_TICKS(5000));
+        vTaskDelay(pdMS_TO_TICKS(60000));
     }
 }

@@ -29,7 +29,7 @@ static const char *TAG = "example";
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// Please update the following configuration according to your LCD spec //////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#define EXAMPLE_LCD_PIXEL_CLOCK_HZ    (400 * 1000)
+#define LCD_PIXEL_CLOCK_HZ    (400 * 1000)
 #define EXAMPLE_PIN_NUM_SDA           18
 #define EXAMPLE_PIN_NUM_SCL           23
 #define EXAMPLE_PIN_NUM_RST           -1
@@ -67,7 +67,7 @@ void app_main(void)
     esp_lcd_panel_io_handle_t io_handle = NULL;
     esp_lcd_panel_io_i2c_config_t io_config = {
         .dev_addr = EXAMPLE_I2C_HW_ADDR,
-        .scl_speed_hz = EXAMPLE_LCD_PIXEL_CLOCK_HZ,
+        .scl_speed_hz = LCD_PIXEL_CLOCK_HZ,
         .control_phase_bytes = 1,               // According to SSD1306 datasheet
         .lcd_cmd_bits = EXAMPLE_LCD_CMD_BITS,   // According to SSD1306 datasheet
         .lcd_param_bits = EXAMPLE_LCD_PARAM_BITS, // According to SSD1306 datasheet
