@@ -19,7 +19,7 @@
 static const char *TAG = "OLED : ";
 //static i2c_master_bus_handle_t i2c_bus;
 
-void example_lvgl_demo_ui(lv_disp_t *disp)
+void lvgl_ui(lv_disp_t *disp)
 {
     lv_obj_t *scr = lv_disp_get_scr_act(disp);
     lv_obj_t *label = lv_label_create(scr);
@@ -103,7 +103,7 @@ void oled (void){
     ESP_LOGI(TAG, "Display LVGL Scroll Text");
     // Lock the mutex due to the LVGL APIs are not thread-safe
     if (lvgl_port_lock(0)) {
-        example_lvgl_demo_ui(disp);
+        lvgl_ui(disp);
         // Release the mutex
         lvgl_port_unlock();
     }

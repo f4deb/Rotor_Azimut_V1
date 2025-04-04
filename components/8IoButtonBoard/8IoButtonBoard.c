@@ -72,7 +72,7 @@ void write8OutPutPin(int value){
     ret = esp_io_expander_set_dir(io_expander, 0xFF, IO_EXPANDER_OUTPUT);
 
     // Print state
-    //ret = esp_io_expander_print_state(io_expander);
+    ret = esp_io_expander_print_state(io_expander);
 
     ret = esp_io_expander_set_level(io_expander, value, 1);
     ret = esp_io_expander_set_level(io_expander, value ^ 0xFF, 0);    

@@ -39,6 +39,7 @@ void ioButtonBoardInterface(char rxBuffer[50]){
         if (IO_BUTTON_BOARD_INTERFACE_DEBUG) ESP_LOGI(TAG, "Value%X ", value);
         writeOutPutPin(pin, value);
     }
+
     else if ((strcmp(IO_8_OUTPUT_HEADER,str)) == 0) {
         int value = readHex(stringToString(str,rxBuffer,2));
         if (IO_BUTTON_BOARD_INTERFACE_DEBUG) ESP_LOGI(TAG, "Value%X ", value);
@@ -47,12 +48,27 @@ void ioButtonBoardInterface(char rxBuffer[50]){
 
     else if ((strcmp(IO_INPUT_HEADER,str)) == 0) {
         int pin = readHex(stringToString(str,rxBuffer,2));    
-        //if (IO_BUTTON_BOARD_INTERFACE_DEBUG) ESP_LOGI(TAG, "Pin%X ", pin);
+        if (IO_BUTTON_BOARD_INTERFACE_DEBUG) ESP_LOGI(TAG, "Pin%X ", pin);
 
+        int result = readInputPin(pin);
+        if (result > 0) result = 1;
+        if (IO_BUTTON_BOARD_INTERFACE_DEBUG) ESP_LOGI(TAG, "result%X ", result);
 
-        sprintf (value,"%02x", readInputPin(pin));       
+        sprintf (value,"%02x", result);       
+        
         uart_write_bytes(COMMAND_UART_PORT_NUM, value, strlen(value));
     }
+
+    else if ((strcmp(IO_8_INPUT_HEADER,str)) == 0) {
+        int result = readInputPin(0xFF);
+        
+        if (IO_BUTTON_BOARD_INTERFACE_DEBUG) ESP_LOGI(TAG, "result%X ", result);
+
+        sprintf (value,"%02x", result);       
+        
+        uart_write_bytes(COMMAND_UART_PORT_NUM, value, strlen(value));
+    }
+
     else {
         ESP_LOGE(TAG, "Bad command");
     }
