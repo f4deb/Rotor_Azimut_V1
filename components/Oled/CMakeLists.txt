@@ -1,7 +1,7 @@
-idf_component_register(SRCS "Oled.c" "../I2c/I2c.c"
+idf_component_register(SRCS "Oled.c" "../I2c/I2c.c" "OledInterface.c"
                     INCLUDE_DIRS "include"
                     "../../components/I2c/include"
-
+                    
                     "/home/f4deb/RotorV1A/managed_components/espressif__esp_lvgl_port/include"
                     "/home/f4deb/RotorV1A/managed_components/lvgl__lvgl"
 

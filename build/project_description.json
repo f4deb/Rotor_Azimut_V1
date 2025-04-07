@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "rotorV1",
-    "project_version":    "46a1dd4-dirty",
+    "project_version":    "422ab72-dirty",
     "project_path":       "/home/f4deb/RotorV1A",
     "idf_path":           "/home/f4deb/esp/v5.4/esp-idf",
     "build_dir":          "/home/f4deb/RotorV1A/build",
@@ -70,7 +70,7 @@
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "/home/f4deb/RotorV1A/build/esp-idf/Oled/libOled.a",
-            "sources": [ "/home/f4deb/RotorV1A/components/Oled/Oled.c", "/home/f4deb/RotorV1A/components/I2c/I2c.c" ],
+            "sources": [ "/home/f4deb/RotorV1A/components/Oled/Oled.c", "/home/f4deb/RotorV1A/components/I2c/I2c.c", "/home/f4deb/RotorV1A/components/Oled/OledInterface.c" ],
             "include_dirs": [ "include", "../../components/I2c/include", "/home/f4deb/RotorV1A/managed_components/espressif__esp_lvgl_port/include", "/home/f4deb/RotorV1A/managed_components/lvgl__lvgl", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_i2c/include", "/home/f4deb/esp/v5.4/esp-idf/components/nvs_flash/include", "/home/f4deb/esp/v5.4/esp-idf/components/log/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_event/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_partition/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_spi/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_lcd/include", "/home/f4deb/RotorV1A/managed_components/zorxx__rtci2c/include" ]
         },
         "app_trace": {
