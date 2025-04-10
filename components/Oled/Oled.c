@@ -19,12 +19,27 @@
 static const char *TAG = "OLED : ";
 //static i2c_master_bus_handle_t i2c_bus;
 
+static lv_obj_t *label1;
+
+void saveLabel (lv_obj_t *label){
+    label1 = label;
+}
+
+lv_obj_t*  getLabel(void){
+    return label1;
+}
+
+void setTextOled(char *text){
+    lv_label_set_text(getLabel(), text);
+}
+
 void lvgl_demo_ui(lv_disp_t *disp)
 {
     lv_obj_t *scr = lv_disp_get_scr_act(disp);
     lv_obj_t *label = lv_label_create(scr);
+    saveLabel (label);
     lv_label_set_long_mode(label, LV_LABEL_LONG_SCROLL_CIRCULAR); /* Circular scroll */
-    lv_label_set_text(label, "CQ...CQ ON8BAK de F4DEB PSE K");
+    lv_label_set_text(label, "init ...");
     /* Size of the screen (if you use rotation 90 or 270, please set disp->driver->ver_res) */
 
 /* If do not compil, check version 8.3.0 in dependencies.lock file
@@ -38,6 +53,14 @@ lvgl/lvgl:
 */
     lv_obj_set_width(label, disp->driver->hor_res);
     lv_obj_align(label, LV_ALIGN_TOP_MID, 0, 0);
+}
+
+bool lvglportlockDevice (uint32_t timeOut){
+    return lvgl_port_lock(timeOut);
+}
+
+void lvglPortUnlockDevice(void){
+    lvgl_port_unlock();
 }
 
 void oled (void){ 
@@ -102,9 +125,11 @@ void oled (void){
 
     ESP_LOGI(TAG, "Display LVGL Scroll Text");
     // Lock the mutex due to the LVGL APIs are not thread-safe
-    if (lvgl_port_lock(0)) {
+    if (lvglportlockDevice(0)) {
         lvgl_demo_ui(disp);
         // Release the mutex
-        lvgl_port_unlock();
+        lvglPortUnlockDevice();
     }
 }
+
+

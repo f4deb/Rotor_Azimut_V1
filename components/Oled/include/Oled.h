@@ -1,6 +1,8 @@
 #ifndef OLED_H
 #define OLED_H
 
+#include "../../managed_components/lvgl__lvgl/lvgl.h"
+
 #define I2C_HW_ADDR           0x3C
 #define LCD_PIXEL_CLOCK_HZ    (400 * 1000)
 #define PIN_NUM_RST           -1
@@ -16,6 +18,13 @@
 // Bit number used to represent command and parameter
 #define LCD_CMD_BITS           8
 #define LCD_PARAM_BITS         8
+
+void setTextOled(char *text);
+
+void saveLabel (lv_obj_t *label);
+
+
+lv_obj_t*  getLabel(void);
 
 void oled (void);
 

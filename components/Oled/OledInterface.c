@@ -20,7 +20,7 @@
 void oledInterface(char rxBuffer[50]){
 
     char str[OLED_INTERFACE_COMMAND_SIZE];
-    char value[20];
+    char value[50];
     if (OLED_INTERFACE_DEBUG) ESP_LOGE(TAG, "%s ", rxBuffer);
 
     stringToString(str,rxBuffer, OLED_INTERFACE_COMMAND_SIZE);
@@ -29,9 +29,14 @@ void oledInterface(char rxBuffer[50]){
     
     rxBuffer++;        
     
-    if ((strcmp(READ_OLED_HEADER,str)) == 0) {
-        //readOled();
-        if (OLED_INTERFACE_DEBUG) ESP_LOGE(TAG, "%s ", str);
+    if ((strcmp(SET_TEXT_OLED_HEADER,str)) == 0) {
+        stringToString(str,rxBuffer, strlen(rxBuffer));
+
+        setTextOled(str);
+            
+        //if (OLED_INTERFACE_DEBUG) ESP_LOGE(TAG, "%s ", getTextOled());
+
+        //oled();
     }
    
     
