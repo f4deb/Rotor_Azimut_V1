@@ -19,25 +19,35 @@
 static const char *TAG = "OLED : ";
 //static i2c_master_bus_handle_t i2c_bus;
 
-static lv_obj_t *label1;
-
-void saveLabel (lv_obj_t *label){
-    label1 = label;
-}
+static lv_obj_t *label;
+static lv_disp_t *disp;
 
 lv_obj_t*  getLabel(void){
-    return label1;
+    return label;
 }
 
 void setTextOled(char *text){
     lv_label_set_text(getLabel(), text);
 }
 
+void setTextRotation(int value){
+    lv_disp_set_rotation(disp, value);
+}
+
+void setLongMode (int value){
+    lv_label_set_long_mode(label, value); /* Circular scroll */
+}
+
+void setRecolor(bool status) {
+    lv_label_set_recolor(label, status);
+}
+
+
 void lvgl_demo_ui(lv_disp_t *disp)
 {
     lv_obj_t *scr = lv_disp_get_scr_act(disp);
-    lv_obj_t *label = lv_label_create(scr);
-    saveLabel (label);
+    label = lv_label_create(scr);
+
     lv_label_set_long_mode(label, LV_LABEL_LONG_SCROLL_CIRCULAR); /* Circular scroll */
     lv_label_set_text(label, "init ...");
     /* Size of the screen (if you use rotation 90 or 270, please set disp->driver->ver_res) */
@@ -118,7 +128,7 @@ void oled (void){
             .mirror_y = false,
         }
     };
-    lv_disp_t *disp = lvgl_port_add_disp(&disp_cfg);
+    disp = lvgl_port_add_disp(&disp_cfg);
 
     /* Rotation of the screen */
     lv_disp_set_rotation(disp, LV_DISP_ROT_NONE);

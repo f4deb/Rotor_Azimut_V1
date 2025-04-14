@@ -20,9 +20,11 @@
 #define LCD_PARAM_BITS         8
 
 void setTextOled(char *text);
+void setTextRotation(int value);
+void setLongMode (int value);
+void setRecolor(bool status);
 
 void saveLabel (lv_obj_t *label);
-
 
 lv_obj_t*  getLabel(void);
 

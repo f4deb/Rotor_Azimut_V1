@@ -31,19 +31,21 @@ void oledInterface(char rxBuffer[50]){
     
     if ((strcmp(SET_TEXT_OLED_HEADER,str)) == 0) {
         stringToString(str,rxBuffer, strlen(rxBuffer));
-
         setTextOled(str);
-            
-        //if (OLED_INTERFACE_DEBUG) ESP_LOGE(TAG, "%s ", getTextOled());
-
-        //oled();
-    }
-   
+    }  
     
-    /*else if ((strcmp(SET_OLED_REFRESH_DELAY,str)) == 0) {
-        setOledRefresh(readDec(stringToString(str,rxBuffer,6)));
+    else if ((strcmp(SET_ROTATION_OLED_HEADER,str)) == 0) {
+        setTextRotation(readHex(stringToString(str,rxBuffer,2)));
     }
-    */
+
+    else if ((strcmp(SET_LONG_MODE_OLED_HEADER,str)) == 0) {
+        setLongMode(readHex(stringToString(str,rxBuffer,2)));
+    }
+
+    else if ((strcmp(SET_RECOLOR_OLED_HEADER,str)) == 0) {
+        setRecolor(readHex(stringToString(str,rxBuffer,2)));
+    }
+    
     else {
         ESP_LOGE(TAG, "Bad command");
     }

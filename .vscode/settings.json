@@ -60,7 +60,12 @@
         "esp_err.h": "c",
         "*.tcc": "c",
         "regex": "c",
-        "freertos.h": "c"
+        "freertos.h": "c",
+        "cstdlib": "c",
+        "lv_theme_default.h": "c",
+        "lv_mem.h": "c",
+        "lv_hal.h": "c",
+        "lv_hal_disp.h": "c"
     },
     "idf.pythonInstallPath": "/usr/bin/python3"
 }
