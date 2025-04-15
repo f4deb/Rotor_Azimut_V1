@@ -27,11 +27,10 @@ void oledInterface(char rxBuffer[50]){
 
     if (OLED_INTERFACE_DEBUG) ESP_LOGE(TAG, "%s ", str);
     
-    rxBuffer++;        
+    rxBuffer = rxBuffer + OLED_INTERFACE_COMMAND_SIZE;  
     
     if ((strcmp(SET_TEXT_OLED_HEADER,str)) == 0) {
-        stringToString(str,rxBuffer, strlen(rxBuffer));
-        setTextOled(str);
+        setTextOled(rxBuffer);
     }  
     
     else if ((strcmp(SET_ROTATION_OLED_HEADER,str)) == 0) {
@@ -46,6 +45,20 @@ void oledInterface(char rxBuffer[50]){
         setRecolor(readHex(stringToString(str,rxBuffer,2)));
     }
     
+    else if ((strcmp(SET_X_POS_OLED_HEADER,str)) == 0) {
+        setXPos(readDec(stringToString(str,rxBuffer,2)));
+    }
+
+    else if ((strcmp(SET_Y_POS_OLED_HEADER,str)) == 0) {
+        setYPos(readDec(stringToString(str,rxBuffer,2)));
+    }
+
+    else if ((strcmp(SET_POS_OLED_HEADER,str)) == 0) {
+        int x = readDec(stringToString(str,rxBuffer,2));
+        int y = readDec(stringToString(str,rxBuffer+2,2));
+        setPos(x, y);
+    }
+        
     else {
         ESP_LOGE(TAG, "Bad command");
     }

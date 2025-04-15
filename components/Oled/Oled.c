@@ -22,6 +22,8 @@ static const char *TAG = "OLED : ";
 static lv_obj_t *label;
 static lv_disp_t *disp;
 
+static lv_obj_t * my_rect;
+
 lv_obj_t*  getLabel(void){
     return label;
 }
@@ -42,9 +44,32 @@ void setRecolor(bool status) {
     lv_label_set_recolor(label, status);
 }
 
+void setXPos(int value){
+    lv_obj_set_x(label, value);
+}
 
-void lvgl_demo_ui(lv_disp_t *disp)
-{
+void setYPos(int value){
+    lv_obj_set_y(label, value);
+}
+
+void setPos(int xvalue, int yvalue){
+    lv_obj_set_pos(label, xvalue, xvalue);
+}
+
+void lvgl_ui(lv_disp_t *disp){
+
+    lv_obj_t * obj = lv_obj_create(lv_scr_act());
+    lv_obj_set_size(obj, 128, 32);
+    lv_obj_set_pos(obj, 0, 0);
+
+    static lv_style_t style;
+    lv_style_init(&style);
+    lv_style_set_bg_color(&style, lv_color_hex(0xFF0000));
+    lv_style_set_border_color(&style, lv_color_hex(0x000000));
+    lv_style_set_border_width(&style, 2);
+    lv_obj_add_style(obj, &style, 0);
+
+
     lv_obj_t *scr = lv_disp_get_scr_act(disp);
     label = lv_label_create(scr);
 
@@ -62,7 +87,7 @@ lvgl/lvgl:
     version: 8.3.0
 */
     lv_obj_set_width(label, disp->driver->hor_res);
-    lv_obj_align(label, LV_ALIGN_TOP_MID, 0, 0);
+    lv_obj_align(label, LV_ALIGN_TOP_MID, 5, 7);
 }
 
 bool lvglportlockDevice (uint32_t timeOut){
@@ -136,7 +161,7 @@ void oled (void){
     ESP_LOGI(TAG, "Display LVGL Scroll Text");
     // Lock the mutex due to the LVGL APIs are not thread-safe
     if (lvglportlockDevice(0)) {
-        lvgl_demo_ui(disp);
+        lvgl_ui(disp);
         // Release the mutex
         lvglPortUnlockDevice();
     }

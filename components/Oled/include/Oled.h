@@ -23,6 +23,9 @@ void setTextOled(char *text);
 void setTextRotation(int value);
 void setLongMode (int value);
 void setRecolor(bool status);
+void setXPos(int value);
+void setYPos(int value);
+void setPos(int xvalue, int yvalue);
 
 void saveLabel (lv_obj_t *label);
 

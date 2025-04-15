@@ -13,8 +13,9 @@
 #define SET_ROTATION_OLED_HEADER "R"
 #define SET_LONG_MODE_OLED_HEADER "L"
 #define SET_RECOLOR_OLED_HEADER "C"
-
-
+#define SET_X_POS_OLED_HEADER "X"
+#define SET_Y_POS_OLED_HEADER "Y"
+#define SET_POS_OLED_HEADER "P"
 
 void oledInterface(char rxBuffer[50]);
 
