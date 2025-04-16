@@ -26,6 +26,9 @@ void setRecolor(bool status);
 void setXPos(int value);
 void setYPos(int value);
 void setPos(int xvalue, int yvalue);
+void drawRectangle(int x, int y, int dimx, int dimy, int size);
+
+void clearScreen (void);
 
 void saveLabel (lv_obj_t *label);
 

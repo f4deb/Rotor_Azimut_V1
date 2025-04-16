@@ -58,6 +58,24 @@ void oledInterface(char rxBuffer[50]){
         int y = readDec(stringToString(str,rxBuffer+2,2));
         setPos(x, y);
     }
+
+    else if ((strcmp(DRAW_RECTANGLE_OLED_HEADER,str)) == 0) {
+        int x = readDec(stringToString(str,rxBuffer,2));
+        int y = readDec(stringToString(str,rxBuffer+2,2));
+        int dimx = readDec(stringToString(str,rxBuffer+4,2));
+        int dimy = readDec(stringToString(str,rxBuffer+6,2));
+        int size = readDec(stringToString(str,rxBuffer+8,2));
+
+        drawRectangle(x, y, dimx, dimy, size);
+    }
+
+
+    else if ((strcmp(CLEAR_SCREEN_OLED_HEADER,str)) == 0) {
+        clearScreen();
+    }
+    
+
+    
         
     else {
         ESP_LOGE(TAG, "Bad command");

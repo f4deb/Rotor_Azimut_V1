@@ -17,6 +17,10 @@
 #define SET_Y_POS_OLED_HEADER "Y"
 #define SET_POS_OLED_HEADER "P"
 
+#define DRAW_RECTANGLE_OLED_HEADER "r"
+
+#define CLEAR_SCREEN_OLED_HEADER "c"
+
 void oledInterface(char rxBuffer[50]);
 
 #endif

@@ -56,20 +56,26 @@ void setPos(int xvalue, int yvalue){
     lv_obj_set_pos(label, xvalue, xvalue);
 }
 
-void lvgl_ui(lv_disp_t *disp){
-
+void drawRectangle(int x, int y, int dimx, int dimy, int size){
     lv_obj_t * obj = lv_obj_create(lv_scr_act());
-    lv_obj_set_size(obj, 128, 32);
-    lv_obj_set_pos(obj, 0, 0);
+    lv_obj_set_size(obj, dimx, dimy);
+    lv_obj_set_pos(obj, x, y);
 
     static lv_style_t style;
     lv_style_init(&style);
-    lv_style_set_bg_color(&style, lv_color_hex(0xFF0000));
+    lv_style_set_bg_color(&style, lv_color_hex(0xFFFF00));
     lv_style_set_border_color(&style, lv_color_hex(0x000000));
-    lv_style_set_border_width(&style, 2);
+    lv_style_set_border_width(&style, size);
     lv_obj_add_style(obj, &style, 0);
+}
 
+void clearScreen (void){
+    lv_obj_clean(lv_scr_act());
+}
 
+void lvgl_ui(lv_disp_t *disp){
+
+    
     lv_obj_t *scr = lv_disp_get_scr_act(disp);
     label = lv_label_create(scr);
 
