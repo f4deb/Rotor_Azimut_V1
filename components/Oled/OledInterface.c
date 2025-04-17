@@ -32,6 +32,10 @@ void oledInterface(char rxBuffer[50]){
     if ((strcmp(SET_TEXT_OLED_HEADER,str)) == 0) {
         setTextOled(rxBuffer);
     }  
+
+    else if ((strcmp(CREATE_LABEL_OLED_HEADER,str)) == 0) {
+        createLabel();
+    }
     
     else if ((strcmp(SET_ROTATION_OLED_HEADER,str)) == 0) {
         setTextRotation(readHex(stringToString(str,rxBuffer,2)));
@@ -69,14 +73,20 @@ void oledInterface(char rxBuffer[50]){
         drawRectangle(x, y, dimx, dimy, size);
     }
 
+    else if ((strcmp(DRAW_LINE_OLED_HEADER,str)) == 0) {
+        int x1 = readDec(stringToString(str,rxBuffer,2));
+        int y1 = readDec(stringToString(str,rxBuffer+2,2));
+        int x2 = readDec(stringToString(str,rxBuffer+4,2));
+        int y2 = readDec(stringToString(str,rxBuffer+6,2));
+        int size = readDec(stringToString(str,rxBuffer+8,2));
+
+        drawLine(x1, y1, x2, y2, size);
+    }
 
     else if ((strcmp(CLEAR_SCREEN_OLED_HEADER,str)) == 0) {
         clearScreen();
     }
-    
 
-    
-        
     else {
         ESP_LOGE(TAG, "Bad command");
     }

@@ -19,6 +19,7 @@
 #define LCD_CMD_BITS           8
 #define LCD_PARAM_BITS         8
 
+void createLabel (void);
 void setTextOled(char *text);
 void setTextRotation(int value);
 void setLongMode (int value);
@@ -27,6 +28,7 @@ void setXPos(int value);
 void setYPos(int value);
 void setPos(int xvalue, int yvalue);
 void drawRectangle(int x, int y, int dimx, int dimy, int size);
+void drawLine(int x, int y, int X, int Y, int Size);
 
 void clearScreen (void);
 

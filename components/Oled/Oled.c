@@ -20,9 +20,34 @@ static const char *TAG = "OLED : ";
 //static i2c_master_bus_handle_t i2c_bus;
 
 static lv_obj_t *label;
+static lv_obj_t *scr;
 static lv_disp_t *disp;
 
 static lv_obj_t * my_rect;
+
+// Définir la couleur blanc
+lv_color_t white_color = LV_COLOR_MAKE(0, 0, 0);
+
+/**** 
+ * LOCAL
+*/
+bool lvglportlockDevice (uint32_t timeOut){
+    return lvgl_port_lock(timeOut);
+}
+
+void lvglPortUnlockDevice(void){
+    lvgl_port_unlock();
+}
+
+/********
+ * LABEL
+ ********/
+
+void createLabel (void){
+    lv_obj_t *scr = lv_disp_get_scr_act(disp);
+    label = lv_label_create(scr);
+    lv_label_set_text(label, "");
+}
 
 lv_obj_t*  getLabel(void){
     return label;
@@ -56,6 +81,10 @@ void setPos(int xvalue, int yvalue){
     lv_obj_set_pos(label, xvalue, xvalue);
 }
 
+/***********
+ * DRAW RECTANGLE
+ ***********/
+
 void drawRectangle(int x, int y, int dimx, int dimy, int size){
     lv_obj_t * obj = lv_obj_create(lv_scr_act());
     lv_obj_set_size(obj, dimx, dimy);
@@ -63,27 +92,106 @@ void drawRectangle(int x, int y, int dimx, int dimy, int size){
 
     static lv_style_t style;
     lv_style_init(&style);
-    lv_style_set_bg_color(&style, lv_color_hex(0xFFFF00));
-    lv_style_set_border_color(&style, lv_color_hex(0x000000));
+    lv_style_set_bg_color(&style, lv_color_hex(0xFFFFFF));
+    lv_style_set_border_color(&style, white_color);
     lv_style_set_border_width(&style, size);
     lv_obj_add_style(obj, &style, 0);
 }
 
+/*************
+ * DRAW LINE
+ *************/
+void drawLine(int x, int y, int X, int Y, int Size){
+    // Créer une ligne
+    lv_obj_t *line = lv_line_create(lv_scr_act());
+    
+    // Définir les points de la ligne
+    static lv_point_t line_points[2];
+    line_points[0].x = x; // Point de départ (x1)
+    line_points[0].y = y; // Point de départ (y1)
+    line_points[1].x = X; // Point d'arrivée (x2)
+    line_points[1].y = Y; // Point d'arrivée (y2)
+    
+    // Ajouter les points à la ligne
+    lv_line_set_points(line, line_points, 3); //?
+    
+    // Créer et appliquer un style à la ligne
+    static lv_style_t style_line;
+    lv_style_init(&style_line);
+    lv_style_set_line_color(&style_line, white_color);
+    lv_style_set_line_width(&style_line, Size); // Définir l'épaisseur de la ligne
+    lv_obj_add_style(line, &style_line, LV_PART_MAIN);
+    
+    // Positionner la ligne si nécessaire
+    lv_obj_set_pos(line, 0, 0); // Positionner la ligne dans le parent
+}
+void drawLine1(int x, int y, int X, int Y, int Size){
+    // Créer une ligne
+    lv_obj_t *line = lv_line_create(lv_scr_act());
+    
+    // Définir les points de la ligne
+    static lv_point_t line_points[2];
+    line_points[0].x = x; // Point de départ (x1)
+    line_points[0].y = y; // Point de départ (y1)
+    line_points[1].x = X; // Point d'arrivée (x2)
+    line_points[1].y = Y; // Point d'arrivée (y2)
+    
+    // Ajouter les points à la ligne
+    lv_line_set_points(line, line_points, 3); //?
+    
+    // Créer et appliquer un style à la ligne
+    static lv_style_t style_line;
+    lv_style_init(&style_line);
+    lv_style_set_line_color(&style_line, white_color);
+    lv_style_set_line_width(&style_line, Size); // Définir l'épaisseur de la ligne
+    lv_obj_add_style(line, &style_line, LV_PART_MAIN);
+    
+    // Positionner la ligne si nécessaire
+    lv_obj_set_pos(line, 0, 0); // Positionner la ligne dans le parent
+}
+
+/****************
+ * CLEAR SCREEN
+ ***************/
 void clearScreen (void){
     lv_obj_clean(lv_scr_act());
 }
 
+/*****************
+ * User Interface
+ ****************/
 void lvgl_ui(lv_disp_t *disp){
 
-    
-    lv_obj_t *scr = lv_disp_get_scr_act(disp);
-    label = lv_label_create(scr);
+    clearScreen();
 
-    lv_label_set_long_mode(label, LV_LABEL_LONG_SCROLL_CIRCULAR); /* Circular scroll */
-    lv_label_set_text(label, "init ...");
+    drawRectangle(0,0,40,32,1);
+
+    drawRectangle(40,0,88,32,1);
+
+
+    createLabel();
+    setLongMode(LV_LABEL_LONG_SCROLL_CIRCULAR); /* Circular scroll */
+    setTextOled( "F4DEB init ...");
     /* Size of the screen (if you use rotation 90 or 270, please set disp->driver->ver_res) */
+    setPos(6,8);
+    lv_obj_set_width(label, disp->driver->hor_res);
+    //lv_obj_align(label, LV_ALIGN_TOP_MID, 5, 7);
 
-/* If do not compil, check version 8.3.0 in dependencies.lock file
+    drawLine(60,5,60,27,1);
+    drawLine1(70,5,70,27,3);
+
+
+    //boussole();
+}
+
+
+
+
+
+
+/*********************
+ *  INITIALISATION 
+ *  If do not compil, check version 8.3.0 in dependencies.lock file
 lvgl/lvgl:
     component_hash: 7b7ee85e48c2eb35bb242a8c7e0e4cd702e150541afb3f69089fb7ba81554d14
     dependencies: []
@@ -91,19 +199,8 @@ lvgl/lvgl:
       registry_url: https://components.espressif.com/
       type: service
     version: 8.3.0
-*/
-    lv_obj_set_width(label, disp->driver->hor_res);
-    lv_obj_align(label, LV_ALIGN_TOP_MID, 5, 7);
-}
 
-bool lvglportlockDevice (uint32_t timeOut){
-    return lvgl_port_lock(timeOut);
-}
-
-void lvglPortUnlockDevice(void){
-    lvgl_port_unlock();
-}
-
+ *********************/
 void oled (void){ 
     ESP_LOGI(TAG, "Install panel IO");
     esp_lcd_panel_io_handle_t io_handle = NULL;
