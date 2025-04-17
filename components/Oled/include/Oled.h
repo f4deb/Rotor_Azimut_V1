@@ -28,7 +28,7 @@ void setXPos(int value);
 void setYPos(int value);
 void setPos(int xvalue, int yvalue);
 void drawRectangle(int x, int y, int dimx, int dimy, int size);
-void drawLine(int x, int y, int X, int Y, int Size);
+void drawLine(int index, int x, int y, int X, int Y, int Size);
 
 void clearScreen (void);
 

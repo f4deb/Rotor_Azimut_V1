@@ -25,6 +25,10 @@ static lv_disp_t *disp;
 
 static lv_obj_t * my_rect;
 
+static lv_obj_t *line;
+static lv_obj_t *line0;
+static lv_obj_t *line1;
+
 // Définir la couleur blanc
 lv_color_t white_color = LV_COLOR_MAKE(0, 0, 0);
 
@@ -101,33 +105,28 @@ void drawRectangle(int x, int y, int dimx, int dimy, int size){
 /*************
  * DRAW LINE
  *************/
-void drawLine(int x, int y, int X, int Y, int Size){
-    // Créer une ligne
-    lv_obj_t *line = lv_line_create(lv_scr_act());
-    
-    // Définir les points de la ligne
-    static lv_point_t line_points[2];
-    line_points[0].x = x; // Point de départ (x1)
-    line_points[0].y = y; // Point de départ (y1)
-    line_points[1].x = X; // Point d'arrivée (x2)
-    line_points[1].y = Y; // Point d'arrivée (y2)
-    
-    // Ajouter les points à la ligne
-    lv_line_set_points(line, line_points, 3); //?
-    
-    // Créer et appliquer un style à la ligne
-    static lv_style_t style_line;
-    lv_style_init(&style_line);
-    lv_style_set_line_color(&style_line, white_color);
-    lv_style_set_line_width(&style_line, Size); // Définir l'épaisseur de la ligne
-    lv_obj_add_style(line, &style_line, LV_PART_MAIN);
-    
-    // Positionner la ligne si nécessaire
-    lv_obj_set_pos(line, 0, 0); // Positionner la ligne dans le parent
+void initLine(int index){
+    switch(index){
+        case 0:
+                line0 = lv_line_create(lv_scr_act());                
+                break;
+                
+        case 1:
+                line1 = lv_line_create(lv_scr_act());
+                break;           
+    }
 }
-void drawLine1(int x, int y, int X, int Y, int Size){
+
+void drawLine(int index, int x, int y, int X, int Y, int Size){
     // Créer une ligne
-    lv_obj_t *line = lv_line_create(lv_scr_act());
+    switch(index){
+        case 0:
+                line = line0;                
+                break;
+        case 1:
+                line = line1;
+                break;           
+    }
     
     // Définir les points de la ligne
     static lv_point_t line_points[2];
@@ -177,8 +176,11 @@ void lvgl_ui(lv_disp_t *disp){
     lv_obj_set_width(label, disp->driver->hor_res);
     //lv_obj_align(label, LV_ALIGN_TOP_MID, 5, 7);
 
-    drawLine(60,5,60,27,1);
-    drawLine1(70,5,70,27,3);
+    initLine(0);
+    initLine(1);
+
+    drawLine(0,60,5,60,27,1);
+    drawLine(1,70,5,70,27,3);
 
 
     //boussole();

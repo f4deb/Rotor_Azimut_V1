@@ -80,7 +80,7 @@ void oledInterface(char rxBuffer[50]){
         int y2 = readDec(stringToString(str,rxBuffer+6,2));
         int size = readDec(stringToString(str,rxBuffer+8,2));
 
-        drawLine(x1, y1, x2, y2, size);
+        drawLine(0,x1, y1, x2, y2, size);
     }
 
     else if ((strcmp(CLEAR_SCREEN_OLED_HEADER,str)) == 0) {
