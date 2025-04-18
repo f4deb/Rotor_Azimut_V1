@@ -23,11 +23,11 @@ static lv_obj_t *label;
 static lv_obj_t *scr;
 static lv_disp_t *disp;
 
-static lv_obj_t * my_rect;
-
 static lv_obj_t *line;
 static lv_obj_t *line0;
 static lv_obj_t *line1;
+
+static lv_obj_t * chart;
 
 // Définir la couleur blanc
 lv_color_t white_color = LV_COLOR_MAKE(0, 0, 0);
@@ -147,6 +147,45 @@ void drawLine(int index, int x, int y, int X, int Y, int Size){
     
     // Positionner la ligne si nécessaire
     lv_obj_set_pos(line, 0, 0); // Positionner la ligne dans le parent
+}
+
+static void slider_x_event_cb(lv_event_t * e)
+{
+    lv_obj_t * obj = lv_event_get_target(e);
+    int32_t v = lv_slider_get_value(obj);
+    lv_chart_set_zoom_x(chart, v);
+}
+
+static void slider_y_event_cb(lv_event_t * e)
+{
+    lv_obj_t * obj = lv_event_get_target(e);
+    int32_t v = lv_slider_get_value(obj);
+    lv_chart_set_zoom_y(chart, v);
+}
+
+void drawChart (void){
+/* Créer un graphique */
+lv_obj_t * chart;
+chart = lv_chart_create(lv_scr_act());
+lv_obj_set_size(chart, 200, 150);
+lv_obj_center(chart);
+lv_chart_set_type(chart, LV_CHART_TYPE_LINE); // Définir le type de graphique en ligne
+
+/* Ajouter deux séries de données */
+lv_chart_series_t * ser1 = lv_chart_add_series(chart, lv_palette_main(LV_PALETTE_GREEN), LV_CHART_AXIS_PRIMARY_Y);
+lv_chart_series_t * ser2 = lv_chart_add_series(chart, lv_palette_main(LV_PALETTE_RED), LV_CHART_AXIS_SECONDARY_Y);
+
+/* Remplir les séries avec des données aléatoires */
+lv_coord_t * ser2_y_points = lv_chart_get_y_array(chart, ser2);
+
+uint32_t i;
+for(i = 0; i < 10; i++) {
+    /* Définir les points suivants sur 'ser1' */
+    lv_chart_set_next_value(chart, ser1, (int32_t)lv_rand(10, 50));
+    /* Définir directement les points sur 'ser2' */
+    ser2_y_points[i] = (int32_t)lv_rand(50, 90);
+}
+lv_chart_refresh(chart); // Rafraîchir le graphique pour afficher les données
 }
 
 /****************
