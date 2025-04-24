@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "rotorV1",
-    "project_version":    "e176718-dirty",
+    "project_version":    "b6e51cc-dirty",
     "project_path":       "/home/f4deb/RotorV1A",
     "idf_path":           "/home/f4deb/esp/v5.4/esp-idf",
     "build_dir":          "/home/f4deb/RotorV1A/build",

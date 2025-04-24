@@ -423,7 +423,7 @@ CMAKE_CACHEFILE_DIR:INTERNAL=/home/f4deb/RotorV1A/build
 //Major version of cmake used to create the current loaded cache
 CMAKE_CACHE_MAJOR_VERSION:INTERNAL=3
 //Minor version of cmake used to create the current loaded cache
-CMAKE_CACHE_MINOR_VERSION:INTERNAL=28
+CMAKE_CACHE_MINOR_VERSION:INTERNAL=30
 //Patch version of cmake used to create the current loaded cache
 CMAKE_CACHE_PATCH_VERSION:INTERNAL=3
 //Path to CMake executable.
@@ -552,7 +552,7 @@ CMAKE_RANLIB-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_READELF
 CMAKE_READELF-ADVANCED:INTERNAL=1
 //Path to CMake installation.
-CMAKE_ROOT:INTERNAL=/usr/share/cmake-3.28
+CMAKE_ROOT:INTERNAL=/usr/share/cmake-3.30
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS
 CMAKE_SHARED_LINKER_FLAGS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_DEBUG
@@ -588,9 +588,9 @@ CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Test C_COMPILER_SUPPORTS_WFORMAT_SIGNEDNESS
 C_COMPILER_SUPPORTS_WFORMAT_SIGNEDNESS:INTERNAL=1
 //Details about finding Git
-FIND_PACKAGE_MESSAGE_DETAILS_Git:INTERNAL=[/usr/bin/git][v2.43.0()]
+FIND_PACKAGE_MESSAGE_DETAILS_Git:INTERNAL=[/usr/bin/git][v2.45.2()]
 //Details about finding Python3
-FIND_PACKAGE_MESSAGE_DETAILS_Python3:INTERNAL=[/home/f4deb/Documents/F4DEB-ESP32/python_env/idf5.4_py3.12_env/bin/python][cfound components: Interpreter ][v3.12.3()]
+FIND_PACKAGE_MESSAGE_DETAILS_Python3:INTERNAL=[/home/f4deb/Documents/F4DEB-ESP32/python_env/idf5.4_py3.12_env/bin/python][cfound components: Interpreter ][v3.12.7()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //ADVANCED property for variable: GIT_EXECUTABLE
@@ -603,7 +603,7 @@ _Python3_Compiler_REASON_FAILURE:INTERNAL=
 _Python3_Development_REASON_FAILURE:INTERNAL=
 _Python3_EXECUTABLE:INTERNAL=/home/f4deb/Documents/F4DEB-ESP32/python_env/idf5.4_py3.12_env/bin/python
 //Python3 Properties
-_Python3_INTERPRETER_PROPERTIES:INTERNAL=Python;3;12;3;32;64;;;abi3;/usr/lib/python3.12;/home/f4deb/Documents/F4DEB-ESP32/python_env/idf5.4_py3.12_env/lib/python3.12;/home/f4deb/Documents/F4DEB-ESP32/python_env/idf5.4_py3.12_env/lib/python3.12/site-packages;/home/f4deb/Documents/F4DEB-ESP32/python_env/idf5.4_py3.12_env/lib/python3.12/site-packages
+_Python3_INTERPRETER_PROPERTIES:INTERNAL=Python;3;12;7;32;64;;;abi3;/usr/lib/python3.12;/home/f4deb/Documents/F4DEB-ESP32/python_env/idf5.4_py3.12_env/lib/python3.12;/home/f4deb/Documents/F4DEB-ESP32/python_env/idf5.4_py3.12_env/lib/python3.12/site-packages;/home/f4deb/Documents/F4DEB-ESP32/python_env/idf5.4_py3.12_env/lib/python3.12/site-packages
 _Python3_INTERPRETER_SIGNATURE:INTERNAL=46b901f057ca9f875b61901835111ec3
 //NumPy reason failure
 _Python3_NumPy_REASON_FAILURE:INTERNAL=
