@@ -27,7 +27,11 @@ static lv_obj_t *line;
 static lv_obj_t *line0;
 //static lv_obj_t *line1;
 
-lv_obj_t* line1, *line2, *line3;
+static lv_obj_t* line1, *line2, *line3;
+static lv_style_t lv_style_plain1,lv_style_plain2,lv_style_plain3;
+static lv_point_t p1[] = {  {80,8},  {80,24} };
+static lv_point_t p2[] = {  {90,8}, {90,24} };
+static lv_point_t p3[] = {  {100,8}, {100,24} };
 
 
 static lv_obj_t * chart;
@@ -145,10 +149,10 @@ void lvgl_ui(lv_disp_t *disp){
     lv_obj_set_width(label, disp->driver->hor_res);
     //lv_obj_align(label, LV_ALIGN_TOP_MID, 5, 7);
 
-    //initLine(0);
+    initLine(0);
     //initLine(1);
 
-    //drawLine(0,60,5,60,27,1);
+    drawLine(0,60,5,60,27,1);
     //drawLine(1,70,5,70,27,3);
 
 
@@ -157,9 +161,7 @@ void lvgl_ui(lv_disp_t *disp){
     line2 = lv_line_create(lv_scr_act());
     line3 = lv_line_create(lv_scr_act());
     
-    static lv_point_t p1[] = {  {0,0},  {15,15} };
-    static lv_point_t p2[] = {  {20,0}, {20,32} };
-    static lv_point_t p3[] = {  {60,0}, {80,20} };
+ 
   
     lv_line_set_points(line1, p1, 2 );
     lv_line_set_points(line2, p2, 2 );
@@ -168,13 +170,23 @@ void lvgl_ui(lv_disp_t *disp){
 
 
 
-    static lv_style_t lv_style_plain;
-    lv_style_init(&lv_style_plain);
-    lv_style_set_line_color(&lv_style_plain, white_color);
-    lv_style_set_line_width(&lv_style_plain, 1); // Définir l'épaisseur de la ligne
-    lv_obj_add_style(line1, &lv_style_plain, LV_PART_MAIN);
-    lv_obj_add_style(line2, &lv_style_plain, LV_PART_MAIN);
-    lv_obj_add_style(line3, &lv_style_plain, LV_PART_MAIN);
+    lv_style_init(&lv_style_plain1);
+    lv_style_set_line_color(&lv_style_plain1, white_color);
+    lv_style_set_line_width(&lv_style_plain1, 1); // Définir l'épaisseur de la ligne
+
+    lv_style_init(&lv_style_plain2);
+    lv_style_set_line_color(&lv_style_plain2, white_color);
+    lv_style_set_line_width(&lv_style_plain2, 2); // Définir l'épaisseur de la ligne
+
+    lv_style_init(&lv_style_plain3);
+    lv_style_set_line_color(&lv_style_plain3, white_color);
+    lv_style_set_line_width(&lv_style_plain3, 3); // Définir l'épaisseur de la ligne
+
+
+
+    lv_obj_add_style(line1, &lv_style_plain1, LV_PART_MAIN);
+    lv_obj_add_style(line2, &lv_style_plain2, LV_PART_MAIN);
+    lv_obj_add_style(line3, &lv_style_plain3, LV_PART_MAIN);
 
 
 
