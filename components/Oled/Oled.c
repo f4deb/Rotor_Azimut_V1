@@ -16,10 +16,13 @@
 #include "../../clock/include/clock.h"
 #include "../../I2c/include/I2c.h"
 
+#define LABEL_TEXT_1  1
+#define LABEL_TEXT_2  2
+
 static const char *TAG = "OLED : ";
 //static i2c_master_bus_handle_t i2c_bus;
 
-static lv_obj_t *label;
+static lv_obj_t *label, *label1;
 static lv_obj_t *scr;
 static lv_disp_t *disp;
 
@@ -27,12 +30,13 @@ static lv_obj_t *line;
 static lv_obj_t *line0;
 //static lv_obj_t *line1;
 
-static lv_obj_t* line1, *line2, *line3;
-static lv_style_t lv_style_plain1,lv_style_plain2,lv_style_plain3;
-static lv_point_t p1[] = {  {80,8},  {80,24} };
-static lv_point_t p2[] = {  {90,8}, {90,24} };
-static lv_point_t p3[] = {  {100,8}, {100,24} };
-
+static lv_obj_t* line1, *line2, *line3, *line4, *line5;
+static lv_style_t lv_style_plain1,lv_style_plain2,lv_style_plain3,lv_style_plain4;
+static lv_point_t p1[] = {  {55,8},  {55,24} };
+static lv_point_t p2[] = {  {70,8}, {70,24} };
+static lv_point_t p3[] = {  {85,8}, {85,24} };
+static lv_point_t p4[] = {  {100,8}, {100,24} };
+static lv_point_t p5[] = {  {115,8}, {115,24} };
 
 static lv_obj_t * chart;
 
@@ -50,46 +54,62 @@ void lvglPortUnlockDevice(void){
     lvgl_port_unlock();
 }
 
+
+
 /********
  * LABEL
  ********/
 
-void createLabel (void){
+lv_obj_t* getLabel(int index){
+    lv_obj_t* labelx = label;
+    if (index == LABEL_TEXT_1)  {
+        labelx = label;
+    }
+    else if (index == LABEL_TEXT_2) {
+        labelx = label1;
+    }
+    return labelx;
+}
+
+void createLabel (int index){
     lv_obj_t *scr = lv_disp_get_scr_act(disp);
-    label = lv_label_create(scr);
-    lv_label_set_text(label, "");
+
+    if (index == LABEL_TEXT_1)  {
+        label = lv_label_create(scr);
+        lv_label_set_text(label, "NN");
+    }
+    else if (index == LABEL_TEXT_2) {
+        label1 = lv_label_create(scr);
+        lv_label_set_text(label1, "SS");
+    }
 }
 
-lv_obj_t*  getLabel(void){
-    return label;
-}
-
-void setTextOled(char *text){
-    lv_label_set_text(getLabel(), text);
+void setTextOled(int index, char *text){
+        lv_label_set_text(getLabel(index), text);
 }
 
 void setTextRotation(int value){
     lv_disp_set_rotation(disp, value);
 }
 
-void setLongMode (int value){
-    lv_label_set_long_mode(label, value); /* Circular scroll */
+void setLongMode (int index, int value){
+        lv_label_set_long_mode(getLabel(index), value); /* Circular scroll */
 }
 
-void setRecolor(bool status) {
-    lv_label_set_recolor(label, status);
+void setRecolor(int index, bool status) {
+    lv_label_set_recolor(getLabel(index), status);
 }
 
-void setXPos(int value){
-    lv_obj_set_x(label, value);
+void setXPos(int index, int value){
+    lv_obj_set_x(getLabel(index), value);
 }
 
-void setYPos(int value){
-    lv_obj_set_y(label, value);
+void setYPos(int index, int value){
+    lv_obj_set_y(getLabel(index), value);
 }
 
-void setPos(int xvalue, int yvalue){
-    lv_obj_set_pos(label, xvalue, xvalue);
+void setPos(int index, int xvalue, int yvalue){
+    lv_obj_set_pos(getLabel(index), xvalue, yvalue);
 }
 
 /***********
@@ -113,14 +133,10 @@ void drawRectangle(int x, int y, int dimx, int dimy, int size){
  * DRAW LINE
  *************/
 void initLine(int index){
-    
 }
 
-void drawLine(int index, int x, int y, int X, int Y, int Size){
-   
+void drawLine(int index, int x, int y, int X, int Y, int Size){   
 }
-
-
 
 /****************
  * CLEAR SCREEN
@@ -128,6 +144,12 @@ void drawLine(int index, int x, int y, int X, int Y, int Size){
 void clearScreen (void){
     lv_obj_clean(lv_scr_act());
 }
+
+
+void boussole (void){
+
+}
+
 
 /*****************
  * User Interface
@@ -137,38 +159,42 @@ void lvgl_ui(lv_disp_t *disp){
     clearScreen();
 
     drawRectangle(0,0,40,32,1);
-
     drawRectangle(40,0,88,32,1);
 
+    createLabel(LABEL_TEXT_1);
+    createLabel(LABEL_TEXT_2);
+    setLongMode(LABEL_TEXT_1, LV_LABEL_LONG_SCROLL_CIRCULAR); /* Circular scroll */
+    setLongMode(LABEL_TEXT_2, LV_LABEL_LONG_SCROLL_CIRCULAR); /* Circular scroll */
 
-    createLabel();
-    setLongMode(LV_LABEL_LONG_SCROLL_CIRCULAR); /* Circular scroll */
-    setTextOled( "F4DEB init ...");
+    setTextOled( LABEL_TEXT_1, "F4DEB init ...");
     /* Size of the screen (if you use rotation 90 or 270, please set disp->driver->ver_res) */
-    setPos(6,8);
+    setPos(LABEL_TEXT_1, 8, 8);
+    setPos(LABEL_TEXT_2, 80, 12);
+
     lv_obj_set_width(label, disp->driver->hor_res);
+    lv_obj_set_width(label1, disp->driver->hor_res);
+
     //lv_obj_align(label, LV_ALIGN_TOP_MID, 5, 7);
 
     initLine(0);
-    //initLine(1);
-
-    drawLine(0,60,5,60,27,1);
-    //drawLine(1,70,5,70,27,3);
+    initLine(1);
 
 
-    
+    setTextOled(LABEL_TEXT_1, "180");
+    setTextOled(LABEL_TEXT_2, "S");
+
+
     line1 = lv_line_create(lv_scr_act());
     line2 = lv_line_create(lv_scr_act());
     line3 = lv_line_create(lv_scr_act());
-    
- 
+    line4 = lv_line_create(lv_scr_act());
+    line5 = lv_line_create(lv_scr_act()); 
   
     lv_line_set_points(line1, p1, 2 );
     lv_line_set_points(line2, p2, 2 );
     lv_line_set_points(line3, p3, 2 );
-
-
-
+    lv_line_set_points(line4, p4, 2 );
+    lv_line_set_points(line5, p5, 2 );
 
     lv_style_init(&lv_style_plain1);
     lv_style_set_line_color(&lv_style_plain1, white_color);
@@ -182,26 +208,18 @@ void lvgl_ui(lv_disp_t *disp){
     lv_style_set_line_color(&lv_style_plain3, white_color);
     lv_style_set_line_width(&lv_style_plain3, 3); // Définir l'épaisseur de la ligne
 
+    lv_style_init(&lv_style_plain4);
+    lv_style_set_line_color(&lv_style_plain4, white_color);
+    lv_style_set_line_width(&lv_style_plain4, 6); // Définir l'épaisseur de la ligne
 
-
-    lv_obj_add_style(line1, &lv_style_plain1, LV_PART_MAIN);
-    lv_obj_add_style(line2, &lv_style_plain2, LV_PART_MAIN);
+    lv_obj_add_style(line1, &lv_style_plain3, LV_PART_MAIN);
+    lv_obj_add_style(line2, &lv_style_plain1, LV_PART_MAIN);
     lv_obj_add_style(line3, &lv_style_plain3, LV_PART_MAIN);
+    lv_obj_add_style(line4, &lv_style_plain1, LV_PART_MAIN);
+    lv_obj_add_style(line5, &lv_style_plain3, LV_PART_MAIN);
 
-
-
-
-  
-    
-
-
-    //boussole();
+    boussole();
 }
-
-
-
-
-
 
 /*********************
  *  INITIALISATION 

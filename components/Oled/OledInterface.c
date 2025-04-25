@@ -30,11 +30,11 @@ void oledInterface(char rxBuffer[50]){
     rxBuffer = rxBuffer + OLED_INTERFACE_COMMAND_SIZE;  
     
     if ((strcmp(SET_TEXT_OLED_HEADER,str)) == 0) {
-        setTextOled(rxBuffer);
+        setTextOled(1, rxBuffer);
     }  
 
     else if ((strcmp(CREATE_LABEL_OLED_HEADER,str)) == 0) {
-        createLabel();
+        createLabel(1);
     }
     
     else if ((strcmp(SET_ROTATION_OLED_HEADER,str)) == 0) {
@@ -42,25 +42,25 @@ void oledInterface(char rxBuffer[50]){
     }
 
     else if ((strcmp(SET_LONG_MODE_OLED_HEADER,str)) == 0) {
-        setLongMode(readHex(stringToString(str,rxBuffer,2)));
+        setLongMode(1,readHex(stringToString(str,rxBuffer,2)));
     }
 
     else if ((strcmp(SET_RECOLOR_OLED_HEADER,str)) == 0) {
-        setRecolor(readHex(stringToString(str,rxBuffer,2)));
+        setRecolor(1, readHex(stringToString(str,rxBuffer,2)));
     }
     
     else if ((strcmp(SET_X_POS_OLED_HEADER,str)) == 0) {
-        setXPos(readDec(stringToString(str,rxBuffer,2)));
+        setXPos(1, readDec(stringToString(str,rxBuffer,2)));
     }
 
     else if ((strcmp(SET_Y_POS_OLED_HEADER,str)) == 0) {
-        setYPos(readDec(stringToString(str,rxBuffer,2)));
+        setYPos(1, readDec(stringToString(str,rxBuffer,2)));
     }
 
     else if ((strcmp(SET_POS_OLED_HEADER,str)) == 0) {
         int x = readDec(stringToString(str,rxBuffer,2));
         int y = readDec(stringToString(str,rxBuffer+2,2));
-        setPos(x, y);
+        setPos(1, x, y);
     }
 
     else if ((strcmp(DRAW_RECTANGLE_OLED_HEADER,str)) == 0) {
