@@ -85,6 +85,10 @@ void oledInterface(char rxBuffer[50]){
 
     else if ((strcmp(CLEAR_SCREEN_OLED_HEADER,str)) == 0) {
         clearScreen();
+    }    
+    
+    else if ((strcmp(BOUSSOLE_OLED_HEADER,str)) == 0) {
+        boussole(readDec(stringToString(str,rxBuffer,3)));    
     }
 
     else {

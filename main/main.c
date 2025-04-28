@@ -3,6 +3,11 @@
 #include <stdio.h>
 #include <string.h>
 
+#define LV_FONT_MONTSERRAT_14 1
+#define LV_FONT_MONTSERRAT_24 1
+
+
+
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 

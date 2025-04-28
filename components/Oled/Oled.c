@@ -30,13 +30,19 @@ static lv_obj_t *line;
 static lv_obj_t *line0;
 //static lv_obj_t *line1;
 
-static lv_obj_t* line1, *line2, *line3, *line4, *line5;
+static lv_obj_t* line1, *line2, *line3, *line4, *line5, *line6, *line7, *line8, *line9;
 static lv_style_t lv_style_plain1,lv_style_plain2,lv_style_plain3,lv_style_plain4;
 static lv_point_t p1[] = {  {55,8},  {55,24} };
 static lv_point_t p2[] = {  {70,8}, {70,24} };
 static lv_point_t p3[] = {  {85,8}, {85,24} };
 static lv_point_t p4[] = {  {100,8}, {100,24} };
 static lv_point_t p5[] = {  {115,8}, {115,24} };
+static lv_point_t p6[] = {  {115,8}, {115,24} };
+static lv_point_t p7[] = {  {115,8}, {115,24} };
+static lv_point_t p8[] = {  {115,8}, {115,24} };
+static lv_point_t p9[] = {  {115,8}, {115,24} };
+
+
 
 static lv_obj_t * chart;
 
@@ -145,56 +151,16 @@ void clearScreen (void){
     lv_obj_clean(lv_scr_act());
 }
 
-
-void boussole (void){
-
-}
-
-
-/*****************
- * User Interface
- ****************/
-void lvgl_ui(lv_disp_t *disp){
-
-    clearScreen();
-
-    drawRectangle(0,0,40,32,1);
-    drawRectangle(40,0,88,32,1);
-
-    createLabel(LABEL_TEXT_1);
-    createLabel(LABEL_TEXT_2);
-    setLongMode(LABEL_TEXT_1, LV_LABEL_LONG_SCROLL_CIRCULAR); /* Circular scroll */
-    setLongMode(LABEL_TEXT_2, LV_LABEL_LONG_SCROLL_CIRCULAR); /* Circular scroll */
-
-    setTextOled( LABEL_TEXT_1, "F4DEB init ...");
-    /* Size of the screen (if you use rotation 90 or 270, please set disp->driver->ver_res) */
-    setPos(LABEL_TEXT_1, 8, 8);
-    setPos(LABEL_TEXT_2, 80, 12);
-
-    lv_obj_set_width(label, disp->driver->hor_res);
-    lv_obj_set_width(label1, disp->driver->hor_res);
-
-    //lv_obj_align(label, LV_ALIGN_TOP_MID, 5, 7);
-
-    initLine(0);
-    initLine(1);
-
-
-    setTextOled(LABEL_TEXT_1, "180");
-    setTextOled(LABEL_TEXT_2, "S");
-
-
+void initBoussole(void){
     line1 = lv_line_create(lv_scr_act());
     line2 = lv_line_create(lv_scr_act());
     line3 = lv_line_create(lv_scr_act());
     line4 = lv_line_create(lv_scr_act());
     line5 = lv_line_create(lv_scr_act()); 
-  
-    lv_line_set_points(line1, p1, 2 );
-    lv_line_set_points(line2, p2, 2 );
-    lv_line_set_points(line3, p3, 2 );
-    lv_line_set_points(line4, p4, 2 );
-    lv_line_set_points(line5, p5, 2 );
+    line6 = lv_line_create(lv_scr_act()); 
+    line7 = lv_line_create(lv_scr_act()); 
+    line8 = lv_line_create(lv_scr_act()); 
+    line9 = lv_line_create(lv_scr_act()); 
 
     lv_style_init(&lv_style_plain1);
     lv_style_set_line_color(&lv_style_plain1, white_color);
@@ -217,8 +183,132 @@ void lvgl_ui(lv_disp_t *disp){
     lv_obj_add_style(line3, &lv_style_plain3, LV_PART_MAIN);
     lv_obj_add_style(line4, &lv_style_plain1, LV_PART_MAIN);
     lv_obj_add_style(line5, &lv_style_plain3, LV_PART_MAIN);
+    lv_obj_add_style(line6, &lv_style_plain1, LV_PART_MAIN);
+    lv_obj_add_style(line7, &lv_style_plain3, LV_PART_MAIN);
+    lv_obj_add_style(line8, &lv_style_plain1, LV_PART_MAIN);
+    lv_obj_add_style(line9, &lv_style_plain3, LV_PART_MAIN);
+}
 
-    boussole();
+void boussole (int azimut){
+    int center = 76 ;
+    int posInit = center;
+    int delta = 18;
+    char str[4];
+
+
+    sprintf (str,"%03d",azimut);
+
+
+    if ( azimut <= 90 ) {
+        
+        setTextOled(LABEL_TEXT_1, str);
+        setTextOled(LABEL_TEXT_2, "N");
+
+
+        posInit = ((azimut * 70) / 90)-35; 
+
+        posInit = posInit + center;
+
+        setXPos(LABEL_TEXT_2,posInit+37);
+    }
+    else if ( (azimut <= 180) && (azimut > 90) ) {
+        posInit =(2*posInit) + center ;
+    }
+    else if ( (azimut <= 270) && (azimut > 180) ) {
+        posInit =posInit + center;
+    }
+    else if ( (azimut <= 360) && (azimut > 270) ) {
+        posInit =posInit + center;
+    }
+
+    ESP_LOGE(TAG, "%d ", posInit);
+
+    p1[0].x = posInit-(4 * delta);
+    p1[1].x = posInit-(4 * delta);
+    p2[0].x = posInit-(3 * delta);
+    p2[1].x = posInit-(3 * delta);
+    p3[0].x = posInit-(2 * delta);
+    p3[1].x = posInit-(2 * delta);
+    p4[0].x = posInit-delta;
+    p4[1].x = posInit-delta;
+    //p5[0].x = posInit;
+    //p5[1].x = posInit;
+    p6[0].x = posInit+delta;
+    p6[1].x = posInit+delta;
+    p7[0].x = posInit+(2 * delta);
+    p7[1].x = posInit+(2 * delta);
+    p8[0].x = posInit+(3 * delta);
+    p8[1].x = posInit+(3 * delta);
+    p9[0].x = posInit+(4 * delta);
+    p9[1].x = posInit+(4 * delta);
+
+
+    int ofsObj = 41;
+
+    lv_obj_set_x(line1,ofsObj); 
+    lv_obj_set_x(line2,ofsObj); 
+    lv_obj_set_x(line3,ofsObj); 
+    lv_obj_set_x(line4,ofsObj); 
+    lv_obj_set_x(line5,ofsObj); 
+    lv_obj_set_x(line6,ofsObj); 
+    lv_obj_set_x(line7,ofsObj); 
+    lv_obj_set_x(line8,ofsObj); 
+    lv_obj_set_x(line9,ofsObj); 
+
+    lv_line_set_points(line1, p1, 2 );
+    lv_line_set_points(line2, p2, 2 );
+    lv_line_set_points(line3, p3, 2 );
+    lv_line_set_points(line4, p4, 2 );
+    lv_line_set_points(line5, p5, 2 );
+    lv_line_set_points(line6, p6, 2 );
+    lv_line_set_points(line7, p7, 2 );
+    lv_line_set_points(line8, p8, 2 );
+    lv_line_set_points(line9, p9, 2 );
+
+}
+
+
+/*****************
+ * User Interface
+ ****************/
+void lvgl_ui(lv_disp_t *disp){
+
+    clearScreen();
+
+    drawRectangle(0,0,40,32,1);
+    drawRectangle(40,0,88,32,1);
+
+    createLabel(LABEL_TEXT_1);
+    createLabel(LABEL_TEXT_2);
+    setLongMode(LABEL_TEXT_1, LV_LABEL_LONG_SCROLL_CIRCULAR); /* Circular scroll */
+    setLongMode(LABEL_TEXT_2, LV_LABEL_LONG_SCROLL_CIRCULAR); /* Circular scroll */
+
+    setTextOled( LABEL_TEXT_1, "F4DEB init ...");
+    /* Size of the screen (if you use rotation 90 or 270, please set disp->driver->ver_res) */
+    setPos(LABEL_TEXT_1, 8, 8);
+    setPos(LABEL_TEXT_2, 82, 8);
+
+    lv_style_t my_style1; 
+    lv_style_init(&my_style1); 
+    lv_style_set_text_font(&my_style1, &lv_font_montserrat_24); 
+    lv_obj_add_style(getLabel(LABEL_TEXT_1), &my_style1, 0); 
+
+
+    lv_obj_set_width(getLabel(LABEL_TEXT_1), disp->driver->hor_res);
+    lv_obj_set_width(getLabel(LABEL_TEXT_2), disp->driver->hor_res);
+
+
+    initLine(0);
+    initLine(1);
+
+
+    setTextOled(LABEL_TEXT_1, "180");
+    setTextOled(LABEL_TEXT_2, "S");
+
+
+    initBoussole();
+
+    boussole(0);
 }
 
 /*********************

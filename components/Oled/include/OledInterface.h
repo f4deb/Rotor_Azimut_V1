@@ -23,6 +23,8 @@
 
 #define CLEAR_SCREEN_OLED_HEADER "c"
 
+#define BOUSSOLE_OLED_HEADER "B"
+
 void oledInterface(char rxBuffer[50]);
 
 #endif
