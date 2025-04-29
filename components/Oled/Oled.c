@@ -16,13 +16,17 @@
 #include "../../clock/include/clock.h"
 #include "../../I2c/include/I2c.h"
 
-#define LABEL_TEXT_1  1
-#define LABEL_TEXT_2  2
+#define LABEL_TEXT_AZ  1
+#define LABEL_TEXT_N  2
+#define LABEL_TEXT_E  3
+#define LABEL_TEXT_W  4
+#define LABEL_TEXT_S  5
+
 
 static const char *TAG = "OLED : ";
 //static i2c_master_bus_handle_t i2c_bus;
 
-static lv_obj_t *label, *label1;
+static lv_obj_t *label, *label1, *label2, *label3, *label4;
 static lv_obj_t *scr;
 static lv_disp_t *disp;
 
@@ -68,11 +72,20 @@ void lvglPortUnlockDevice(void){
 
 lv_obj_t* getLabel(int index){
     lv_obj_t* labelx = label;
-    if (index == LABEL_TEXT_1)  {
+    if (index == LABEL_TEXT_AZ)  {
         labelx = label;
     }
-    else if (index == LABEL_TEXT_2) {
+    else if (index == LABEL_TEXT_N) {
         labelx = label1;
+    }    
+    else if (index == LABEL_TEXT_E) {
+        labelx = label2;
+    }    
+    else if (index == LABEL_TEXT_W) {
+        labelx = label3;
+    }    
+    else if (index == LABEL_TEXT_S) {
+        labelx = label4;
     }
     return labelx;
 }
@@ -80,13 +93,25 @@ lv_obj_t* getLabel(int index){
 void createLabel (int index){
     lv_obj_t *scr = lv_disp_get_scr_act(disp);
 
-    if (index == LABEL_TEXT_1)  {
+    if (index == LABEL_TEXT_AZ)  {
         label = lv_label_create(scr);
-        lv_label_set_text(label, "NN");
+        lv_label_set_text(label, "0");
     }
-    else if (index == LABEL_TEXT_2) {
+    else if (index == LABEL_TEXT_N) {
         label1 = lv_label_create(scr);
-        lv_label_set_text(label1, "SS");
+        lv_label_set_text(label1, "N");
+    }
+    else if (index == LABEL_TEXT_E) {
+        label2 = lv_label_create(scr);
+        lv_label_set_text(label2, "E");
+    }
+    else if (index == LABEL_TEXT_W) {
+        label3 = lv_label_create(scr);
+        lv_label_set_text(label3, "W");
+    }
+    else if (index == LABEL_TEXT_S) {
+        label4 = lv_label_create(scr);
+        lv_label_set_text(label4, "S");
     }
 }
 
@@ -195,21 +220,27 @@ void boussole (int azimut){
     int delta = 18;
     char str[4];
 
+    lv_obj_set_x(getLabel(LABEL_TEXT_W),41); 
 
     sprintf (str,"%03d",azimut);
 
 
     if ( azimut <= 90 ) {
         
-        setTextOled(LABEL_TEXT_1, str);
-        setTextOled(LABEL_TEXT_2, "N");
+        setTextOled(LABEL_TEXT_AZ, str);
+        setTextOled(LABEL_TEXT_N, "N");
+        setTextOled(LABEL_TEXT_W, "W");
+
+        
 
 
         posInit = ((azimut * 70) / 90)-35; 
 
         posInit = posInit + center;
 
-        setXPos(LABEL_TEXT_2,posInit+37);
+        setXPos(LABEL_TEXT_N,posInit+37);
+        setXPos(LABEL_TEXT_W,posInit-37);
+        
     }
     else if ( (azimut <= 180) && (azimut > 90) ) {
         posInit =(2*posInit) + center ;
@@ -239,8 +270,8 @@ void boussole (int azimut){
     p7[1].x = posInit+(2 * delta);
     p8[0].x = posInit+(3 * delta);
     p8[1].x = posInit+(3 * delta);
-    p9[0].x = posInit+(4 * delta);
-    p9[1].x = posInit+(4 * delta);
+    //p9[0].x = posInit+(4 * delta);
+    //p9[1].x = posInit+(4 * delta);
 
 
     int ofsObj = 41;
@@ -278,32 +309,45 @@ void lvgl_ui(lv_disp_t *disp){
     drawRectangle(0,0,40,32,1);
     drawRectangle(40,0,88,32,1);
 
-    createLabel(LABEL_TEXT_1);
-    createLabel(LABEL_TEXT_2);
-    setLongMode(LABEL_TEXT_1, LV_LABEL_LONG_SCROLL_CIRCULAR); /* Circular scroll */
-    setLongMode(LABEL_TEXT_2, LV_LABEL_LONG_SCROLL_CIRCULAR); /* Circular scroll */
+    createLabel(LABEL_TEXT_AZ);
+    createLabel(LABEL_TEXT_N);
+    createLabel(LABEL_TEXT_E);
+    createLabel(LABEL_TEXT_W);
+    createLabel(LABEL_TEXT_S);
 
-    setTextOled( LABEL_TEXT_1, "F4DEB init ...");
+    setLongMode(LABEL_TEXT_AZ, LV_LABEL_LONG_SCROLL_CIRCULAR); /* Circular scroll */
+    setLongMode(LABEL_TEXT_N, LV_LABEL_LONG_SCROLL_CIRCULAR); /* Circular scroll */
+    setLongMode(LABEL_TEXT_E, LV_LABEL_LONG_SCROLL_CIRCULAR); /* Circular scroll */
+    setLongMode(LABEL_TEXT_W, LV_LABEL_LONG_SCROLL_CIRCULAR); /* Circular scroll */
+    setLongMode(LABEL_TEXT_S, LV_LABEL_LONG_SCROLL_CIRCULAR); /* Circular scroll */
+
+
+
+    setTextOled( LABEL_TEXT_AZ, "F4DEB init ...");
     /* Size of the screen (if you use rotation 90 or 270, please set disp->driver->ver_res) */
-    setPos(LABEL_TEXT_1, 8, 8);
-    setPos(LABEL_TEXT_2, 82, 8);
+    setPos(LABEL_TEXT_AZ, 8, 8);
+    setPos(LABEL_TEXT_N, 82, 8);
+    setPos(LABEL_TEXT_E, 200, 8);
+    setPos(LABEL_TEXT_W, 200, 8);
+    setPos(LABEL_TEXT_S, 200, 8);
+
 
     lv_style_t my_style1; 
     lv_style_init(&my_style1); 
-    lv_style_set_text_font(&my_style1, &lv_font_montserrat_24); 
-    lv_obj_add_style(getLabel(LABEL_TEXT_1), &my_style1, 0); 
+    lv_style_set_text_font(&my_style1, &lv_font_montserrat_14); 
+    lv_obj_add_style(getLabel(LABEL_TEXT_AZ), &my_style1, 0); 
 
 
-    lv_obj_set_width(getLabel(LABEL_TEXT_1), disp->driver->hor_res);
-    lv_obj_set_width(getLabel(LABEL_TEXT_2), disp->driver->hor_res);
+    lv_obj_set_width(getLabel(LABEL_TEXT_AZ), disp->driver->hor_res);
+    lv_obj_set_width(getLabel(LABEL_TEXT_N), disp->driver->hor_res);
+    lv_obj_set_width(getLabel(LABEL_TEXT_E), disp->driver->hor_res);
+    lv_obj_set_width(getLabel(LABEL_TEXT_W), disp->driver->hor_res);
+    lv_obj_set_width(getLabel(LABEL_TEXT_S), disp->driver->hor_res);
+
 
 
     initLine(0);
     initLine(1);
-
-
-    setTextOled(LABEL_TEXT_1, "180");
-    setTextOled(LABEL_TEXT_2, "S");
 
 
     initBoussole();
