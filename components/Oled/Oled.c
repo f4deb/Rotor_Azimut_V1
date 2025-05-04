@@ -201,49 +201,49 @@ void initBoussole(void){
 
     lv_style_init(&lv_style_plain4);
     lv_style_set_line_color(&lv_style_plain4, white_color);
-    lv_style_set_line_width(&lv_style_plain4, 6); // Définir l'épaisseur de la ligne
+    lv_style_set_line_width(&lv_style_plain4, 0); // Définir l'épaisseur de la ligne
 
     lv_obj_add_style(line1, &lv_style_plain3, LV_PART_MAIN);
     lv_obj_add_style(line2, &lv_style_plain1, LV_PART_MAIN);
-    lv_obj_add_style(line3, &lv_style_plain3, LV_PART_MAIN);
+    lv_obj_add_style(line3, &lv_style_plain4, LV_PART_MAIN);
     lv_obj_add_style(line4, &lv_style_plain1, LV_PART_MAIN);
     lv_obj_add_style(line5, &lv_style_plain3, LV_PART_MAIN);
     lv_obj_add_style(line6, &lv_style_plain1, LV_PART_MAIN);
-    lv_obj_add_style(line7, &lv_style_plain3, LV_PART_MAIN);
+    lv_obj_add_style(line7, &lv_style_plain4, LV_PART_MAIN);
     lv_obj_add_style(line8, &lv_style_plain1, LV_PART_MAIN);
     lv_obj_add_style(line9, &lv_style_plain3, LV_PART_MAIN);
 }
 
 void boussole (int azimut){
-    int center = 76 ;
+    int center = 78 ;
     int posInit = center;
     int delta = 18;
     char str[4];
 
-    lv_obj_set_x(getLabel(LABEL_TEXT_W),41); 
+    int ligne = 0;
+
+    int ofsObj = 41;
+
+    lv_obj_set_x(getLabel(LABEL_TEXT_N),ofsObj); 
+    lv_obj_set_x(getLabel(LABEL_TEXT_W),ofsObj); 
+    lv_obj_set_x(getLabel(LABEL_TEXT_E),ofsObj); 
+    lv_obj_set_x(getLabel(LABEL_TEXT_S),ofsObj); 
 
     sprintf (str,"%03d",azimut);
 
+    setTextOled(LABEL_TEXT_AZ, str);
+    setTextOled(LABEL_TEXT_N, "N");
+    setTextOled(LABEL_TEXT_E, "E");
+    setTextOled(LABEL_TEXT_W, "W");
+    setTextOled(LABEL_TEXT_S, "S");
+
 
     if ( azimut <= 90 ) {
-        
-        setTextOled(LABEL_TEXT_AZ, str);
-        setTextOled(LABEL_TEXT_N, "N");
-        setTextOled(LABEL_TEXT_W, "W");
-
-        
-
-
-        posInit = ((azimut * 70) / 90)-35; 
-
-        posInit = posInit + center;
-
-        setXPos(LABEL_TEXT_N,posInit+37);
-        setXPos(LABEL_TEXT_W,posInit-37);
-        
+        posInit = ((azimut * 70) / 90);
+        posInit = center - posInit;
     }
     else if ( (azimut <= 180) && (azimut > 90) ) {
-        posInit =(2*posInit) + center ;
+        posInit = center - (2*posInit) ;
     }
     else if ( (azimut <= 270) && (azimut > 180) ) {
         posInit =posInit + center;
@@ -252,7 +252,14 @@ void boussole (int azimut){
         posInit =posInit + center;
     }
 
+    setXPos(LABEL_TEXT_N,posInit);
+    setXPos(LABEL_TEXT_E,posInit+72);
+    setXPos(LABEL_TEXT_S,posInit+144);
+    setXPos(LABEL_TEXT_W,posInit+216);  
+
     ESP_LOGE(TAG, "%d ", posInit);
+
+    posInit = posInit - ligne;
 
     p1[0].x = posInit-(4 * delta);
     p1[1].x = posInit-(4 * delta);
@@ -262,19 +269,19 @@ void boussole (int azimut){
     p3[1].x = posInit-(2 * delta);
     p4[0].x = posInit-delta;
     p4[1].x = posInit-delta;
-    //p5[0].x = posInit;
-    //p5[1].x = posInit;
+    p5[0].x = posInit;
+    p5[1].x = posInit;
     p6[0].x = posInit+delta;
     p6[1].x = posInit+delta;
     p7[0].x = posInit+(2 * delta);
     p7[1].x = posInit+(2 * delta);
     p8[0].x = posInit+(3 * delta);
     p8[1].x = posInit+(3 * delta);
-    //p9[0].x = posInit+(4 * delta);
-    //p9[1].x = posInit+(4 * delta);
+    p9[0].x = posInit+(4 * delta);
+    p9[1].x = posInit+(4 * delta);
 
 
-    int ofsObj = 41;
+
 
     lv_obj_set_x(line1,ofsObj); 
     lv_obj_set_x(line2,ofsObj); 
@@ -328,7 +335,7 @@ void lvgl_ui(lv_disp_t *disp){
     setPos(LABEL_TEXT_AZ, 8, 8);
     setPos(LABEL_TEXT_N, 82, 8);
     setPos(LABEL_TEXT_E, 200, 8);
-    setPos(LABEL_TEXT_W, 200, 8);
+    setPos(LABEL_TEXT_W, 41, 8);
     setPos(LABEL_TEXT_S, 200, 8);
 
 
