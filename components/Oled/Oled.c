@@ -214,9 +214,10 @@ void initBoussole(void){
     lv_obj_add_style(line9, &lv_style_plain3, LV_PART_MAIN);
 }
 
-void boussole (int azimut){
+void boussole (unsigned int azimut){
     int center = 78 ;
     int posInit = center;
+    int posText = posInit;
     int delta = 18;
     char str[4];
 
@@ -229,6 +230,16 @@ void boussole (int azimut){
     lv_obj_set_x(getLabel(LABEL_TEXT_E),ofsObj); 
     lv_obj_set_x(getLabel(LABEL_TEXT_S),ofsObj); 
 
+    ESP_LOGE(TAG, "%d ", azimut);
+
+    if ((azimut >= 360)) {
+        uint16_t coef  = azimut / 360;
+        azimut = azimut - (360 * coef);
+    }
+    ESP_LOGE(TAG, "%d ", azimut);
+        
+
+
     sprintf (str,"%03d",azimut);
 
     setTextOled(LABEL_TEXT_AZ, str);
@@ -237,29 +248,43 @@ void boussole (int azimut){
     setTextOled(LABEL_TEXT_W, "W");
     setTextOled(LABEL_TEXT_S, "S");
 
+    if (azimut > 359){
+        int coef = 1;
+        coef = (azimut / 360 ); 
+        azimut = azimut - (360 * coef);
+    }
 
+    posInit = ((azimut * 72) / 90);
+    posInit = center - posInit;
+    posText = posInit;
     if ( azimut <= 90 ) {
-        posInit = ((azimut * 70) / 90);
-        posInit = center - posInit;
+
+
     }
     else if ( (azimut <= 180) && (azimut > 90) ) {
-        posInit = center - (2*posInit) ;
+
+        ligne = 72;
+
     }
     else if ( (azimut <= 270) && (azimut > 180) ) {
-        posInit =posInit + center;
+
+        ligne = 144;
     }
     else if ( (azimut <= 360) && (azimut > 270) ) {
-        posInit =posInit + center;
+
+        ligne = 216;
     }
 
-    setXPos(LABEL_TEXT_N,posInit);
-    setXPos(LABEL_TEXT_E,posInit+72);
-    setXPos(LABEL_TEXT_S,posInit+144);
-    setXPos(LABEL_TEXT_W,posInit+216);  
+    setXPos(LABEL_TEXT_N,posText);
+    if ((azimut > 300) && (azimut < 360))   setXPos(LABEL_TEXT_N,posText+286);
+
+    setXPos(LABEL_TEXT_E,posText+72);
+    setXPos(LABEL_TEXT_S,posText+145);
+    setXPos(LABEL_TEXT_W,posText+214);  
 
     ESP_LOGE(TAG, "%d ", posInit);
 
-    posInit = posInit - ligne;
+    posInit = posInit + ligne;
 
     p1[0].x = posInit-(4 * delta);
     p1[1].x = posInit-(4 * delta);

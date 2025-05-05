@@ -30,7 +30,7 @@ void setPos(int index, int xvalue, int yvalue);
 void drawRectangle(int x, int y, int dimx, int dimy, int size);
 void drawLine(int index, int x, int y, int X, int Y, int Size);
 
-void boussole (int azimut);
+void boussole (unsigned int azimut);
 
 
 void clearScreen (void);
