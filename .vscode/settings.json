@@ -65,7 +65,8 @@
         "lv_theme_default.h": "c",
         "lv_mem.h": "c",
         "lv_hal.h": "c",
-        "lv_hal_disp.h": "c"
+        "lv_hal_disp.h": "c",
+        "esp_io_expander_pcf8574.h": "c"
     },
     "idf.pythonInstallPath": "/usr/bin/python3"
 }

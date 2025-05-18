@@ -96,5 +96,7 @@ $<TARGET_FILE:__idf_buffer>
 $<TARGET_FILE:__idf_charUtils>
 $<TARGET_FILE:__idf_clock>
 $<TARGET_FILE:__idf_interface>
+$<TARGET_FILE:__idf_io_expander>
+$<TARGET_FILE:__idf_io_expander_PCF8574>
 $<TARGET_FILE:__idf_uartCommand>
 $<TARGET_FILE:__idf_uartDebug>

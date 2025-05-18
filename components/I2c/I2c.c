@@ -8,8 +8,10 @@
 
 #include "driver/i2c_master.h"
 
-#include "../../managed_components/espressif__esp_io_expander/include/esp_io_expander.h"
-#include "../../managed_components/espressif__esp_io_expander_ht8574/include/esp_io_expander_ht8574.h"
+//#include "../../managed_components/espressif__esp_io_expander/include/esp_io_expander.h"
+#include "../../components/io_expander/include/esp_io_expander.h"
+//#include "../../managed_components/espressif__esp_io_expander_ht8574/include/esp_io_expander_ht8574.h"
+#include "../../components/io_expander_PCF8574/include/esp_io_expander_pcf8574.h"
 
 #define I2C_ADDRESS         ESP_IO_EXPANDER_I2C_PCF8574_ADDRESS_000
 

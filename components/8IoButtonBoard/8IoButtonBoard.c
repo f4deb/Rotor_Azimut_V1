@@ -18,8 +18,10 @@
 #include "../8IoButtonBoard/include/8IoButtonBoard.h"
 #include "../I2c/include/I2c.h"
 
-#include "../../managed_components/espressif__esp_io_expander/include/esp_io_expander.h"
-#include "../../managed_components/espressif__esp_io_expander_ht8574/include/esp_io_expander_ht8574.h"
+//#include "../../managed_components/espressif__esp_io_expander/include/esp_io_expander.h"
+#include "../../components/io_expander/include/esp_io_expander.h"
+//#include "../../managed_components/espressif__esp_io_expander_ht8574/include/esp_io_expander_ht8574.h"
+#include "../../components/io_expander_PCF8574/include/esp_io_expander_pcf8574.h"
 
 #define TAG "IOButtonBoard"
 
