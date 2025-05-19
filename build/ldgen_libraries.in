@@ -86,7 +86,7 @@ $<TARGET_FILE:__idf_espressif__esp_io_expander_ht8574>
 $<TARGET_FILE:__idf_espressif__esp_lcd_sh1107>
 $<TARGET_FILE:__idf_lvgl__lvgl>
 $<TARGET_FILE:__idf_espressif__led_strip>
-$<TARGET_FILE:__idf_zorxx__rtci2c>
+$<TARGET_FILE:__idf_rtci2c>
 $<TARGET_FILE:__idf_main>
 $<TARGET_FILE:__idf_8IoButtonBoard>
 $<TARGET_FILE:__idf_I2c>
