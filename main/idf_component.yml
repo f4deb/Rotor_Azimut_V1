@@ -14,9 +14,8 @@ dependencies:
   #   # `public` flag doesn't have an effect dependencies of the `main` component.
   #   # All dependencies of `main` are public by default.
   #   public: true
-  zorxx/rtci2c: ^1.3.0
   espressif/led_strip: ^3.0.0
-  lvgl/lvgl: ^9.2.2
+  lvgl/lvgl: ^8.4.0
   espressif/esp_lcd_sh1107: ^1.1.0
   espressif/esp_lvgl_port: ^2.5.0
   espressif/esp_io_expander_ht8574: ^2.0.0

@@ -12,7 +12,7 @@
 
 #include "driver/i2c_master.h"
 
-#include "../../rtci2c/include/rtci2c/rtci2c.h"
+#include "../rtci2c/include/rtci2c/rtci2c.h"
 #include "../uartCommand/include/uartCommand.h"
 #include "../I2c/include/I2c.h"
 

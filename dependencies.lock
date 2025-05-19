@@ -12,13 +12,13 @@ dependencies:
   espressif/esp_io_expander_ht8574:
     component_hash: 780910726a608a52a0b09b94fc860c2f72e2a200738a48b6e153942b48d80cdf
     dependencies:
-    - name: idf
-      require: private
-      version: '>=5.2'
     - name: espressif/esp_io_expander
       registry_url: https://components.espressif.com
       require: public
       version: ^1.0.1
+    - name: idf
+      require: private
+      version: '>=5.2'
     source:
       registry_url: https://components.espressif.com/
       type: service
@@ -62,19 +62,12 @@ dependencies:
       type: idf
     version: 5.4.0
   lvgl/lvgl:
-    component_hash: 7b7ee85e48c2eb35bb242a8c7e0e4cd702e150541afb3f69089fb7ba81554d14
+    component_hash: d7c1ac037ae6e85d94897f807d6e7ba0946a83e720074fc95a4f6241da9f9f53
     dependencies: []
     source:
       registry_url: https://components.espressif.com/
       type: service
-    version: 8.3.0
-  zorxx/rtci2c:
-    component_hash: 17309b88bab4c866dae26634db8f3d8c4c8932be41f6dfddf11ab61be3cf7385
-    dependencies: []
-    source:
-      registry_url: https://components.espressif.com/
-      type: service
-    version: 1.3.0
+    version: 8.4.0
 direct_dependencies:
 - espressif/esp_io_expander_ht8574
 - espressif/esp_lcd_sh1107
@@ -82,7 +75,6 @@ direct_dependencies:
 - espressif/led_strip
 - idf
 - lvgl/lvgl
-- zorxx/rtci2c
-manifest_hash: 0d28ae2b8ede36870a4b3b2ed36f55ac4eab99bde528b022a3097fe223514a5d
+manifest_hash: 6b5e86dccf2440f51aa8126e21c411e940e9b51fb4b73d23a736e9104dbc3123
 target: esp32
 version: 2.0.0

@@ -29941,8 +29941,8 @@
                             },
                             {
                                 "children": [],
-                                "depends_on": "LV_COLOR_DEPTH_32",
-                                "help": "Can be used if the UI is above another layer, e.g. an OSD menu or video player.\nRequires `LV_COLOR_DEPTH = 32` colors and the screen's `bg_opa` should be set to\nnon LV_OPA_COVER value",
+                                "depends_on": null,
+                                "help": "Can be used if the UI is above another layer, e.g. an OSD menu or video player.\nThe screen's `bg_opa` should be set to non LV_OPA_COVER value",
                                 "id": "LV_COLOR_SCREEN_TRANSP",
                                 "name": "LV_COLOR_SCREEN_TRANSP",
                                 "range": null,
@@ -30254,6 +30254,27 @@
                                         "name": "LV_USE_GPU_STM32_DMA2D",
                                         "range": null,
                                         "title": "Enable STM32 DMA2D (aka Chrom Art) GPU.",
+                                        "type": "bool"
+                                    },
+                                    {
+                                        "children": [
+                                            {
+                                                "children": [],
+                                                "depends_on": "LV_USE_GPU_RA6M3_G2D",
+                                                "help": "Must be defined to include path of target processor\ne.g. \"hal_data.h\"",
+                                                "id": "LV_GPU_RA6M3_G2D_INCLUDE",
+                                                "name": "LV_GPU_RA6M3_G2D_INCLUDE",
+                                                "range": null,
+                                                "title": "include path of target processor",
+                                                "type": "string"
+                                            }
+                                        ],
+                                        "depends_on": null,
+                                        "help": null,
+                                        "id": "LV_USE_GPU_RA6M3_G2D",
+                                        "name": "LV_USE_GPU_RA6M3_G2D",
+                                        "range": null,
+                                        "title": "Enable RA6M3 G2D GPU.",
                                         "type": "bool"
                                     },
                                     {
@@ -32285,7 +32306,7 @@
                                         "name": "LV_FS_STDIO_CACHE_SIZE",
                                         "range": null,
                                         "title": ">0 to cache this number of bytes in lv_fs_read()",
-                                        "type": "string"
+                                        "type": "int"
                                     }
                                 ],
                                 "depends_on": null,
@@ -32410,6 +32431,37 @@
                                 "type": "bool"
                             },
                             {
+                                "children": [
+                                    {
+                                        "children": [],
+                                        "depends_on": "LV_USE_FS_LITTLEFS",
+                                        "help": null,
+                                        "id": "LV_FS_LITTLEFS_LETTER",
+                                        "name": "LV_FS_LITTLEFS_LETTER",
+                                        "range": null,
+                                        "title": "Set an upper cased letter on which the drive will accessible (e.g. 'A' i.e. 65)",
+                                        "type": "int"
+                                    },
+                                    {
+                                        "children": [],
+                                        "depends_on": "LV_USE_FS_LITTLEFS",
+                                        "help": null,
+                                        "id": "LV_FS_LITTLEFS_CACHE_SIZE",
+                                        "name": "LV_FS_LITTLEFS_CACHE_SIZE",
+                                        "range": null,
+                                        "title": ">0 to cache this number of bytes in lv_fs_read()",
+                                        "type": "int"
+                                    }
+                                ],
+                                "depends_on": null,
+                                "help": null,
+                                "id": "LV_USE_FS_LITTLEFS",
+                                "name": "LV_USE_FS_LITTLEFS",
+                                "range": null,
+                                "title": "File system on top of LittleFS",
+                                "type": "bool"
+                            },
+                            {
                                 "children": [],
                                 "depends_on": null,
                                 "help": null,
@@ -32516,6 +32568,27 @@
                                 "name": "LV_USE_FREETYPE",
                                 "range": null,
                                 "title": "FreeType library",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [
+                                    {
+                                        "children": [],
+                                        "depends_on": "LV_USE_TINY_TTF",
+                                        "help": null,
+                                        "id": "LV_TINY_TTF_FILE_SUPPORT",
+                                        "name": "LV_TINY_TTF_FILE_SUPPORT",
+                                        "range": null,
+                                        "title": "Load TTF data from files",
+                                        "type": "bool"
+                                    }
+                                ],
+                                "depends_on": null,
+                                "help": null,
+                                "id": "LV_USE_TINY_TTF",
+                                "name": "LV_USE_TINY_TTF",
+                                "range": null,
+                                "title": "Tiny TTF library",
                                 "type": "bool"
                             },
                             {

@@ -107,7 +107,7 @@ menu "Clock Configuration"
 
     choice PCF8563
         prompt "PCF8563 type"
-        default BLINK_LED_GPIO
+        default PCF8563_GPIO
         help
            To do
         config PCF8563_GPIO

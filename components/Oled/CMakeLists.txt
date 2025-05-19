@@ -12,5 +12,4 @@ idf_component_register(SRCS "Oled.c" "../I2c/I2c.c" "OledInterface.c"
                     "/home/f4deb/esp/v5.4/esp-idf/components/esp_partition/include"
                     "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_spi/include"
                     "/home/f4deb/esp/v5.4/esp-idf/components/esp_lcd/include"
-                    "/home/f4deb/RotorV1A/managed_components/zorxx__rtci2c/include"
                     )

@@ -8,6 +8,7 @@
 #include "helpers.h"
 #include "ds1307.h"
 #include "ds3231.h"
+#include "pcf8563.h"
 #include "rtci2c_private.h"
 
 const char *RTCI2C_DAY_OF_WEEK[] = \
@@ -33,6 +34,9 @@ rtci2c_context rtci2c_init(rtci2c_device_type device, uint8_t i2c_address, i2c_l
       case RTCI2C_DEVICE_DS3231:
          configured = ds3231_configure(r, i2c_address);
          break;
+      case RTCI2C_DEVICE_PCF8563:
+         configured = pcf8563_configure(r, i2c_address);
+         break;   
       default:
          SERR("[%s] Unsupported device type (%d)", __func__, device);
          break;

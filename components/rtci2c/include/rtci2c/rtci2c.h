@@ -1,7 +1,4 @@
-/*! \copyright 2024 Zorxx Software. All rights reserved.
- *  \license This file is released under the MIT License. See the LICENSE file for details.
- *  \brief RTC library interface
- */
+
 #ifndef _RTCI2C_H
 #define _RTCI2C_H
 
@@ -29,9 +26,6 @@ typedef enum
    RTCI2C_DEVICE_DS3231,
    RTCI2C_DEVICE_PCF8563
 
-   /* The following are coming soon
-   RTCI2C_DEVICE_DS1302,
-   RTCI2C_DEVICE_PCF8563, */
 } rtci2c_device_type;
 
 rtci2c_context rtci2c_init(rtci2c_device_type device, uint8_t i2c_address, i2c_lowlevel_config *config);

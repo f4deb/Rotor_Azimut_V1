@@ -86,7 +86,6 @@
 /home/f4deb/RotorV1A/build/esp-idf/espressif__esp_lcd_sh1107/libespressif__esp_lcd_sh1107.a
 /home/f4deb/RotorV1A/build/esp-idf/lvgl__lvgl/liblvgl__lvgl.a
 /home/f4deb/RotorV1A/build/esp-idf/espressif__led_strip/libespressif__led_strip.a
-/home/f4deb/RotorV1A/build/esp-idf/rtci2c/librtci2c.a
 /home/f4deb/RotorV1A/build/esp-idf/main/libmain.a
 /home/f4deb/RotorV1A/build/esp-idf/8IoButtonBoard/lib8IoButtonBoard.a
 /home/f4deb/RotorV1A/build/esp-idf/I2c/libI2c.a
@@ -98,5 +97,6 @@
 /home/f4deb/RotorV1A/build/esp-idf/interface/libinterface.a
 /home/f4deb/RotorV1A/build/esp-idf/io_expander/libio_expander.a
 /home/f4deb/RotorV1A/build/esp-idf/io_expander_PCF8574/libio_expander_PCF8574.a
+/home/f4deb/RotorV1A/build/esp-idf/rtci2c/librtci2c.a
 /home/f4deb/RotorV1A/build/esp-idf/uartCommand/libuartCommand.a
 /home/f4deb/RotorV1A/build/esp-idf/uartDebug/libuartDebug.a
