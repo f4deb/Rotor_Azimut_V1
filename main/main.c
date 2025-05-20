@@ -32,7 +32,6 @@
 #include "driver/i2c_master.h"
 
 #include "led_strip.h"
-#include "rtci2c/rtci2c.h"
 #include "lvgl.h"
 
 
