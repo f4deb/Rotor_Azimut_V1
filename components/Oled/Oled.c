@@ -22,6 +22,12 @@
 #define LABEL_TEXT_W  4
 #define LABEL_TEXT_S  5
 
+#define  CANVAS_AZIMUT_WIDTH 40
+#define CANVAS_AZIMUT_HEIGHT  32
+
+#define  CANVAS_COMPASS_WIDTH 88
+#define CANVAS_COMPASS_HEIGHT  32
+
 
 static const char *TAG = "OLED : ";
 //static i2c_master_bus_handle_t i2c_bus;
@@ -241,6 +247,7 @@ void boussole (unsigned int azimut){
 
 
     sprintf (str,"%03d",azimut);
+//    lv_canvas_draw_text(canvas, 5, 5, 40, &label_dsc, str);
 
     setTextOled(LABEL_TEXT_AZ, str);
     setTextOled(LABEL_TEXT_N, "N");
@@ -385,6 +392,97 @@ void lvgl_ui(lv_disp_t *disp){
     initBoussole();
 
     boussole(0);
+
+    lv_draw_rect_dsc_t rect_dsc_azimut;
+
+
+
+    lv_draw_rect_dsc_init(&rect_dsc_azimut);
+    rect_dsc_azimut.radius = 5;
+    rect_dsc_azimut.bg_opa = LV_OPA_COVER;
+    //rect_dsc.bg_grad.dir = LV_GRAD_DIR_HOR;
+    //rect_dsc.bg_grad.stops[0].color = lv_palette_main(LV_PALETTE_ORANGE);
+    //rect_dsc.bg_grad.stops[1].color = lv_palette_main(LV_PALETTE_ORANGE);
+    rect_dsc_azimut.border_width = 1;
+    rect_dsc_azimut.border_opa = LV_OPA_COVER;
+    rect_dsc_azimut.border_color = lv_color_black();
+    rect_dsc_azimut.shadow_width = 10;
+    rect_dsc_azimut.shadow_ofs_x = 10;
+    rect_dsc_azimut.shadow_ofs_y = 10;
+
+    lv_draw_label_dsc_t azimut_label_dsc;
+    lv_draw_label_dsc_init(&azimut_label_dsc);
+    azimut_label_dsc.color = lv_palette_main(LV_PALETTE_NONE);
+
+    static lv_color_t azimutCbuf[LV_CANVAS_BUF_SIZE_TRUE_COLOR(CANVAS_AZIMUT_WIDTH, CANVAS_AZIMUT_HEIGHT)];
+
+    lv_obj_t * canvasAzimut = lv_canvas_create(lv_scr_act());
+    lv_canvas_set_buffer(canvasAzimut, azimutCbuf, CANVAS_AZIMUT_WIDTH, CANVAS_AZIMUT_HEIGHT, LV_IMG_CF_TRUE_COLOR);
+    //lv_obj_center(canvas);
+    lv_canvas_fill_bg(canvasAzimut, lv_palette_lighten(LV_PALETTE_GREY, 3), LV_OPA_COVER);
+
+    lv_canvas_draw_rect(canvasAzimut, 0, 0, 40, 32, &rect_dsc_azimut);
+
+    lv_canvas_draw_text(canvasAzimut, 8, 8, 40, &azimut_label_dsc, "180");
+
+    /*Test the rotation. It requires another buffer where the original image is stored.
+     *So copy the current image to buffer and rotate it to the canvas*/
+    static lv_color_t azimut_cbuf_tmp[CANVAS_AZIMUT_WIDTH * CANVAS_AZIMUT_HEIGHT];
+    memcpy(azimut_cbuf_tmp, azimutCbuf, sizeof(azimut_cbuf_tmp));
+    lv_img_dsc_t img;
+    img.data = (void *)azimut_cbuf_tmp;
+    img.header.cf = LV_IMG_CF_TRUE_COLOR;
+    img.header.w = CANVAS_AZIMUT_WIDTH;
+    img.header.h = CANVAS_AZIMUT_HEIGHT;
+
+    lv_canvas_fill_bg(canvasAzimut, lv_palette_lighten(LV_PALETTE_GREY, 3), LV_OPA_COVER);
+    lv_canvas_transform(canvasAzimut, &img, 0, LV_IMG_ZOOM_NONE, 0, 0, CANVAS_AZIMUT_WIDTH / 2, CANVAS_AZIMUT_HEIGHT / 2, true);
+
+    
+
+
+    lv_draw_rect_dsc_t rect_dsc_compass;
+    lv_draw_rect_dsc_init(&rect_dsc_compass);
+    rect_dsc_compass.radius = 5;
+    rect_dsc_compass.bg_opa = LV_OPA_COVER;
+    //rect_dsc_compass.bg_grad.dir = LV_GRAD_DIR_HOR;
+    //rect_dsc.bg_grad.stops[0].color = lv_palette_main(LV_PALETTE_ORANGE);
+    //rect_dsc.bg_grad.stops[1].color = lv_palette_main(LV_PALETTE_ORANGE);
+    rect_dsc_compass.border_width = 1;
+    rect_dsc_compass.border_opa = LV_OPA_COVER;
+    rect_dsc_compass.border_color = lv_color_black();
+    rect_dsc_compass.shadow_width = 10;
+    rect_dsc_compass.shadow_ofs_x = 10;
+    rect_dsc_compass.shadow_ofs_y = 10;
+
+    lv_draw_label_dsc_t compass_label_dsc;
+    lv_draw_label_dsc_init(&compass_label_dsc);
+    compass_label_dsc.color = lv_palette_main(LV_PALETTE_NONE);
+
+    static lv_color_t cbuf[LV_CANVAS_BUF_SIZE_TRUE_COLOR(CANVAS_COMPASS_WIDTH, CANVAS_COMPASS_HEIGHT)];
+
+    lv_obj_t * canvasCompass = lv_canvas_create(lv_scr_act());
+    lv_canvas_set_buffer(canvasCompass, cbuf, CANVAS_COMPASS_WIDTH, CANVAS_COMPASS_HEIGHT, LV_IMG_CF_TRUE_COLOR);
+    lv_obj_center(canvasCompass);
+    lv_canvas_fill_bg(canvasCompass, lv_palette_lighten(LV_PALETTE_GREY, 3), LV_OPA_COVER);
+
+    lv_canvas_draw_rect(canvasCompass, 0, 0, 40, 32, &rect_dsc_compass);
+
+    lv_canvas_draw_text(canvasCompass, 8, 8, 40, &compass_label_dsc, "360");
+
+    /*Test the rotation. It requires another buffer where the original image is stored.
+     *So copy the current image to buffer and rotate it to the canvas*/
+    static lv_color_t cbuf_tmp[CANVAS_COMPASS_WIDTH * CANVAS_COMPASS_HEIGHT];
+    memcpy(cbuf_tmp, cbuf, sizeof(cbuf_tmp));
+    lv_img_dsc_t img1;
+    img1.data = (void *)cbuf_tmp;
+    img1.header.cf = LV_IMG_CF_TRUE_COLOR;
+    img1.header.w = CANVAS_COMPASS_WIDTH;
+    img1.header.h = CANVAS_COMPASS_HEIGHT;
+
+    lv_canvas_fill_bg(canvasCompass, lv_palette_lighten(LV_PALETTE_GREY, 3), LV_OPA_COVER);
+    lv_canvas_transform(canvasCompass, &img1, 0, LV_IMG_ZOOM_NONE, 0, 0, CANVAS_COMPASS_WIDTH / 2, CANVAS_COMPASS_HEIGHT / 2, true);
+
 }
 
 /*********************
