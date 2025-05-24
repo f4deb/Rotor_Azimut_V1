@@ -19,7 +19,6 @@
 #define SET_POS_OLED_HEADER "P"
 
 #define DRAW_RECTANGLE_OLED_HEADER "r"
-#define DRAW_LINE_OLED_HEADER "l"
 
 #define CLEAR_SCREEN_OLED_HEADER "c"
 

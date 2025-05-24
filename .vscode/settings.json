@@ -3,7 +3,7 @@
     "idf.espIdfPath": "/home/f4deb/esp/v5.4/esp-idf",
     "idf.toolsPath": "/home/f4deb/Documents/F4DEB-ESP32/",
     "idf.flashType": "UART",
-    "idf.port": "/dev/ttyUSB1",
+    "idf.port": "/dev/ttyUSB0",
     "files.associations": {
         "sdkconfig.h": "c",
         "stdio.h": "c",
@@ -66,7 +66,9 @@
         "lv_mem.h": "c",
         "lv_hal.h": "c",
         "lv_hal_disp.h": "c",
-        "esp_io_expander_pcf8574.h": "c"
+        "esp_io_expander_pcf8574.h": "c",
+        "oledinterface.h": "c",
+        "variant": "c"
     },
     "idf.pythonInstallPath": "/usr/bin/python3",
     "idf.customExtraVars": {
