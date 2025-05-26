@@ -3,7 +3,7 @@
     "idf.espIdfPath": "/home/f4deb/esp/v5.4/esp-idf",
     "idf.toolsPath": "/home/f4deb/Documents/F4DEB-ESP32/",
     "idf.flashType": "UART",
-    "idf.port": "/dev/ttyUSB0",
+    "idf.port": "/dev/ttyUSB4",
     "files.associations": {
         "sdkconfig.h": "c",
         "stdio.h": "c",

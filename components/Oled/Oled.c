@@ -275,69 +275,46 @@ void boussole (unsigned int value){
     char str[4];
 
     int ligne = 0;
-
     int ofsObj = 41;
 
-    lv_obj_set_x(getLabel(LABEL_TEXT_N),ofsObj); 
-    lv_obj_set_x(getLabel(LABEL_TEXT_W),ofsObj); 
-    lv_obj_set_x(getLabel(LABEL_TEXT_E),ofsObj); 
-    lv_obj_set_x(getLabel(LABEL_TEXT_S),ofsObj); 
-
+    lv_canvas_fill_bg(canvasCompass, lv_palette_lighten(LV_PALETTE_GREY, 3), LV_OPA_COVER);
     ESP_LOGE(TAG, "%d ", azimut);
-
 
     if ((azimut >= 360)) {
         uint16_t coef  = azimut / 360;
         azimut = azimut - (360 * coef);
     }
-    ESP_LOGE(TAG, "%d ", azimut);
-        
-
-
+    ESP_LOGE(TAG, "%d ", azimut);  
     sprintf (str,"%03d",azimut);
-
-
     setTextCanvasOled(0,str);
-
-    setTextOled(LABEL_TEXT_AZ, str);
-    setTextOled(LABEL_TEXT_N, "N");
-    setTextOled(LABEL_TEXT_E, "E");
-    setTextOled(LABEL_TEXT_W, "W");
-    setTextOled(LABEL_TEXT_S, "S");
-
     if (azimut > 359){
         int coef = 1;
         coef = (azimut / 360 ); 
         azimut = azimut - (360 * coef);
     }
-
     posInit = ((azimut * 72) / 90);
     posInit = center - posInit;
     posText = posInit;
     if ( azimut <= 90 ) {
-
-
     }
     else if ( (azimut <= 180) && (azimut > 90) ) {
-
         ligne = 72;
-
     }
     else if ( (azimut <= 270) && (azimut > 180) ) {
-
         ligne = 144;
     }
     else if ( (azimut <= 360) && (azimut > 270) ) {
-
         ligne = 216;
     }
 
-    setXPos(LABEL_TEXT_N,posText);
-    if ((azimut > 300) && (azimut < 360))   setXPos(LABEL_TEXT_N,posText+286);
+    lv_canvas_draw_text(canvasCompass, posText-42, 6, 80, &compass_label_dsc, "N");
 
-    setXPos(LABEL_TEXT_E,posText+72);
-    setXPos(LABEL_TEXT_S,posText+145);
-    setXPos(LABEL_TEXT_W,posText+214);  
+    if ((azimut > 300) && (azimut < 360)){
+        lv_canvas_draw_text(canvasCompass, posText-42+286, 6, 80, &compass_label_dsc, "N");
+    }
+    lv_canvas_draw_text(canvasCompass, posText-42+72, 6, 80, &compass_label_dsc, "E");
+    lv_canvas_draw_text(canvasCompass, posText-42+145, 6, 80, &compass_label_dsc, "S");
+    lv_canvas_draw_text(canvasCompass, posText-42+214, 6, 80, &compass_label_dsc, "W");
 
     ESP_LOGE(TAG, "%d ", posInit);
 
@@ -362,9 +339,6 @@ void boussole (unsigned int value){
     p9[0].x = posInit+(4 * delta);
     p9[1].x = posInit+(4 * delta);
 
-
-
-
     lv_obj_set_x(line1,ofsObj); 
     lv_obj_set_x(line2,ofsObj); 
     lv_obj_set_x(line3,ofsObj); 
@@ -384,12 +358,7 @@ void boussole (unsigned int value){
     lv_line_set_points(line7, p7, 2 );
     lv_line_set_points(line8, p8, 2 );
     lv_line_set_points(line9, p9, 2 );
-
-
-    //lv_canvas_draw_text(canvasCompass, 8, 8, 88, &compass_label_dsc, "test");
-
 }
-
 
 /*****************
  * User Interface
@@ -400,37 +369,6 @@ void lvgl_ui(lv_disp_t *disp){
 
     drawRectangle(0,0,40,32,1);
     drawRectangle(40,0,88,32,1);
-
-    createLabel(LABEL_TEXT_AZ);
-    createLabel(LABEL_TEXT_N);
-    createLabel(LABEL_TEXT_E);
-    createLabel(LABEL_TEXT_W);
-    createLabel(LABEL_TEXT_S);
-
-    setLongMode(LABEL_TEXT_AZ, LV_LABEL_LONG_SCROLL_CIRCULAR); /* Circular scroll */
-    setLongMode(LABEL_TEXT_N, LV_LABEL_LONG_SCROLL_CIRCULAR); /* Circular scroll */
-    setLongMode(LABEL_TEXT_E, LV_LABEL_LONG_SCROLL_CIRCULAR); /* Circular scroll */
-    setLongMode(LABEL_TEXT_W, LV_LABEL_LONG_SCROLL_CIRCULAR); /* Circular scroll */
-    setLongMode(LABEL_TEXT_S, LV_LABEL_LONG_SCROLL_CIRCULAR); /* Circular scroll */
-
-
-
-    setTextOled( LABEL_TEXT_AZ, "F4DEB init ...");
-    /* Size of the screen (if you use rotation 90 or 270, please set disp->driver->ver_res) */
-    setPos(LABEL_TEXT_N, 82, 8);
-    setPos(LABEL_TEXT_E, 200, 8);
-    setPos(LABEL_TEXT_W, 41, 8);
-    setPos(LABEL_TEXT_S, 200, 8);
-
-
-    
-    lv_obj_set_width(getLabel(LABEL_TEXT_N), disp->driver->hor_res);
-    lv_obj_set_width(getLabel(LABEL_TEXT_E), disp->driver->hor_res);
-    lv_obj_set_width(getLabel(LABEL_TEXT_W), disp->driver->hor_res);
-    lv_obj_set_width(getLabel(LABEL_TEXT_S), disp->driver->hor_res);
-
-
-    
 
     lv_draw_label_dsc_init(&azimut_label_dsc);
     azimut_label_dsc.color = lv_palette_main(LV_PALETTE_NONE);
@@ -447,37 +385,15 @@ void lvgl_ui(lv_disp_t *disp){
     img.header.h = CANVAS_AZIMUT_HEIGHT;
     lv_canvas_fill_bg(canvasAzimut, lv_palette_lighten(LV_PALETTE_GREY, 3), LV_OPA_COVER);
     lv_canvas_transform(canvasAzimut, &img, 0, LV_IMG_ZOOM_NONE, 0, 0, CANVAS_AZIMUT_WIDTH / 2, CANVAS_AZIMUT_HEIGHT / 2, true);
-
     
-
-
-/*    lv_draw_rect_dsc_t rect_dsc_compass;
-    lv_draw_rect_dsc_init(&rect_dsc_compass);
-    rect_dsc_compass.radius = 5;
-    rect_dsc_compass.bg_opa = LV_OPA_COVER;
-    //rect_dsc_compass.bg_grad.dir = LV_GRAD_DIR_HOR;
-    //rect_dsc.bg_grad.stops[0].color = lv_palette_main(LV_PALETTE_ORANGE);
-    //rect_dsc.bg_grad.stops[1].color = lv_palette_main(LV_PALETTE_ORANGE);
-    rect_dsc_compass.border_width = 1;
-    rect_dsc_compass.border_opa = LV_OPA_COVER;
-    rect_dsc_compass.border_color = lv_color_black();
-    //rect_dsc_compass.shadow_width = 10;
-    //rect_dsc_compass.shadow_ofs_x = 10;
-    //rect_dsc_compass.shadow_ofs_y = 10;
-
-  */ 
     lv_draw_label_dsc_init(&compass_label_dsc);
     compass_label_dsc.color = lv_palette_main(LV_PALETTE_NONE);
-
     static lv_color_t cbuf[LV_CANVAS_BUF_SIZE_TRUE_COLOR(CANVAS_COMPASS_WIDTH, CANVAS_COMPASS_HEIGHT)];
-
     canvasCompass = lv_canvas_create(lv_scr_act());
     lv_canvas_set_buffer(canvasCompass, cbuf, CANVAS_COMPASS_WIDTH, CANVAS_COMPASS_HEIGHT, LV_IMG_CF_TRUE_COLOR);
     lv_obj_set_pos(canvasCompass,42,2);
     lv_canvas_fill_bg(canvasCompass, lv_palette_lighten(LV_PALETTE_GREY, 3), LV_OPA_COVER);
-
-    lv_canvas_draw_text(canvasCompass, 0, 6, 88, &compass_label_dsc, "012345678__");
-
+    lv_canvas_draw_text(canvasCompass, 36, 6, 80, &compass_label_dsc, "N");
     static lv_color_t cbuf_tmp[CANVAS_COMPASS_WIDTH * CANVAS_COMPASS_HEIGHT];
     memcpy(cbuf_tmp, cbuf, sizeof(cbuf_tmp));
     lv_img_dsc_t img1;
@@ -485,29 +401,13 @@ void lvgl_ui(lv_disp_t *disp){
     img1.header.cf = LV_IMG_CF_TRUE_COLOR;
     img1.header.w = CANVAS_COMPASS_WIDTH;
     img1.header.h = CANVAS_COMPASS_HEIGHT;
-
     lv_canvas_fill_bg(canvasCompass, lv_palette_lighten(LV_PALETTE_GREY, 3), LV_OPA_COVER);
     lv_canvas_transform(canvasCompass, &img1, 0, LV_IMG_ZOOM_NONE, 0, 0, CANVAS_COMPASS_WIDTH / 2, CANVAS_COMPASS_HEIGHT / 2, true);
     
     initBoussole();
-
     boussole(0);
 }
 
-
-
-/*********************
- *  INITIALISATION 
- *  If do not compil, check version 8.3.0 in dependencies.lock file
-lvgl/lvgl:
-    component_hash: 7b7ee85e48c2eb35bb242a8c7e0e4cd702e150541afb3f69089fb7ba81554d14
-    dependencies: []
-    source:
-      registry_url: https://components.espressif.com/
-      type: service
-    version: 8.3.0
-
- *********************/
 void oled (void){ 
     ESP_LOGI(TAG, "Install panel IO");
     esp_lcd_panel_io_handle_t io_handle = NULL;
@@ -576,5 +476,3 @@ void oled (void){
         lvglPortUnlockDevice();
     }
 }
-
-
