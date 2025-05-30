@@ -6,8 +6,6 @@
 #define LV_FONT_MONTSERRAT_14 1
 #define LV_FONT_MONTSERRAT_24 1
 
-
-
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 
@@ -34,7 +32,6 @@
 #include "led_strip.h"
 #include "lvgl.h"
 
-
 #include "../components/uartCommand/include/uartCommand.h"
 #include "../components/blueLed/include/blueLed.h"
 #include "../components/clock/include/clock.h"
@@ -44,7 +41,6 @@
 #include "../components/I2c/include/I2c.h"
 #include "../components/8IoButtonBoard/include/8IoButtonBoard.h"
 #include "../components/rtci2c/include/rtci2c/rtci2c.h"
-
 
 static const char *TAG_MAIN = "Main : ";
 
@@ -100,5 +96,4 @@ void app_main(void){
     while (1) {
         blinkBlueLed(getTimeBlink(), getRatioBlink());    
     }
-
 }

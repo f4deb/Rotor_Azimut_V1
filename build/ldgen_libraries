@@ -84,6 +84,7 @@
 /home/f4deb/RotorV1A/build/esp-idf/espressif__esp_lcd_sh1107/libespressif__esp_lcd_sh1107.a
 /home/f4deb/RotorV1A/build/esp-idf/lvgl__lvgl/liblvgl__lvgl.a
 /home/f4deb/RotorV1A/build/esp-idf/espressif__led_strip/libespressif__led_strip.a
+/home/f4deb/RotorV1A/build/esp-idf/espressif__mag3110/libespressif__mag3110.a
 /home/f4deb/RotorV1A/build/esp-idf/main/libmain.a
 /home/f4deb/RotorV1A/build/esp-idf/8IoButtonBoard/lib8IoButtonBoard.a
 /home/f4deb/RotorV1A/build/esp-idf/I2c/libI2c.a

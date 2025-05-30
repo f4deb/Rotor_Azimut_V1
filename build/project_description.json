@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "RotorV1A",
-    "project_version":    "10b6043-dirty",
+    "project_version":    "7b8f18c-dirty",
     "project_path":       "/home/f4deb/RotorV1A",
     "idf_path":           "/home/f4deb/esp/v5.4/esp-idf",
     "build_dir":          "/home/f4deb/RotorV1A/build",
@@ -25,8 +25,8 @@
         "COMPONENT_KCONFIGS_PROJBUILD" : "/home/f4deb/esp/v5.4/esp-idf/components/bootloader/Kconfig.projbuild;/home/f4deb/esp/v5.4/esp-idf/components/esp_app_format/Kconfig.projbuild;/home/f4deb/esp/v5.4/esp-idf/components/esp_rom/Kconfig.projbuild;/home/f4deb/esp/v5.4/esp-idf/components/esptool_py/Kconfig.projbuild;/home/f4deb/esp/v5.4/esp-idf/components/partition_table/Kconfig.projbuild;/home/f4deb/RotorV1A/main/Kconfig.projbuild"
     },
     "common_component_reqs": [ "cxx", "newlib", "freertos", "esp_hw_support", "heap", "log", "soc", "hal", "esp_rom", "esp_common", "esp_system", "xtensa" ],
-    "build_components" : [ "8IoButtonBoard", "I2c", "Oled", "app_trace", "app_update", "blueLed", "bootloader", "bootloader_support", "bt", "buffer", "charUtils", "clock", "cmock", "console", "cxx", "driver", "efuse", "esp-tls", "esp_adc", "esp_app_format", "esp_bootloader_format", "esp_coex", "esp_common", "esp_driver_ana_cmpr", "esp_driver_cam", "esp_driver_dac", "esp_driver_gpio", "esp_driver_gptimer", "esp_driver_i2c", "esp_driver_i2s", "esp_driver_isp", "esp_driver_jpeg", "esp_driver_ledc", "esp_driver_mcpwm", "esp_driver_parlio", "esp_driver_pcnt", "esp_driver_ppa", "esp_driver_rmt", "esp_driver_sdio", "esp_driver_sdm", "esp_driver_sdmmc", "esp_driver_sdspi", "esp_driver_spi", "esp_driver_touch_sens", "esp_driver_tsens", "esp_driver_uart", "esp_driver_usb_serial_jtag", "esp_eth", "esp_event", "esp_gdbstub", "esp_hid", "esp_http_client", "esp_http_server", "esp_https_ota", "esp_https_server", "esp_hw_support", "esp_lcd", "esp_local_ctrl", "esp_mm", "esp_netif", "esp_netif_stack", "esp_partition", "esp_phy", "esp_pm", "esp_psram", "esp_ringbuf", "esp_rom", "esp_security", "esp_system", "esp_timer", "esp_vfs_console", "esp_wifi", "espcoredump", "espressif__esp_lcd_sh1107", "espressif__esp_lvgl_port", "espressif__led_strip", "esptool_py", "fatfs", "freertos", "hal", "heap", "http_parser", "idf_test", "ieee802154", "interface", "io_expander", "io_expander_PCF8574", "json", "log", "lvgl__lvgl", "lwip", "main", "mbedtls", "mqtt", "newlib", "nvs_flash", "nvs_sec_provider", "openthread", "partition_table", "perfmon", "protobuf-c", "protocomm", "pthread", "rt", "rtci2c", "sdmmc", "soc", "spi_flash", "spiffs", "tcp_transport", "uartCommand", "uartDebug", "ulp", "unity", "usb", "vfs", "wear_levelling", "wifi_provisioning", "wpa_supplicant", "xtensa", "" ],
-    "build_component_paths" : [ "/home/f4deb/RotorV1A/components/8IoButtonBoard", "/home/f4deb/RotorV1A/components/I2c", "/home/f4deb/RotorV1A/components/Oled", "/home/f4deb/esp/v5.4/esp-idf/components/app_trace", "/home/f4deb/esp/v5.4/esp-idf/components/app_update", "/home/f4deb/RotorV1A/components/blueLed", "/home/f4deb/esp/v5.4/esp-idf/components/bootloader", "/home/f4deb/esp/v5.4/esp-idf/components/bootloader_support", "/home/f4deb/esp/v5.4/esp-idf/components/bt", "/home/f4deb/RotorV1A/components/buffer", "/home/f4deb/RotorV1A/components/charUtils", "/home/f4deb/RotorV1A/components/clock", "/home/f4deb/esp/v5.4/esp-idf/components/cmock", "/home/f4deb/esp/v5.4/esp-idf/components/console", "/home/f4deb/esp/v5.4/esp-idf/components/cxx", "/home/f4deb/esp/v5.4/esp-idf/components/driver", "/home/f4deb/esp/v5.4/esp-idf/components/efuse", "/home/f4deb/esp/v5.4/esp-idf/components/esp-tls", "/home/f4deb/esp/v5.4/esp-idf/components/esp_adc", "/home/f4deb/esp/v5.4/esp-idf/components/esp_app_format", "/home/f4deb/esp/v5.4/esp-idf/components/esp_bootloader_format", "/home/f4deb/esp/v5.4/esp-idf/components/esp_coex", "/home/f4deb/esp/v5.4/esp-idf/components/esp_common", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_ana_cmpr", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_cam", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_dac", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_gpio", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_gptimer", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_i2c", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_i2s", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_isp", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_jpeg", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_ledc", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_mcpwm", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_parlio", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_pcnt", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_ppa", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_rmt", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_sdio", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_sdm", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_sdmmc", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_sdspi", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_spi", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_touch_sens", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_tsens", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_uart", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_usb_serial_jtag", "/home/f4deb/esp/v5.4/esp-idf/components/esp_eth", "/home/f4deb/esp/v5.4/esp-idf/components/esp_event", "/home/f4deb/esp/v5.4/esp-idf/components/esp_gdbstub", "/home/f4deb/esp/v5.4/esp-idf/components/esp_hid", "/home/f4deb/esp/v5.4/esp-idf/components/esp_http_client", "/home/f4deb/esp/v5.4/esp-idf/components/esp_http_server", "/home/f4deb/esp/v5.4/esp-idf/components/esp_https_ota", "/home/f4deb/esp/v5.4/esp-idf/components/esp_https_server", "/home/f4deb/esp/v5.4/esp-idf/components/esp_hw_support", "/home/f4deb/esp/v5.4/esp-idf/components/esp_lcd", "/home/f4deb/esp/v5.4/esp-idf/components/esp_local_ctrl", "/home/f4deb/esp/v5.4/esp-idf/components/esp_mm", "/home/f4deb/esp/v5.4/esp-idf/components/esp_netif", "/home/f4deb/esp/v5.4/esp-idf/components/esp_netif_stack", "/home/f4deb/esp/v5.4/esp-idf/components/esp_partition", "/home/f4deb/esp/v5.4/esp-idf/components/esp_phy", "/home/f4deb/esp/v5.4/esp-idf/components/esp_pm", "/home/f4deb/esp/v5.4/esp-idf/components/esp_psram", "/home/f4deb/esp/v5.4/esp-idf/components/esp_ringbuf", "/home/f4deb/esp/v5.4/esp-idf/components/esp_rom", "/home/f4deb/esp/v5.4/esp-idf/components/esp_security", "/home/f4deb/esp/v5.4/esp-idf/components/esp_system", "/home/f4deb/esp/v5.4/esp-idf/components/esp_timer", "/home/f4deb/esp/v5.4/esp-idf/components/esp_vfs_console", "/home/f4deb/esp/v5.4/esp-idf/components/esp_wifi", "/home/f4deb/esp/v5.4/esp-idf/components/espcoredump", "/home/f4deb/RotorV1A/managed_components/espressif__esp_lcd_sh1107", "/home/f4deb/RotorV1A/managed_components/espressif__esp_lvgl_port", "/home/f4deb/RotorV1A/managed_components/espressif__led_strip", "/home/f4deb/esp/v5.4/esp-idf/components/esptool_py", "/home/f4deb/esp/v5.4/esp-idf/components/fatfs", "/home/f4deb/esp/v5.4/esp-idf/components/freertos", "/home/f4deb/esp/v5.4/esp-idf/components/hal", "/home/f4deb/esp/v5.4/esp-idf/components/heap", "/home/f4deb/esp/v5.4/esp-idf/components/http_parser", "/home/f4deb/esp/v5.4/esp-idf/components/idf_test", "/home/f4deb/esp/v5.4/esp-idf/components/ieee802154", "/home/f4deb/RotorV1A/components/interface", "/home/f4deb/RotorV1A/components/io_expander", "/home/f4deb/RotorV1A/components/io_expander_PCF8574", "/home/f4deb/esp/v5.4/esp-idf/components/json", "/home/f4deb/esp/v5.4/esp-idf/components/log", "/home/f4deb/RotorV1A/managed_components/lvgl__lvgl", "/home/f4deb/esp/v5.4/esp-idf/components/lwip", "/home/f4deb/RotorV1A/main", "/home/f4deb/esp/v5.4/esp-idf/components/mbedtls", "/home/f4deb/esp/v5.4/esp-idf/components/mqtt", "/home/f4deb/esp/v5.4/esp-idf/components/newlib", "/home/f4deb/esp/v5.4/esp-idf/components/nvs_flash", "/home/f4deb/esp/v5.4/esp-idf/components/nvs_sec_provider", "/home/f4deb/esp/v5.4/esp-idf/components/openthread", "/home/f4deb/esp/v5.4/esp-idf/components/partition_table", "/home/f4deb/esp/v5.4/esp-idf/components/perfmon", "/home/f4deb/esp/v5.4/esp-idf/components/protobuf-c", "/home/f4deb/esp/v5.4/esp-idf/components/protocomm", "/home/f4deb/esp/v5.4/esp-idf/components/pthread", "/home/f4deb/esp/v5.4/esp-idf/components/rt", "/home/f4deb/RotorV1A/components/rtci2c", "/home/f4deb/esp/v5.4/esp-idf/components/sdmmc", "/home/f4deb/esp/v5.4/esp-idf/components/soc", "/home/f4deb/esp/v5.4/esp-idf/components/spi_flash", "/home/f4deb/esp/v5.4/esp-idf/components/spiffs", "/home/f4deb/esp/v5.4/esp-idf/components/tcp_transport", "/home/f4deb/RotorV1A/components/uartCommand", "/home/f4deb/RotorV1A/components/uartDebug", "/home/f4deb/esp/v5.4/esp-idf/components/ulp", "/home/f4deb/esp/v5.4/esp-idf/components/unity", "/home/f4deb/esp/v5.4/esp-idf/components/usb", "/home/f4deb/esp/v5.4/esp-idf/components/vfs", "/home/f4deb/esp/v5.4/esp-idf/components/wear_levelling", "/home/f4deb/esp/v5.4/esp-idf/components/wifi_provisioning", "/home/f4deb/esp/v5.4/esp-idf/components/wpa_supplicant", "/home/f4deb/esp/v5.4/esp-idf/components/xtensa", "" ],
+    "build_components" : [ "8IoButtonBoard", "I2c", "Oled", "app_trace", "app_update", "blueLed", "bootloader", "bootloader_support", "bt", "buffer", "charUtils", "clock", "cmock", "console", "cxx", "driver", "efuse", "esp-tls", "esp_adc", "esp_app_format", "esp_bootloader_format", "esp_coex", "esp_common", "esp_driver_ana_cmpr", "esp_driver_cam", "esp_driver_dac", "esp_driver_gpio", "esp_driver_gptimer", "esp_driver_i2c", "esp_driver_i2s", "esp_driver_isp", "esp_driver_jpeg", "esp_driver_ledc", "esp_driver_mcpwm", "esp_driver_parlio", "esp_driver_pcnt", "esp_driver_ppa", "esp_driver_rmt", "esp_driver_sdio", "esp_driver_sdm", "esp_driver_sdmmc", "esp_driver_sdspi", "esp_driver_spi", "esp_driver_touch_sens", "esp_driver_tsens", "esp_driver_uart", "esp_driver_usb_serial_jtag", "esp_eth", "esp_event", "esp_gdbstub", "esp_hid", "esp_http_client", "esp_http_server", "esp_https_ota", "esp_https_server", "esp_hw_support", "esp_lcd", "esp_local_ctrl", "esp_mm", "esp_netif", "esp_netif_stack", "esp_partition", "esp_phy", "esp_pm", "esp_psram", "esp_ringbuf", "esp_rom", "esp_security", "esp_system", "esp_timer", "esp_vfs_console", "esp_wifi", "espcoredump", "espressif__esp_lcd_sh1107", "espressif__esp_lvgl_port", "espressif__led_strip", "espressif__mag3110", "esptool_py", "fatfs", "freertos", "hal", "heap", "http_parser", "idf_test", "ieee802154", "interface", "io_expander", "io_expander_PCF8574", "json", "log", "lvgl__lvgl", "lwip", "main", "mbedtls", "mqtt", "newlib", "nvs_flash", "nvs_sec_provider", "openthread", "partition_table", "perfmon", "protobuf-c", "protocomm", "pthread", "rt", "rtci2c", "sdmmc", "soc", "spi_flash", "spiffs", "tcp_transport", "uartCommand", "uartDebug", "ulp", "unity", "usb", "vfs", "wear_levelling", "wifi_provisioning", "wpa_supplicant", "xtensa", "" ],
+    "build_component_paths" : [ "/home/f4deb/RotorV1A/components/8IoButtonBoard", "/home/f4deb/RotorV1A/components/I2c", "/home/f4deb/RotorV1A/components/Oled", "/home/f4deb/esp/v5.4/esp-idf/components/app_trace", "/home/f4deb/esp/v5.4/esp-idf/components/app_update", "/home/f4deb/RotorV1A/components/blueLed", "/home/f4deb/esp/v5.4/esp-idf/components/bootloader", "/home/f4deb/esp/v5.4/esp-idf/components/bootloader_support", "/home/f4deb/esp/v5.4/esp-idf/components/bt", "/home/f4deb/RotorV1A/components/buffer", "/home/f4deb/RotorV1A/components/charUtils", "/home/f4deb/RotorV1A/components/clock", "/home/f4deb/esp/v5.4/esp-idf/components/cmock", "/home/f4deb/esp/v5.4/esp-idf/components/console", "/home/f4deb/esp/v5.4/esp-idf/components/cxx", "/home/f4deb/esp/v5.4/esp-idf/components/driver", "/home/f4deb/esp/v5.4/esp-idf/components/efuse", "/home/f4deb/esp/v5.4/esp-idf/components/esp-tls", "/home/f4deb/esp/v5.4/esp-idf/components/esp_adc", "/home/f4deb/esp/v5.4/esp-idf/components/esp_app_format", "/home/f4deb/esp/v5.4/esp-idf/components/esp_bootloader_format", "/home/f4deb/esp/v5.4/esp-idf/components/esp_coex", "/home/f4deb/esp/v5.4/esp-idf/components/esp_common", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_ana_cmpr", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_cam", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_dac", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_gpio", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_gptimer", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_i2c", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_i2s", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_isp", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_jpeg", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_ledc", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_mcpwm", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_parlio", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_pcnt", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_ppa", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_rmt", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_sdio", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_sdm", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_sdmmc", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_sdspi", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_spi", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_touch_sens", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_tsens", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_uart", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_usb_serial_jtag", "/home/f4deb/esp/v5.4/esp-idf/components/esp_eth", "/home/f4deb/esp/v5.4/esp-idf/components/esp_event", "/home/f4deb/esp/v5.4/esp-idf/components/esp_gdbstub", "/home/f4deb/esp/v5.4/esp-idf/components/esp_hid", "/home/f4deb/esp/v5.4/esp-idf/components/esp_http_client", "/home/f4deb/esp/v5.4/esp-idf/components/esp_http_server", "/home/f4deb/esp/v5.4/esp-idf/components/esp_https_ota", "/home/f4deb/esp/v5.4/esp-idf/components/esp_https_server", "/home/f4deb/esp/v5.4/esp-idf/components/esp_hw_support", "/home/f4deb/esp/v5.4/esp-idf/components/esp_lcd", "/home/f4deb/esp/v5.4/esp-idf/components/esp_local_ctrl", "/home/f4deb/esp/v5.4/esp-idf/components/esp_mm", "/home/f4deb/esp/v5.4/esp-idf/components/esp_netif", "/home/f4deb/esp/v5.4/esp-idf/components/esp_netif_stack", "/home/f4deb/esp/v5.4/esp-idf/components/esp_partition", "/home/f4deb/esp/v5.4/esp-idf/components/esp_phy", "/home/f4deb/esp/v5.4/esp-idf/components/esp_pm", "/home/f4deb/esp/v5.4/esp-idf/components/esp_psram", "/home/f4deb/esp/v5.4/esp-idf/components/esp_ringbuf", "/home/f4deb/esp/v5.4/esp-idf/components/esp_rom", "/home/f4deb/esp/v5.4/esp-idf/components/esp_security", "/home/f4deb/esp/v5.4/esp-idf/components/esp_system", "/home/f4deb/esp/v5.4/esp-idf/components/esp_timer", "/home/f4deb/esp/v5.4/esp-idf/components/esp_vfs_console", "/home/f4deb/esp/v5.4/esp-idf/components/esp_wifi", "/home/f4deb/esp/v5.4/esp-idf/components/espcoredump", "/home/f4deb/RotorV1A/managed_components/espressif__esp_lcd_sh1107", "/home/f4deb/RotorV1A/managed_components/espressif__esp_lvgl_port", "/home/f4deb/RotorV1A/managed_components/espressif__led_strip", "/home/f4deb/RotorV1A/managed_components/espressif__mag3110", "/home/f4deb/esp/v5.4/esp-idf/components/esptool_py", "/home/f4deb/esp/v5.4/esp-idf/components/fatfs", "/home/f4deb/esp/v5.4/esp-idf/components/freertos", "/home/f4deb/esp/v5.4/esp-idf/components/hal", "/home/f4deb/esp/v5.4/esp-idf/components/heap", "/home/f4deb/esp/v5.4/esp-idf/components/http_parser", "/home/f4deb/esp/v5.4/esp-idf/components/idf_test", "/home/f4deb/esp/v5.4/esp-idf/components/ieee802154", "/home/f4deb/RotorV1A/components/interface", "/home/f4deb/RotorV1A/components/io_expander", "/home/f4deb/RotorV1A/components/io_expander_PCF8574", "/home/f4deb/esp/v5.4/esp-idf/components/json", "/home/f4deb/esp/v5.4/esp-idf/components/log", "/home/f4deb/RotorV1A/managed_components/lvgl__lvgl", "/home/f4deb/esp/v5.4/esp-idf/components/lwip", "/home/f4deb/RotorV1A/main", "/home/f4deb/esp/v5.4/esp-idf/components/mbedtls", "/home/f4deb/esp/v5.4/esp-idf/components/mqtt", "/home/f4deb/esp/v5.4/esp-idf/components/newlib", "/home/f4deb/esp/v5.4/esp-idf/components/nvs_flash", "/home/f4deb/esp/v5.4/esp-idf/components/nvs_sec_provider", "/home/f4deb/esp/v5.4/esp-idf/components/openthread", "/home/f4deb/esp/v5.4/esp-idf/components/partition_table", "/home/f4deb/esp/v5.4/esp-idf/components/perfmon", "/home/f4deb/esp/v5.4/esp-idf/components/protobuf-c", "/home/f4deb/esp/v5.4/esp-idf/components/protocomm", "/home/f4deb/esp/v5.4/esp-idf/components/pthread", "/home/f4deb/esp/v5.4/esp-idf/components/rt", "/home/f4deb/RotorV1A/components/rtci2c", "/home/f4deb/esp/v5.4/esp-idf/components/sdmmc", "/home/f4deb/esp/v5.4/esp-idf/components/soc", "/home/f4deb/esp/v5.4/esp-idf/components/spi_flash", "/home/f4deb/esp/v5.4/esp-idf/components/spiffs", "/home/f4deb/esp/v5.4/esp-idf/components/tcp_transport", "/home/f4deb/RotorV1A/components/uartCommand", "/home/f4deb/RotorV1A/components/uartDebug", "/home/f4deb/esp/v5.4/esp-idf/components/ulp", "/home/f4deb/esp/v5.4/esp-idf/components/unity", "/home/f4deb/esp/v5.4/esp-idf/components/usb", "/home/f4deb/esp/v5.4/esp-idf/components/vfs", "/home/f4deb/esp/v5.4/esp-idf/components/wear_levelling", "/home/f4deb/esp/v5.4/esp-idf/components/wifi_provisioning", "/home/f4deb/esp/v5.4/esp-idf/components/wpa_supplicant", "/home/f4deb/esp/v5.4/esp-idf/components/xtensa", "" ],
     "build_component_info" : {
         "8IoButtonBoard": {
             "alias": "idf::8IoButtonBoard",
@@ -41,7 +41,7 @@
             "managed_priv_reqs": [],
             "file": "/home/f4deb/RotorV1A/build/esp-idf/8IoButtonBoard/lib8IoButtonBoard.a",
             "sources": [ "/home/f4deb/RotorV1A/components/8IoButtonBoard/8IoButtonBoardInterface.c", "/home/f4deb/RotorV1A/components/8IoButtonBoard/8IoButtonBoard.c" ],
-            "include_dirs": [ "include", "../uartCommand/include", "../charUtils/include", "../rtci2c/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_i2c/include", "/home/f4deb/esp/v5.4/esp-idf/components/nvs_flash/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_event/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_partition/include" ]
+            "include_dirs": [ "include", "../uartCommand/include", "../charUtils/include", "../rtci2c/include", "../../../esp/v5.4/esp-idf/components/esp_driver_i2c/include", "../../../esp/v5.4/esp-idf/components/nvs_flash/include", "../../../esp/v5.4/esp-idf/components/esp_event/include", "../../../esp/v5.4/esp-idf/components/esp_partition/include" ]
         },
         "I2c": {
             "alias": "idf::I2c",
@@ -56,7 +56,7 @@
             "managed_priv_reqs": [],
             "file": "/home/f4deb/RotorV1A/build/esp-idf/I2c/libI2c.a",
             "sources": [ "/home/f4deb/RotorV1A/components/I2c/I2c.c" ],
-            "include_dirs": [ "include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_i2c/include", "/home/f4deb/esp/v5.4/esp-idf/components/log/include" ]
+            "include_dirs": [ "include", "../../../esp/v5.4/esp-idf/components/esp_driver_i2c/include", "../../../esp/v5.4/esp-idf/components/log/include" ]
         },
         "Oled": {
             "alias": "idf::Oled",
@@ -71,7 +71,7 @@
             "managed_priv_reqs": [],
             "file": "/home/f4deb/RotorV1A/build/esp-idf/Oled/libOled.a",
             "sources": [ "/home/f4deb/RotorV1A/components/Oled/Oled.c", "/home/f4deb/RotorV1A/components/I2c/I2c.c", "/home/f4deb/RotorV1A/components/Oled/OledInterface.c" ],
-            "include_dirs": [ "include", "../../components/I2c/include", "/home/f4deb/RotorV1A/managed_components/espressif__esp_lvgl_port/include", "/home/f4deb/RotorV1A/managed_components/lvgl__lvgl", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_i2c/include", "/home/f4deb/esp/v5.4/esp-idf/components/nvs_flash/include", "/home/f4deb/esp/v5.4/esp-idf/components/log/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_event/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_partition/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_spi/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_lcd/include" ]
+            "include_dirs": [ "include", "../../components/I2c/include", "/home/f4deb/RotorV1A/managed_components/espressif__esp_lvgl_port/include", "/home/f4deb/RotorV1A/managed_components/lvgl__lvgl", "../../../esp/v5.4/esp-idf/components/esp_driver_i2c/include", "../../../esp/v5.4/esp-idf/components/nvs_flash/include", "../../../esp/v5.4/esp-idf/components/log/include", "../../../esp/v5.4/esp-idf/components/esp_event/include", "../../../esp/v5.4/esp-idf/components/esp_partition/include", "../../../esp/v5.4/esp-idf/components/esp_driver_spi/include", "../../../esp/v5.4/esp-idf/components/esp_lcd/include" ]
         },
         "app_trace": {
             "alias": "idf::app_trace",
@@ -116,7 +116,7 @@
             "managed_priv_reqs": [],
             "file": "/home/f4deb/RotorV1A/build/esp-idf/blueLed/libblueLed.a",
             "sources": [ "/home/f4deb/RotorV1A/components/blueLed/blueLedInterface.c", "/home/f4deb/RotorV1A/components/blueLed/blueLed.c", "/home/f4deb/RotorV1A/components/charUtils/charUtils.c", "/home/f4deb/RotorV1A/components/uartCommand/uartCommand.c" ],
-            "include_dirs": [ "include", "../charUtils/include", "../uartCommand/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_event/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_gpio/include" ]
+            "include_dirs": [ "include", "../charUtils/include", "../uartCommand/include", "../../../esp/v5.4/esp-idf/components/esp_event/include", "../../../esp/v5.4/esp-idf/components/esp_driver_gpio/include" ]
         },
         "bootloader": {
             "alias": "idf::bootloader",
@@ -191,7 +191,7 @@
             "managed_priv_reqs": [],
             "file": "/home/f4deb/RotorV1A/build/esp-idf/charUtils/libcharUtils.a",
             "sources": [ "/home/f4deb/RotorV1A/components/charUtils/charUtils.c" ],
-            "include_dirs": [ "include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_event/include" ]
+            "include_dirs": [ "include", "../../../esp/v5.4/esp-idf/components/esp_event/include" ]
         },
         "clock": {
             "alias": "idf::clock",
@@ -206,7 +206,7 @@
             "managed_priv_reqs": [],
             "file": "/home/f4deb/RotorV1A/build/esp-idf/clock/libclock.a",
             "sources": [ "/home/f4deb/RotorV1A/components/clock/clockInterface.c", "/home/f4deb/RotorV1A/components/clock/clock.c", "/home/f4deb/RotorV1A/components/charUtils/charUtils.c", "/home/f4deb/RotorV1A/components/uartCommand/uartCommand.c" ],
-            "include_dirs": [ "include", "../uartCommand/include", "../charUtils/include", "../rtci2c/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_i2c/include", "/home/f4deb/esp/v5.4/esp-idf/components/nvs_flash/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_event/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_partition/include" ]
+            "include_dirs": [ "include", "../uartCommand/include", "../charUtils/include", "../rtci2c/include", "../../../esp/v5.4/esp-idf/components/esp_driver_i2c/include", "../../../esp/v5.4/esp-idf/components/nvs_flash/include", "../../../esp/v5.4/esp-idf/components/esp_event/include", "../../../esp/v5.4/esp-idf/components/esp_partition/include" ]
         },
         "cmock": {
             "alias": "idf::cmock",
@@ -1168,6 +1168,21 @@
             "sources": [ "/home/f4deb/RotorV1A/managed_components/espressif__led_strip/src/led_strip_api.c", "/home/f4deb/RotorV1A/managed_components/espressif__led_strip/src/led_strip_rmt_dev.c", "/home/f4deb/RotorV1A/managed_components/espressif__led_strip/src/led_strip_rmt_encoder.c", "/home/f4deb/RotorV1A/managed_components/espressif__led_strip/src/led_strip_spi_dev.c" ],
             "include_dirs": [ "include", "interface" ]
         },
+        "espressif__mag3110": {
+            "alias": "idf::espressif__mag3110",
+            "target": "___idf_espressif__mag3110",
+            "prefix": "idf",
+            "dir": "/home/f4deb/RotorV1A/managed_components/espressif__mag3110",
+            "type": "LIBRARY",
+            "lib": "__idf_espressif__mag3110",
+            "reqs": [ "driver" ],
+            "priv_reqs": [ "esp_timer" ],
+            "managed_reqs": [],
+            "managed_priv_reqs": [],
+            "file": "/home/f4deb/RotorV1A/build/esp-idf/espressif__mag3110/libespressif__mag3110.a",
+            "sources": [ "/home/f4deb/RotorV1A/managed_components/espressif__mag3110/mag3110.c" ],
+            "include_dirs": [ "include" ]
+        },
         "esptool_py": {
             "alias": "idf::esptool_py",
             "target": "___idf_esptool_py",
@@ -1301,7 +1316,7 @@
             "managed_priv_reqs": [],
             "file": "/home/f4deb/RotorV1A/build/esp-idf/interface/libinterface.a",
             "sources": [ "/home/f4deb/RotorV1A/components/interface/interface.c", "/home/f4deb/RotorV1A/components/charUtils/charUtils.c", "/home/f4deb/RotorV1A/components/clock/clockInterface.c", "/home/f4deb/RotorV1A/components/blueLed/blueLedInterface.c", "/home/f4deb/RotorV1A/components/8IoButtonBoard/8IoButtonBoardInterface.c", "/home/f4deb/RotorV1A/components/Oled/OledInterface.c" ],
-            "include_dirs": [ "include", "../charUtils/include", "../blueLed/include/", "../clock/include/", "../8IoButtonBoard/include/", "../Oled/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_i2c/include", "/home/f4deb/esp/v5.4/esp-idf/components/nvs_flash/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_event/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_partition/include" ]
+            "include_dirs": [ "include", "../charUtils/include", "../blueLed/include/", "../clock/include/", "../8IoButtonBoard/include/", "../Oled/include", "../../../esp/v5.4/esp-idf/components/esp_driver_i2c/include", "../../../esp/v5.4/esp-idf/components/nvs_flash/include", "../../../esp/v5.4/esp-idf/components/esp_event/include", "../../../esp/v5.4/esp-idf/components/esp_partition/include" ]
         },
         "io_expander": {
             "alias": "idf::io_expander",
@@ -1401,9 +1416,9 @@
             "type": "LIBRARY",
             "lib": "__idf_main",
             "reqs": [],
-            "priv_reqs": [ "espressif__esp_lcd_sh1107", "espressif__esp_lvgl_port", "espressif__led_strip", "lvgl__lvgl" ],
+            "priv_reqs": [ "espressif__esp_lcd_sh1107", "espressif__esp_lvgl_port", "espressif__led_strip", "espressif__mag3110", "lvgl__lvgl" ],
             "managed_reqs": [],
-            "managed_priv_reqs": [ "espressif__esp_lcd_sh1107", "espressif__esp_lvgl_port", "espressif__led_strip", "lvgl__lvgl" ],
+            "managed_priv_reqs": [ "espressif__esp_lcd_sh1107", "espressif__esp_lvgl_port", "espressif__led_strip", "espressif__mag3110", "lvgl__lvgl" ],
             "file": "/home/f4deb/RotorV1A/build/esp-idf/main/libmain.a",
             "sources": [ "/home/f4deb/RotorV1A/main/main.c" ],
             "include_dirs": [ "." ]
@@ -3097,9 +3112,9 @@
             "dir": "/home/f4deb/RotorV1A/main",
             "lib": "__idf_main",
             "reqs": [],
-            "priv_reqs": [ "espressif__esp_lcd_sh1107", "espressif__esp_lvgl_port", "espressif__led_strip", "lvgl__lvgl" ],
+            "priv_reqs": [ "espressif__esp_lcd_sh1107", "espressif__esp_lvgl_port", "espressif__led_strip", "espressif__mag3110", "lvgl__lvgl" ],
             "managed_reqs": [],
-            "managed_priv_reqs": [ "espressif__esp_lcd_sh1107", "espressif__esp_lvgl_port", "espressif__led_strip", "lvgl__lvgl" ],
+            "managed_priv_reqs": [ "espressif__esp_lcd_sh1107", "espressif__esp_lvgl_port", "espressif__led_strip", "espressif__mag3110", "lvgl__lvgl" ],
             "include_dirs": [ "." ]
         },
         "8IoButtonBoard": {
@@ -3112,7 +3127,7 @@
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "include_dirs": [ "include", "../uartCommand/include", "../charUtils/include", "../rtci2c/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_i2c/include", "/home/f4deb/esp/v5.4/esp-idf/components/nvs_flash/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_event/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_partition/include" ]
+            "include_dirs": [ "include", "../uartCommand/include", "../charUtils/include", "../rtci2c/include", "../../../esp/v5.4/esp-idf/components/esp_driver_i2c/include", "../../../esp/v5.4/esp-idf/components/nvs_flash/include", "../../../esp/v5.4/esp-idf/components/esp_event/include", "../../../esp/v5.4/esp-idf/components/esp_partition/include" ]
         },
         "I2c": {
             "alias": "idf::I2c",
@@ -3124,7 +3139,7 @@
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "include_dirs": [ "include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_i2c/include", "/home/f4deb/esp/v5.4/esp-idf/components/log/include" ]
+            "include_dirs": [ "include", "../../../esp/v5.4/esp-idf/components/esp_driver_i2c/include", "../../../esp/v5.4/esp-idf/components/log/include" ]
         },
         "Oled": {
             "alias": "idf::Oled",
@@ -3136,7 +3151,7 @@
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "include_dirs": [ "include", "../../components/I2c/include", "/home/f4deb/RotorV1A/managed_components/espressif__esp_lvgl_port/include", "/home/f4deb/RotorV1A/managed_components/lvgl__lvgl", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_i2c/include", "/home/f4deb/esp/v5.4/esp-idf/components/nvs_flash/include", "/home/f4deb/esp/v5.4/esp-idf/components/log/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_event/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_partition/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_spi/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_lcd/include" ]
+            "include_dirs": [ "include", "../../components/I2c/include", "/home/f4deb/RotorV1A/managed_components/espressif__esp_lvgl_port/include", "/home/f4deb/RotorV1A/managed_components/lvgl__lvgl", "../../../esp/v5.4/esp-idf/components/esp_driver_i2c/include", "../../../esp/v5.4/esp-idf/components/nvs_flash/include", "../../../esp/v5.4/esp-idf/components/log/include", "../../../esp/v5.4/esp-idf/components/esp_event/include", "../../../esp/v5.4/esp-idf/components/esp_partition/include", "../../../esp/v5.4/esp-idf/components/esp_driver_spi/include", "../../../esp/v5.4/esp-idf/components/esp_lcd/include" ]
         },
         "blueLed": {
             "alias": "idf::blueLed",
@@ -3148,7 +3163,7 @@
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "include_dirs": [ "include", "../charUtils/include", "../uartCommand/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_event/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_gpio/include" ]
+            "include_dirs": [ "include", "../charUtils/include", "../uartCommand/include", "../../../esp/v5.4/esp-idf/components/esp_event/include", "../../../esp/v5.4/esp-idf/components/esp_driver_gpio/include" ]
         },
         "buffer": {
             "alias": "idf::buffer",
@@ -3172,7 +3187,7 @@
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "include_dirs": [ "include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_event/include" ]
+            "include_dirs": [ "include", "../../../esp/v5.4/esp-idf/components/esp_event/include" ]
         },
         "clock": {
             "alias": "idf::clock",
@@ -3184,7 +3199,7 @@
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "include_dirs": [ "include", "../uartCommand/include", "../charUtils/include", "../rtci2c/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_i2c/include", "/home/f4deb/esp/v5.4/esp-idf/components/nvs_flash/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_event/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_partition/include" ]
+            "include_dirs": [ "include", "../uartCommand/include", "../charUtils/include", "../rtci2c/include", "../../../esp/v5.4/esp-idf/components/esp_driver_i2c/include", "../../../esp/v5.4/esp-idf/components/nvs_flash/include", "../../../esp/v5.4/esp-idf/components/esp_event/include", "../../../esp/v5.4/esp-idf/components/esp_partition/include" ]
         },
         "interface": {
             "alias": "idf::interface",
@@ -3196,7 +3211,7 @@
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "include_dirs": [ "include", "../charUtils/include", "../blueLed/include/", "../clock/include/", "../8IoButtonBoard/include/", "../Oled/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_driver_i2c/include", "/home/f4deb/esp/v5.4/esp-idf/components/nvs_flash/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_event/include", "/home/f4deb/esp/v5.4/esp-idf/components/esp_partition/include" ]
+            "include_dirs": [ "include", "../charUtils/include", "../blueLed/include/", "../clock/include/", "../8IoButtonBoard/include/", "../Oled/include", "../../../esp/v5.4/esp-idf/components/esp_driver_i2c/include", "../../../esp/v5.4/esp-idf/components/nvs_flash/include", "../../../esp/v5.4/esp-idf/components/esp_event/include", "../../../esp/v5.4/esp-idf/components/esp_partition/include" ]
         },
         "io_expander": {
             "alias": "idf::io_expander",
@@ -3293,6 +3308,18 @@
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "include_dirs": [ "include", "interface" ]
+        },
+        "espressif__mag3110": {
+            "alias": "idf::espressif__mag3110",
+            "target": "___idf_espressif__mag3110",
+            "prefix": "idf",
+            "dir": "/home/f4deb/RotorV1A/managed_components/espressif__mag3110",
+            "lib": "__idf_espressif__mag3110",
+            "reqs": [ "driver" ],
+            "priv_reqs": [ "esp_timer" ],
+            "managed_reqs": [],
+            "managed_priv_reqs": [],
+            "include_dirs": [ "include" ]
         },
         "lvgl__lvgl": {
             "alias": "idf::lvgl__lvgl",

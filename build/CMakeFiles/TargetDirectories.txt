@@ -852,6 +852,13 @@
 /home/f4deb/RotorV1A/build/esp-idf/espressif__led_strip/CMakeFiles/install.dir
 /home/f4deb/RotorV1A/build/esp-idf/espressif__led_strip/CMakeFiles/install/local.dir
 /home/f4deb/RotorV1A/build/esp-idf/espressif__led_strip/CMakeFiles/install/strip.dir
+/home/f4deb/RotorV1A/build/esp-idf/espressif__mag3110/CMakeFiles/__idf_espressif__mag3110.dir
+/home/f4deb/RotorV1A/build/esp-idf/espressif__mag3110/CMakeFiles/edit_cache.dir
+/home/f4deb/RotorV1A/build/esp-idf/espressif__mag3110/CMakeFiles/rebuild_cache.dir
+/home/f4deb/RotorV1A/build/esp-idf/espressif__mag3110/CMakeFiles/list_install_components.dir
+/home/f4deb/RotorV1A/build/esp-idf/espressif__mag3110/CMakeFiles/install.dir
+/home/f4deb/RotorV1A/build/esp-idf/espressif__mag3110/CMakeFiles/install/local.dir
+/home/f4deb/RotorV1A/build/esp-idf/espressif__mag3110/CMakeFiles/install/strip.dir
 /home/f4deb/RotorV1A/build/esp-idf/main/CMakeFiles/__idf_main.dir
 /home/f4deb/RotorV1A/build/esp-idf/main/CMakeFiles/edit_cache.dir
 /home/f4deb/RotorV1A/build/esp-idf/main/CMakeFiles/rebuild_cache.dir
