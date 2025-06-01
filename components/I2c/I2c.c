@@ -15,6 +15,8 @@
 
 #define I2C_ADDRESS         ESP_IO_EXPANDER_I2C_PCF8574_ADDRESS_000
 
+#define I2C_TOOL_TIMEOUT_VALUE_MS (50)
+
 static const char *TAG = "I2C : ";
 
 static i2c_master_bus_handle_t i2c_bus; //static i2c_master_bus_handle_t i2c_handle = NULL;
@@ -42,3 +44,25 @@ void I2cBusInit(void){
     }
 }
 
+int do_i2cdetect_cmd(void)
+{
+    uint8_t address;
+    printf("     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f\r\n");
+    for (int i = 0; i < 128; i += 16) {
+        printf("%02x: ", i);
+        for (int j = 0; j < 16; j++) {
+            fflush(stdout);
+            address = i + j;
+            esp_err_t ret = i2c_master_probe(getI2cBus(), address, I2C_TOOL_TIMEOUT_VALUE_MS);
+            if (ret == ESP_OK) {
+                printf("%02x ", address);
+            } else if (ret == ESP_ERR_TIMEOUT) {
+                printf("UU ");
+            } else {
+                printf("-- ");
+            }
+        }
+        printf("\r\n");
+    }
+    return 0;
+}

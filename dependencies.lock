@@ -33,16 +33,6 @@ dependencies:
       registry_url: https://components.espressif.com/
       type: service
     version: 3.0.0
-  espressif/mag3110:
-    component_hash: 8c0619885dbfd3f006d93245c479a56393f3ddf97ce21884a5f42f7d551608a8
-    dependencies:
-    - name: idf
-      require: private
-      version: '>=4.0'
-    source:
-      registry_url: https://components.espressif.com/
-      type: service
-    version: 1.0.7
   idf:
     source:
       type: idf
@@ -58,9 +48,8 @@ direct_dependencies:
 - espressif/esp_lcd_sh1107
 - espressif/esp_lvgl_port
 - espressif/led_strip
-- espressif/mag3110
 - idf
 - lvgl/lvgl
-manifest_hash: 4e1c85ed2c2a23d356d909505a290fe5fd2e7dd814516063ddd442afc657963a
+manifest_hash: 496b97ea86a9e851347922742b299336d278dabed9be5a6ad4029d3d4adc5489
 target: esp32
 version: 2.0.0

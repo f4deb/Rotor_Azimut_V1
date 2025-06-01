@@ -84,7 +84,6 @@ $<TARGET_FILE:__idf_wifi_provisioning>
 $<TARGET_FILE:__idf_espressif__esp_lcd_sh1107>
 $<TARGET_FILE:__idf_lvgl__lvgl>
 $<TARGET_FILE:__idf_espressif__led_strip>
-$<TARGET_FILE:__idf_espressif__mag3110>
 $<TARGET_FILE:__idf_main>
 $<TARGET_FILE:__idf_8IoButtonBoard>
 $<TARGET_FILE:__idf_I2c>

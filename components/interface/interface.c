@@ -14,7 +14,7 @@
 #include "../clock/include/clockInterface.h"
 #include "../8IoButtonBoard/include/8IoButtonBoardInterface.h"
 #include "../Oled/include/OledInterface.h"
-
+#include "../I2c/include/i2CInterface.h"
 
 #define TAG "UART2"
 
@@ -44,6 +44,10 @@ void interface_task(void *arg){
                 // 8IoButtonBoard
                 else if ((strcmp(IO_BUTTON_BOARD_INTERFACE_HEADER,str)) == 0) {
                     ioButtonBoardInterface(rxBuffer+5);
+                }     
+                // I2C
+                else if ((strcmp(I2C_INTERFACE_HEADER,str)) == 0) {
+                    i2cInterface(rxBuffer+5);
                 }                    
                 // Oled
                 else if ((strcmp(OLED_INTERFACE_HEADER,str)) == 0) {

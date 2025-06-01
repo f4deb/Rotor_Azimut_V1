@@ -18,4 +18,6 @@ i2c_master_bus_handle_t getI2cBus (void);
 
 void I2cBusInit(void);
 
+int do_i2cdetect_cmd(void);
+
 #endif

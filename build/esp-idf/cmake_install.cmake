@@ -569,11 +569,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/f4deb/RotorV1A/build/esp-idf/espressif__mag3110/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
   include("/home/f4deb/RotorV1A/build/esp-idf/main/cmake_install.cmake")
 endif()
 
