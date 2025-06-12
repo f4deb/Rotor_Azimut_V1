@@ -3,7 +3,7 @@
     "idf.espIdfPath": "/home/f4deb/esp/v5.4/esp-idf",
     "idf.toolsPath": "/home/f4deb/Documents/F4DEB-ESP32/",
     "idf.flashType": "UART",
-    "idf.port": "/dev/ttyUSB0",
+    "idf.port": "/dev/ttyUSB1",
     "files.associations": {
         "sdkconfig.h": "c",
         "stdio.h": "c",
@@ -70,7 +70,18 @@
         "oledinterface.h": "c",
         "variant": "c",
         "esp_console.h": "c",
-        "i2cinterface.h": "c"
+        "i2cinterface.h": "c",
+        "gpio.h": "c",
+        "gpio_etm.h": "c",
+        "gy511interface.h": "c",
+        "esp_gy511.h": "c",
+        "spi_master.h": "c",
+        "esp_lcd_panel_vendor.h": "c",
+        "gy511.h": "c",
+        "esp_task_wdt.h": "c",
+        "sys_esp.h": "c",
+        "sys_linux.h": "c",
+        "esp_magnetometer_accelerometer_gy511.h": "c"
     },
     "idf.pythonInstallPath": "/usr/bin/python3",
     "idf.customExtraVars": {

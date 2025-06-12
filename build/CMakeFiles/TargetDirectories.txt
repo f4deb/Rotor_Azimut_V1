@@ -922,6 +922,13 @@
 /home/f4deb/RotorV1A/build/esp-idf/io_expander/CMakeFiles/install.dir
 /home/f4deb/RotorV1A/build/esp-idf/io_expander/CMakeFiles/install/local.dir
 /home/f4deb/RotorV1A/build/esp-idf/io_expander/CMakeFiles/install/strip.dir
+/home/f4deb/RotorV1A/build/esp-idf/io_expander_GY511/CMakeFiles/__idf_io_expander_GY511.dir
+/home/f4deb/RotorV1A/build/esp-idf/io_expander_GY511/CMakeFiles/edit_cache.dir
+/home/f4deb/RotorV1A/build/esp-idf/io_expander_GY511/CMakeFiles/rebuild_cache.dir
+/home/f4deb/RotorV1A/build/esp-idf/io_expander_GY511/CMakeFiles/list_install_components.dir
+/home/f4deb/RotorV1A/build/esp-idf/io_expander_GY511/CMakeFiles/install.dir
+/home/f4deb/RotorV1A/build/esp-idf/io_expander_GY511/CMakeFiles/install/local.dir
+/home/f4deb/RotorV1A/build/esp-idf/io_expander_GY511/CMakeFiles/install/strip.dir
 /home/f4deb/RotorV1A/build/esp-idf/io_expander_PCF8574/CMakeFiles/__idf_io_expander_PCF8574.dir
 /home/f4deb/RotorV1A/build/esp-idf/io_expander_PCF8574/CMakeFiles/edit_cache.dir
 /home/f4deb/RotorV1A/build/esp-idf/io_expander_PCF8574/CMakeFiles/rebuild_cache.dir
@@ -929,6 +936,13 @@
 /home/f4deb/RotorV1A/build/esp-idf/io_expander_PCF8574/CMakeFiles/install.dir
 /home/f4deb/RotorV1A/build/esp-idf/io_expander_PCF8574/CMakeFiles/install/local.dir
 /home/f4deb/RotorV1A/build/esp-idf/io_expander_PCF8574/CMakeFiles/install/strip.dir
+/home/f4deb/RotorV1A/build/esp-idf/magnetometer/CMakeFiles/__idf_magnetometer.dir
+/home/f4deb/RotorV1A/build/esp-idf/magnetometer/CMakeFiles/edit_cache.dir
+/home/f4deb/RotorV1A/build/esp-idf/magnetometer/CMakeFiles/rebuild_cache.dir
+/home/f4deb/RotorV1A/build/esp-idf/magnetometer/CMakeFiles/list_install_components.dir
+/home/f4deb/RotorV1A/build/esp-idf/magnetometer/CMakeFiles/install.dir
+/home/f4deb/RotorV1A/build/esp-idf/magnetometer/CMakeFiles/install/local.dir
+/home/f4deb/RotorV1A/build/esp-idf/magnetometer/CMakeFiles/install/strip.dir
 /home/f4deb/RotorV1A/build/esp-idf/rtci2c/CMakeFiles/__idf_rtci2c.dir
 /home/f4deb/RotorV1A/build/esp-idf/rtci2c/CMakeFiles/edit_cache.dir
 /home/f4deb/RotorV1A/build/esp-idf/rtci2c/CMakeFiles/rebuild_cache.dir

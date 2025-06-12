@@ -1,0 +1,11 @@
+idf_component_register(SRCS "gy511Interface.c" "gy511.c"
+INCLUDE_DIRS "include" 
+            "../uartCommand/include"
+            "../charUtils/include"
+            "../rtci2c/include"
+            "../../../esp/v5.4/esp-idf/components/esp_driver_i2c/include"
+            "../../../esp/v5.4/esp-idf/components/nvs_flash/include"
+            "../../../esp/v5.4/esp-idf/components/esp_event/include"
+            "../../../esp/v5.4/esp-idf/components/esp_partition/include"
+            "../../../esp/v5.4/esp-idf/components/esp_driver_gpio/include"
+            )
