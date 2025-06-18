@@ -40,7 +40,6 @@
 #include "../components/Oled/include/Oled.h"
 #include "../components/I2c/include/I2c.h"
 #include "../components/8IoButtonBoard/include/8IoButtonBoard.h"
-#include "../components/rtci2c/include/rtci2c/rtci2c.h"
 
 static const char *TAG_MAIN = "Main : ";
 

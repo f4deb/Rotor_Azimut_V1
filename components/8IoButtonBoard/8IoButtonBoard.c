@@ -26,7 +26,7 @@
 #define TAG "IOButtonBoard"
 
 static int value = 0x77;
-static int pin = 0x00;
+//static int pin = 0x00;
 
 static esp_io_expander_handle_t io_expander = NULL;
 

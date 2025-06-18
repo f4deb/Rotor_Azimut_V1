@@ -15,7 +15,7 @@
 #include "../8IoButtonBoard/include/8IoButtonBoardInterface.h"
 #include "../Oled/include/OledInterface.h"
 #include "../I2c/include/i2CInterface.h"
-#include "../magnetometer/include/gy511Interface.h"
+#include "../sensor/include/sensorInterface.h"
 
 #define TAG "UART2"
 
@@ -53,15 +53,11 @@ void interface_task(void *arg){
                 // Oled
                 else if ((strcmp(OLED_INTERFACE_HEADER,str)) == 0) {
                     oledInterface(rxBuffer+5);
-                }
-                // I2C
-                else if ((strcmp(GY511_INTERFACE_HEADER,str)) == 0) {
-                    i2cInterface(rxBuffer+5);
-                }                  
-                // GY-511
-                else if ((strcmp(GY511_INTERFACE_HEADER,str)) == 0) {
-                    gy511Interface(rxBuffer+5);
-                }                
+                }            
+                // SENSOR
+                else if ((strcmp(SENSOR_INTERFACE_HEADER,str)) == 0) {
+                    sensorInterface(rxBuffer+5);
+                }               
             }
             else {
                 setRatioBlink(50);

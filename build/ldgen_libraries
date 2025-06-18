@@ -94,9 +94,8 @@
 /home/f4deb/RotorV1A/build/esp-idf/clock/libclock.a
 /home/f4deb/RotorV1A/build/esp-idf/interface/libinterface.a
 /home/f4deb/RotorV1A/build/esp-idf/io_expander/libio_expander.a
-/home/f4deb/RotorV1A/build/esp-idf/io_expander_GY511/libio_expander_GY511.a
 /home/f4deb/RotorV1A/build/esp-idf/io_expander_PCF8574/libio_expander_PCF8574.a
-/home/f4deb/RotorV1A/build/esp-idf/magnetometer/libmagnetometer.a
 /home/f4deb/RotorV1A/build/esp-idf/rtci2c/librtci2c.a
+/home/f4deb/RotorV1A/build/esp-idf/sensor/libsensor.a
 /home/f4deb/RotorV1A/build/esp-idf/uartCommand/libuartCommand.a
 /home/f4deb/RotorV1A/build/esp-idf/uartDebug/libuartDebug.a

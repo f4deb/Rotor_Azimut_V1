@@ -127,7 +127,37 @@ menu "Clock Configuration"
     config CLOCK_PERIOD
         int "Clock period in ms"
         range 1 3600000
-        default 5000
+        default 3600000
+        help
+            Define the refresh period in milliseconds.
+
+    
+endmenu
+
+menu "Sensor Configuration"
+
+    choice SENSOR
+        prompt "Sensor type"
+        default GY511_GPIO
+        help
+           To do
+        config GY511_GPIO
+            bool "GY511"
+        config GYXXX_GPIO
+            bool "GYXXX"
+    endchoice
+
+    config SENSOR_GPIO
+        int "I2C port number"
+        range 0 2
+        default 2
+        help
+            GPIO number (IOxx) to drive the SENSOR.
+
+    config SENSOR_PERIOD
+        int "Sensor period in ms"
+        range 1 3600000
+        default 3600000
         help
             Define the refresh period in milliseconds.
 

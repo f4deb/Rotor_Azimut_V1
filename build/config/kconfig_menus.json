@@ -5264,6 +5264,70 @@
                 "children": [
                     {
                         "children": [],
+                        "depends_on": "<choice SENSOR>",
+                        "help": null,
+                        "id": "GY511_GPIO",
+                        "name": "GY511_GPIO",
+                        "range": null,
+                        "title": "GY511",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "<choice SENSOR>",
+                        "help": null,
+                        "id": "GYXXX_GPIO",
+                        "name": "GYXXX_GPIO",
+                        "range": null,
+                        "title": "GYXXX",
+                        "type": "bool"
+                    }
+                ],
+                "depends_on": null,
+                "help": "To do",
+                "id": "sensor-configuration-sensor-type",
+                "name": "SENSOR",
+                "title": "Sensor type",
+                "type": "choice"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number (IOxx) to drive the SENSOR.",
+                "id": "SENSOR_GPIO",
+                "name": "SENSOR_GPIO",
+                "range": [
+                    0,
+                    2
+                ],
+                "title": "I2C port number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "Define the refresh period in milliseconds.",
+                "id": "SENSOR_PERIOD",
+                "name": "SENSOR_PERIOD",
+                "range": [
+                    1,
+                    3600000
+                ],
+                "title": "GY511k period in ms",
+                "type": "int"
+            }
+        ],
+        "depends_on": null,
+        "id": "sensor-configuration",
+        "title": "Sensor Configuration",
+        "type": "menu"
+    },
+    {
+        "children": [
+            {
+                "children": [
+                    {
+                        "children": [],
                         "depends_on": "<choice LCD_CONTROLLER>",
                         "help": null,
                         "id": "LCD_CONTROLLER_SSD1306",

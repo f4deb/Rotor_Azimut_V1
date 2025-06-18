@@ -6,17 +6,7 @@
 #include <stdint.h>
 #include <time.h>
 
-#if defined(__linux__)
-   #include "rtci2c/sys_linux.h"
-#elif defined(ESP_PLATFORM)
-   #include "rtci2c/sys_esp.h"
-#else
-   #error "Supported OS type not detected"
-#endif
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include "sys_esp.h"
 
 typedef void *rtci2c_context;
 
