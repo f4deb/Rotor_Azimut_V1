@@ -12,8 +12,8 @@ typedef void *sensori2c_context;
 
 typedef enum
 {
-   SENSOR_DEVICE_GY511,
-   SENSOR_DEVICE_GYXXX
+   SENSORI2C_DEVICE_GY511,
+   SENSORI2C_DEVICE_GYXXX
 
 } sensori2c_device_type;
 

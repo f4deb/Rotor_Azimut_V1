@@ -24,10 +24,10 @@ sensori2c_context sensori2c_init(sensori2c_device_type device, uint8_t i2c_addre
    switch(device)
    {
       case SENSORI2C_DEVICE_GY511:
-         configured = GY511_GPIO_configure(r, i2c_address);
+         configured = pcf8563_configure(r, i2c_address);
          break;
       case SENSORI2C_DEVICE_GYXXX:
-         configured = GYXXX_GPIO_configure(r, i2c_address);
+         configured = pcf8563_configure(r, i2c_address);
          break;
       default:
          SERR("[%s] Unsupported device type (%d)", __func__, device);

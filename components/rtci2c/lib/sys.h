@@ -15,13 +15,13 @@
 
 #include <stdbool.h>
 #include <stdint.h>
-#if defined(__linux__)
-   #include "sys_linux.h"
-#elif defined(ESP_PLATFORM)
+//#if defined(__linux__)
+//   #include "sys_linux.h"
+//#elif defined(F)
    #include "sys_esp.h"
-#else
-   #error "Supported OS type not detected"
-#endif
+//#else
+//   #error "Supported OS type not detected"
+//#endif
   
 /* Make the definitions of each sys function weak to allow multiple libraries to define
  * the functionality, but the linker will choose only one. This is safe since there is

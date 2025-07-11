@@ -85,7 +85,10 @@
         "ctime": "c",
         "iomanip": "c",
         "lsm303dlhc.h": "c",
-        "sensori2c_private.h": "c"
+        "sensori2c_private.h": "c",
+        "sensori2c.h": "c",
+        "sys.h": "c",
+        "ets_sys.h": "c"
     },
     "idf.pythonInstallPath": "/usr/bin/python3",
     "idf.customExtraVars": {

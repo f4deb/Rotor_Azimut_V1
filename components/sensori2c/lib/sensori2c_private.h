@@ -8,7 +8,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include "sensori2c/sensori2c.h"
-#include "sys.h" /* include after sensori2c.h */
+#include "../../rtci2c/lib/sys.h" /* include after sensori2c.h */
 
 typedef bool (*pfn_sensordevice_init)(void *sensori2c_ctx);
 typedef bool (*pfn_sensordevice_datetime)(void *sensori2c_ctx, struct tm *datetime);

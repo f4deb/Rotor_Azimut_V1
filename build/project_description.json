@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "RotorV1A",
-    "project_version":    "a99ba32-dirty",
+    "project_version":    "dbf6f11-dirty",
     "project_path":       "/home/f4deb/RotorV1A",
     "idf_path":           "/home/f4deb/esp/v5.4/esp-idf",
     "build_dir":          "/home/f4deb/RotorV1A/build",
@@ -1646,7 +1646,7 @@
             "managed_priv_reqs": [],
             "file": "/home/f4deb/RotorV1A/build/esp-idf/sensori2c/libsensori2c.a",
             "sources": [ "/home/f4deb/RotorV1A/components/sensori2c/lib/sensori2c.c", "/home/f4deb/RotorV1A/components/sensori2c/lib/LSM303DLHC.c", "/home/f4deb/RotorV1A/components/rtci2c/lib/esp-idf.c" ],
-            "include_dirs": [ "include" ]
+            "include_dirs": [ "include", "../rtci2c/include", "../rtci2c/lib" ]
         },
         "soc": {
             "alias": "idf::soc",
@@ -3286,7 +3286,7 @@
             "priv_reqs": [ "driver", "esp_timer" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "include_dirs": [ "include" ]
+            "include_dirs": [ "include", "../rtci2c/include", "../rtci2c/lib" ]
         },
         "uartCommand": {
             "alias": "idf::uartCommand",

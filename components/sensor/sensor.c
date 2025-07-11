@@ -40,7 +40,7 @@ void gy511_magneto_init(){
 
 
 
-    sensori2c_context *ctx = sensori2c_init(SENSOR_DEVICE_GY511, DEVICE_I2C_ADDRESS, &config);
+    sensori2c_context *ctx = sensori2c_init(SENSORI2C_DEVICE_GY511, DEVICE_I2C_ADDRESS, &config);
 
 
 
