@@ -5313,7 +5313,7 @@
                     1,
                     3600000
                 ],
-                "title": "GY511k period in ms",
+                "title": "Sensor period in ms",
                 "type": "int"
             }
         ],

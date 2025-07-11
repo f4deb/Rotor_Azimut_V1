@@ -22,8 +22,4 @@ bool sensori2c_deinit(sensori2c_context context);
 bool sensori2c_get_datetime(sensori2c_context context, struct tm *datetime);
 bool sensori2c_set_datetime(sensori2c_context context, struct tm *datetime);
 
-#ifdef __cplusplus
-}
-#endif
-
 #endif /* _SENSORI2C_H */

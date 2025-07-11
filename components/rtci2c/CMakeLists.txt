@@ -1,5 +1,3 @@
-# Copyright 2024 Zorxx Software. All rights reserved.
-
 # esp-idf component
 if(IDF_TARGET)
    idf_component_register(SRCS "lib/rtci2c.c" "lib/ds1307.c" "lib/ds3231.c" "lib/pcf8563.c" "lib/esp-idf.c"

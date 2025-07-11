@@ -29,9 +29,9 @@ void sensorInterface(char rxBuffer[50]){
     
     rxBuffer++;        
     
-    if ((strcmp(READ_MAG_X_HEADER,str)) == 0) {
-        
+    if ((strcmp(READ_MAG_X_HEADER,str)) == 0) {        
         if (SENSOR_INTERFACE_DEBUG) ESP_LOGE(TAG, "%s ", str);
+        
     }
   
     else {

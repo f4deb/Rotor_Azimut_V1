@@ -83,7 +83,9 @@
         "stdint.h": "c",
         "i2c_types.h": "c",
         "ctime": "c",
-        "iomanip": "c"
+        "iomanip": "c",
+        "lsm303dlhc.h": "c",
+        "sensori2c_private.h": "c"
     },
     "idf.pythonInstallPath": "/usr/bin/python3",
     "idf.customExtraVars": {
