@@ -3,9 +3,9 @@ INCLUDE_DIRS "include"
             "../uartCommand/include"
             "../charUtils/include"
             "../rtci2c/include"
-            "../../../esp/v5.4/esp-idf/components/esp_driver_i2c/include"
-            "../../../esp/v5.4/esp-idf/components/nvs_flash/include"
-            "../../../esp/v5.4/esp-idf/components/esp_event/include"
-            "../../../esp/v5.4/esp-idf/components/esp_partition/include"
+            "$ENV{IDF_PATH}/components/esp_driver_i2c/include"
+            "$ENV{IDF_PATH}/components/nvs_flash/include"
+            "$ENV{IDF_PATH}/components/esp_event/include"
+            "$ENV{IDF_PATH}/components/esp_partition/include"
         
 )
